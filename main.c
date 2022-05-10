@@ -72,6 +72,8 @@ int main(void)
     //inits the motors
     motors_init();
 
+
+
     //temp tab used to store values in complex_float format
     //needed bx doFFT_c
     static complex_float temp_tab_right[FFT_SIZE];
@@ -89,6 +91,8 @@ int main(void)
 
     /* Infinite loop. */
     while (1) {
+
+
     	GPTD12.tim->CNT = 0;
 #ifdef SEND_FROM_MIC
         //waits until a result must be sent to the computer

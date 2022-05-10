@@ -41,4 +41,6 @@ void wait_send_to_computer(void);
 */
 float* get_audio_buffer_ptr(BUFFER_NAME_t name);
 
+int pi_regulator(int max_right, int max_left, int max_front, int max_back);
+
 #endif /* AUDIO_PROCESSING_H */

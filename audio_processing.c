@@ -44,6 +44,14 @@ static float micBack_output[FFT_SIZE];
 #define FREQ_BACKWARD_L		(FREQ_BACKWARD-1)
 #define FREQ_BACKWARD_H		(FREQ_BACKWARD+1)
 
+#define PID_ERROR_THRESHOLD	0
+#define ROTATION_THRESHOLD 	0
+#define ROTATION_COEFF		1000
+#define ANGLE_ERROR_COEFF	10
+#define PID_KP 			800
+#define PID_KI			3.5
+
+
 /*
 *	Simple function used to detect the highest value in a buffer
 *	and to execute a motor command depending on it
@@ -176,6 +184,22 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 			int norm_back = get_max_norm_index(BACK_OUTPUT).norm;
 
 			led_direction(max_right,max_left,max_front,max_back);
+			//chprintf((BaseSequentialStream *) &SDU1,"max_right  = %d max_norm_index_right = %d\n,max_left = %d max_norm_index_left = %d \n",max_right, norm_right,max_left,norm_left);
+			//chprintf((BaseSequentialStream *) &SDU1,"Max_front  = %d max_norm_index_front = %d\n,max_back = %d max_norm_index_back = %d \n\n\n",max_front,norm_front,max_back,norm_back);
+
+			// APPEL DU PID POUR LOCALISER DOU VIENT LE SON ET TOURNER EN FONCTION
+
+			int speed_correction = pi_regulator(max_right, max_left, max_front, max_back);
+			//chprintf((BaseSequentialStream *)&SD3, "max_front = %d \n", max_front);
+			//if the sound is nearly in front of the camera, don't rotate
+			if(abs(speed_correction) < ROTATION_THRESHOLD){ // SI ON EST DEJA EN FACE DU SON NE RIEN FAIRE
+				speed_correction = 0;
+			}
+
+			//applies the speed from the PI regulator and the correction for the rotation
+			right_motor_set_speed(ROTATION_COEFF * speed_correction);
+			left_motor_set_speed(- ROTATION_COEFF * speed_correction);
+
 
 		}
 		nb_samples = 0;
@@ -277,3 +301,86 @@ void led_direction(int max_right,int max_left,int max_front,int max_back){
 	}
 	return;
 	}
+
+int pi_regulator(int max_right, int max_left, int max_front, int max_back){ // PID
+
+	float error = 0; // DIFFERENCE
+	float angle_correction = 0; // DIFFERENCE D'ANGLE ENTRE ROBOT / SON
+
+
+
+	if (max_right > max_left && max_right > max_front && max_right > max_back) // TEST SI MICRO DROIT PLUS PROCHE
+	{
+		error = (max_front-max_back)/(max_front+max_left+max_back+max_right); // TEST DE QUEL COTE EST SON PAR RAPPORT AU MICRO DROIT
+		angle_correction = -PI/2 + ANGLE_ERROR_COEFF* error; // CALCUL DE L'ANGLE PAR RAPPORT AU ROBOT, COEFF ANGLE_ERROR A CHANGER POUR OBTENIR VRAIE VALEUR D'ORDRE
+
+		if(fabs(angle_correction) < PID_ERROR_THRESHOLD){ // SI ANGLE TROP FAIBLE RIEN FAIRE
+				return 0;
+
+		}
+		chprintf((BaseSequentialStream *) &SDU1,"max_RIGHT  = %d max_front = %d\n,max_left = %d max_back = %d \n",max_right, max_front ,max_left,max_back);
+		chprintf((BaseSequentialStream *) &SDU1,"PID_KP * angle_correction  = %d angle_correction = %d, error = %d\n",PID_KP * angle_correction, angle_correction, error);
+
+		return (int16_t) PID_KP * angle_correction; // RETOUNER VALEUR POUR CHANGER VITESSE MOTEUR, KP A MODULER
+	}
+
+	if (max_back > max_left && max_back > max_front && max_back > max_right)
+	{
+			error = (max_right-max_left)/(max_front+max_left+max_back+max_right);
+			if(error > 0){
+				angle_correction = -PI + ANGLE_ERROR_COEFF* error;
+			}
+
+			if(error < 0){
+				angle_correction = PI - ANGLE_ERROR_COEFF* error;
+			}
+
+			if(fabs(angle_correction) < PID_ERROR_THRESHOLD){
+					return 0;
+
+			}
+
+			chprintf((BaseSequentialStream *) &SDU1,"max_right  = %d max_front = %d\n,max_left = %d max_BACK = %d \n",max_right, max_front ,max_left,max_back);
+			chprintf((BaseSequentialStream *) &SDU1,"PID_KP * angle_correction  = %d angle_correction = %d, error = %d\n",PID_KP * angle_correction, angle_correction, error);
+
+			return (int16_t) PID_KP * angle_correction;
+	}
+
+	if (max_left > max_right && max_left > max_front && max_left > max_back)
+	{
+			error = (max_front-max_back)/(max_front+max_left+max_back+max_right);
+			angle_correction = PI/2 - ANGLE_ERROR_COEFF* error;
+
+			if(fabs(angle_correction) < PID_ERROR_THRESHOLD){
+					return 0;
+
+			}
+
+			chprintf((BaseSequentialStream *) &SDU1,"max_right  = %d max_front = %d\n,max_LEFT = %d max_back = %d \n",max_right, max_front ,max_left,max_back);
+			chprintf((BaseSequentialStream *) &SDU1,"PID_KP * angle_correction  = %d angle_correction = %d, error = %d\n",PID_KP * angle_correction, angle_correction, error);
+
+			return (int16_t) PID_KP * angle_correction;
+	}
+
+	if (max_front > max_right && max_front > max_left && max_front > max_back)
+	{
+			error = (max_left-max_right)/(max_front+max_left+max_back+max_right);
+			angle_correction = 0 +ANGLE_ERROR_COEFF* error;
+
+			if(fabs(angle_correction) < PID_ERROR_THRESHOLD){
+						return 0;
+
+			}
+
+			chprintf((BaseSequentialStream *) &SDU1,"max_right  = %d max_FRONT = %d\n,max_left = %d max_back = %d \n",max_right, max_front ,max_left,max_back);
+			chprintf((BaseSequentialStream *) &SDU1,"PID_KP * angle_correction  = %d angle_correction = %d, error = %d\n",PID_KP * angle_correction, angle_correction, error);
+
+			return (int16_t) PID_KP * angle_correction;
+	}
+
+	return 0;
+}
+
+
+
+

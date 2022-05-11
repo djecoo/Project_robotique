@@ -15,6 +15,18 @@
 //semaphore
 static BSEMAPHORE_DECL(sendToComputer_sem, TRUE);
 
+
+//les valeur de la position du haut parleur par rapport aux micros
+static int angle;
+static int distance;
+static int reference = 0;
+static int nbr_passage = 0;
+//pour savoir approximativement d'ou vient le soin
+static uint8_t cote_max;
+//tableau pour stocker les valeurs des micros
+
+static int moyenne[4][3]; // 4 pour nbr micro et 3 pour le nbr d'echantillon
+
 //2 times FFT_SIZE because these arrays contain complex numbers (real + imaginary)
 static float micLeft_cmplx_input[2 * FFT_SIZE];
 static float micRight_cmplx_input[2 * FFT_SIZE];
@@ -26,8 +38,12 @@ static float micRight_output[FFT_SIZE];
 static float micFront_output[FFT_SIZE];
 static float micBack_output[FFT_SIZE];
 
+
+
+
 #define MIN_VALUE_THRESHOLD	10000
 
+#define DISTANCE_REFERENCE 40000 // valeur équivalente à 6cm
 #define MIN_FREQ		10	//we don't analyze before this index to not use resources for nothing
 #define FREQ_FORWARD	16	//250Hz
 #define FREQ_LEFT		19	//296Hz
@@ -44,12 +60,20 @@ static float micBack_output[FFT_SIZE];
 #define FREQ_BACKWARD_L		(FREQ_BACKWARD-1)
 #define FREQ_BACKWARD_H		(FREQ_BACKWARD+1)
 
-#define PID_ERROR_THRESHOLD	0
+/*#define PID_ERROR_THRESHOLD	0
 #define ROTATION_THRESHOLD 	0
 #define ROTATION_COEFF		1000
 #define ANGLE_ERROR_COEFF	10
 #define PID_KP 			800
-#define PID_KI			3.5
+#define PID_KI			3.5*/
+
+#define NBR_ECHANTILLON 3
+#define NBR_MICRO 4
+
+#define MARGE_ANGLE 0.12 //%
+
+#define DIST_REF 7.5 //[cm]
+
 
 
 /*
@@ -169,27 +193,51 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 
 		//sends only one FFT result over 10 for 1 mic to not flood the computer
 		//sends to UART3
-		if(mustSend > 8){
+
+		int max_right = 0.99*get_max_norm_index(RIGHT_OUTPUT).max;
+		int max_left = 0.99*get_max_norm_index(LEFT_OUTPUT).max;
+		int max_front = get_max_norm_index(FRONT_OUTPUT).max;
+		int max_back = 0.99*get_max_norm_index(BACK_OUTPUT).max; //facteur de correction pour faiblesse du micro
+		int norm_right = get_max_norm_index(RIGHT_OUTPUT).norm;
+		int norm_left = get_max_norm_index(LEFT_OUTPUT).norm;
+		int norm_front = get_max_norm_index(FRONT_OUTPUT).norm;
+		int norm_back = get_max_norm_index(BACK_OUTPUT).norm;
+
+		//chprintf((BaseSequentialStream *) &SDU1,"max_right  = %d max_norm_index_right = %d\n,max_left = %d max_norm_index_left = %d \n",max_right, norm_right,max_left,norm_left);
+		//chprintf((BaseSequentialStream *) &SDU1,"Max_front  = %d max_norm_index_front = %d\n,max_back = %d max_norm_index_back = %d \n\n\n",max_front,norm_front,max_back,norm_back);
+
+		// rempli le tableau moyenne en fonction de la valeur de must send
+		update_moyenne(mustSend, max_right,max_left,max_front,max_back);
+		nbr_passage ++;
+		//sends only one FFT result over 10 for 1 mic to not flood the computer
+		//sends to UART3
+		//calcul la moyenne avec laquelle on va travailler
+		if(mustSend > (NBR_ECHANTILLON-1)){
+
 			//signals to send the result to the computer
 			chBSemSignal(&sendToComputer_sem);
 			mustSend = 0;
 
-			int max_right = get_max_norm_index(RIGHT_OUTPUT).max;
-			int max_left = get_max_norm_index(LEFT_OUTPUT).max;
-			int max_front = get_max_norm_index(FRONT_OUTPUT).max;
-			int max_back = get_max_norm_index(BACK_OUTPUT).max;
-			int norm_right = get_max_norm_index(RIGHT_OUTPUT).norm;
-			int norm_left = get_max_norm_index(LEFT_OUTPUT).norm;
-			int norm_front = get_max_norm_index(FRONT_OUTPUT).norm;
-			int norm_back = get_max_norm_index(BACK_OUTPUT).norm;
 
-			led_direction(max_right,max_left,max_front,max_back);
-			//chprintf((BaseSequentialStream *) &SDU1,"max_right  = %d max_norm_index_right = %d\n,max_left = %d max_norm_index_left = %d \n",max_right, norm_right,max_left,norm_left);
-			//chprintf((BaseSequentialStream *) &SDU1,"Max_front  = %d max_norm_index_front = %d\n,max_back = %d max_norm_index_back = %d \n\n\n",max_front,norm_front,max_back,norm_back);
 
+			int moyenne_right = calcul_moyenne(RIGHT);
+			int moyenne_left = calcul_moyenne(LEFT);
+			int moyenne_front = calcul_moyenne(FRONT);
+			int moyenne_back = calcul_moyenne(BACK);
+
+			led_direction(moyenne_right,moyenne_left,moyenne_front,moyenne_back);
+
+			calcul_angle(moyenne_right,moyenne_left,moyenne_front,moyenne_back);
+			cote_max = RIGHT;
+
+			calcul_distance();
+			//chprintf((BaseSequentialStream*)&SDU1,"moyenne_front = %d \n",moyenne_front);
+			//chprintf((BaseSequentialStream*)&SDU1,"moyenne_right = %d \n, moyenne_left = %d \n, moyenne_front = %d \n,moyenne_back = %d \n\n\n\n ",moyenne_right,moyenne_left,moyenne_front,moyenne_back);
+			//chprintf((BaseSequentialStream*)&SDU1,"angle = %d \n",angle);
 			// APPEL DU PID POUR LOCALISER DOU VIENT LE SON ET TOURNER EN FONCTION
 
-			int speed_correction = pi_regulator(max_right, max_left, max_front, max_back);
+			//chprintf((BaseSequentialStream*)&SDU1,"moyenne_right  = %d \n " , moyenne_right);
+			/*int speed_correction = pi_regulator(max_right, max_left, max_front, max_back);
 			//chprintf((BaseSequentialStream *)&SD3, "max_front = %d \n", max_front);
 			//if the sound is nearly in front of the camera, don't rotate
 			if(abs(speed_correction) < ROTATION_THRESHOLD){ // SI ON EST DEJA EN FACE DU SON NE RIEN FAIRE
@@ -200,17 +248,156 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 			right_motor_set_speed(ROTATION_COEFF * speed_correction);
 			left_motor_set_speed(- ROTATION_COEFF * speed_correction);
 
-
+		*/
 		}
+
 		nb_samples = 0;
 		mustSend++;
 
-		sound_remote(micLeft_output);
+		//sound_remote(micLeft_output);
 
 
 	}
 }
 
+void calcul_distance(){
+	distance = get_max_front_moyenne();
+	return;
+}
+
+void calcul_angle(int max_right,int max_left,int max_front,int max_back){
+
+	uint8_t supremum = -1;
+
+	int transition;
+	int transition2;
+
+	if(max_right>= max_left && max_right>=max_front && max_right>=max_back){
+		transition = max_right*(1-MARGE_ANGLE);
+		if(transition >= max_left && transition>=max_front && transition>=max_back){
+			supremum = RIGHT;
+		}else if(max_front>=transition){
+			angle = 45;
+			return;
+		}else if(max_back >= transition){
+			angle = 135;
+			return;
+		}
+	}
+	if (max_left>=max_front && max_left>= max_back && supremum!=-1){
+		transition = max_left*(1-MARGE_ANGLE);
+		if(transition>=max_front && transition>= max_back){
+			supremum = LEFT;
+		}else if(max_front>=transition){
+			angle = 315;
+			return;
+		}else if(max_back >= transition){
+			angle = 225;
+			return;
+		}
+	}
+
+	if(max_front >=max_back && supremum != -1){
+		transition = max_front*(1-MARGE_ANGLE);
+		if (transition >= max_back)
+			supremum = FRONT;
+	}else if(supremum != -1){
+		supremum = BACK ;
+	}
+
+	if(supremum ==FRONT){
+		transition = max_left*(1-(MARGE_ANGLE));
+		transition2 = max_right*(1-(MARGE_ANGLE));
+		if(max_left >= max_right && transition >= max_right){
+			angle = 337;
+			return;
+		}else if(max_left >=max_right && transition <= max_right){
+			angle = 0;
+			return;
+		}else{
+			angle = 22;
+			//chprintf((BaseSequentialStream*)&SDU1,"transition  = %d \n, transition2 = %d, max_left = %d, max_right = %d,supremum = %d\n",transition,transition2,max_left,max_right,supremum);
+			return;
+		}
+
+	}
+
+	if(supremum ==RIGHT){
+		transition = max_front*(1-MARGE_ANGLE);
+		transition2 = max_back*(1-MARGE_ANGLE);
+		if(max_front >= max_back && transition >= max_back){
+			angle = 67;
+			return;
+		}else if(max_front >=max_back && transition <= max_back){
+			angle = 90;
+			return;
+		}else{
+			angle = 112;
+			//chprintf((BaseSequentialStream*)&SDU1,"transition 1 = %d \n, transition2 = %d, max_front = %d, max_back = %d \n",transition,transition2,max_front,max_back);
+
+			return;
+		}
+
+	}
+
+	if(supremum ==BACK){
+		transition = max_right*(1-MARGE_ANGLE);
+		transition2 = max_left*(1-MARGE_ANGLE);
+		if(max_right >= max_left && transition >= max_left){
+			angle = 157;
+			return;
+		}else if(max_right >=max_left && transition <= max_left){
+			angle = 180;
+			return;
+		}else{
+			angle = 202;
+			return;
+		}
+	}
+
+	transition = max_back*(1-MARGE_ANGLE);
+	transition2 = max_front*(1-MARGE_ANGLE);
+	if(max_back >= max_front && transition >= max_front){
+		angle = 247;
+		return;
+	}else if(max_back >=max_front && transition <= max_front){
+		angle = 270;
+		return;
+	}else{
+		angle = 292;
+		return;
+	}
+
+
+
+
+return;
+
+}
+
+
+int calcul_moyenne(MICRO_NAME micro){
+	int somme = 0;
+	for(uint8_t i = 0; i < NBR_ECHANTILLON;i++){
+		somme += moyenne[micro][i];
+	}
+
+	return (somme/3);
+}
+
+
+void update_moyenne(uint8_t mustSend,int max_right,int max_left,int max_front, int max_back){
+	if (mustSend <4){
+		moyenne[LEFT][mustSend-1] = max_left; //Left
+
+		moyenne[RIGHT][mustSend-1] = max_right; //right
+		moyenne[FRONT][mustSend-1] = max_front; //front
+		moyenne[BACK][mustSend-1] = max_back; //back
+		return;
+	}else{
+		return;
+	}
+}
  maximum_fft max_norm(float* data){
 	float max_norm = 100;
 	int max_norm_index = -1;
@@ -289,20 +476,24 @@ void led_direction(int max_right,int max_left,int max_front,int max_back){
 	clear_leds();
 	if(max_right>= max_left && max_right>=max_front && max_right>=max_back){
 		set_led(LED3, 1);
+		//cote_max = RIGHT;
 		return ;
 	}else if(max_left>=max_front && max_left>= max_back){
 		set_led(LED7,1);
+		//cote_max = LEFT;
 		return;
 	}else if(max_front>=max_back){
 		set_led(LED1,1);
+		//cote_max = FRONT;
 		return;
 	}else{
 		set_led(LED5,1);
+		//cote_max = BACK ;
 	}
 	return;
 	}
 
-int pi_regulator(int max_right, int max_left, int max_front, int max_back){ // PID
+/*int pi_regulator(int max_right, int max_left, int max_front, int max_back){ // PID
 
 	float error = 0; // DIFFERENCE
 	float angle_correction = 0; // DIFFERENCE D'ANGLE ENTRE ROBOT / SON
@@ -379,8 +570,105 @@ int pi_regulator(int max_right, int max_left, int max_front, int max_back){ // P
 	}
 
 	return 0;
+}*/
+
+
+void echantillone_distance(valeur){
+	reference = (int)valeur;
+
+
+	//chprintf((BaseSequentialStream *) &SDU1,"reference = %d\n nbr_passage = %d \n",reference,nbr_passage);
+	return;
+
+
+}
+
+int get_max_front_moyenne(){
+	return calcul_moyenne(FRONT);
+}
+
+int get_line_position(void){
+	return angle;
+}
+
+float get_distance_cm(void){
+	return distance;
 }
 
 
+//simple PI regulator implementation
+int16_t pi_regulator(float distance, float goal){
 
+	float error = 0;
+	float speed = 0;
+
+	static float sum_error = 0;
+
+	error = distance - goal;
+	//error= 0;
+
+	//disables the PI regulator if the error is to small
+	//this avoids to always move as we cannot exactly be where we want and
+	//the camera is a bit noisy
+	if(fabs(error) < ERROR_THRESHOLD){
+		return 0;
+	}
+
+	sum_error += error;
+
+	//we set a maximum and a minimum for the sum to avoid an uncontrolled growth
+	if(sum_error > MAX_SUM_ERROR){
+		sum_error = MAX_SUM_ERROR;
+	}else if(sum_error < -MAX_SUM_ERROR){
+		sum_error = -MAX_SUM_ERROR;
+	}
+
+	speed = KP * error + KI * sum_error;
+
+    return (int16_t)speed;
+}
+
+static THD_WORKING_AREA(waPiRegulator, 256);
+static THD_FUNCTION(PiRegulator, arg) {
+
+    chRegSetThreadName(__FUNCTION__);
+    (void)arg;
+
+    systime_t time;
+
+    int16_t speed = 0;
+    int16_t speed_correction = 0;
+
+    while(1){
+        time = chVTGetSystemTime();
+
+        //computes the speed to give to the motors
+        //distance_cm is modified by the image processing thread
+        speed = pi_regulator(get_distance_cm(), GOAL_DISTANCE);
+
+        //computes a correction factor to let the robot rotate to be in front of the line
+        int angle = get_line_position();
+
+        if (angle >180)
+        	angle = (angle - 360);
+        speed_correction = angle;
+
+        //if the line is nearly in front of the camera, don't rotate
+       /* if(abs(speed_correction) < ROTATION_THRESHOLD){
+        	speed_correction = 0;
+        }*/
+
+        //applies the speed from the PI regulator and the correction for the rotation
+		right_motor_set_speed(speed - ROTATION_COEFF * speed_correction);
+		left_motor_set_speed(speed + ROTATION_COEFF * speed_correction);
+        //left_motor_set_speed(0);
+        //right_motor_set_speed(0);
+        //100Hz
+        chThdSleepUntilWindowed(time, time + MS2ST(10));
+    }
+}
+
+void pi_regulator_start(){
+	chThdCreateStatic(waPiRegulator, sizeof(waPiRegulator), NORMALPRIO, PiRegulator, NULL);
+}
 

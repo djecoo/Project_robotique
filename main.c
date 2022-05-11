@@ -72,6 +72,11 @@ int main(void)
     //inits the motors
     motors_init();
 
+    //start the pi regulator
+    pi_regulator_start();
+
+
+
 
 
     //temp tab used to store values in complex_float format
@@ -90,6 +95,12 @@ int main(void)
 #endif  /* SEND_FROM_MIC */
 
     /* Infinite loop. */
+    //wait 1 sec before sending the reference
+    chThdSleepMilliseconds(1000);
+    int front_mic = get_max_front_moyenne();
+    echantillone_distance(front_mic);
+
+
     while (1) {
 
 
@@ -97,6 +108,8 @@ int main(void)
 #ifdef SEND_FROM_MIC
         //waits until a result must be sent to the computer
         wait_send_to_computer();
+
+
 
 
 

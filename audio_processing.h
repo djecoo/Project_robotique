@@ -21,9 +21,26 @@ typedef enum {
 	BACK_OUTPUT
 } BUFFER_NAME_t;
 
+typedef enum{
+	LEFT = 0,
+	RIGHT,
+	FRONT,
+	BACK
+}MICRO_NAME;
+
 /*
  * Return the index of the maximum after the fft
  */
+
+int calcul_moyenne(MICRO_NAME micro);
+
+void echantillone_distance(int valeur);
+
+//cette fonction permet de definir la provenance du bruit en fonction des valeurs des 4 micros
+
+void calcul_angle(int max_right,int max_left,int max_front,int max_back);
+
+void update_moyenne(uint8_t mustSend,int max_right,int max_left,int max_front, int max_back);
 
 void led_direction(int max_right,int max_left,int max_front,int max_back);
 
@@ -41,6 +58,10 @@ void wait_send_to_computer(void);
 */
 float* get_audio_buffer_ptr(BUFFER_NAME_t name);
 
-int pi_regulator(int max_right, int max_left, int max_front, int max_back);
+//int pi_regulator(int max_right, int max_left, int max_front, int max_back);
+
+int get_max_front_moyenne(void);
+
+void calcul_distance(void);
 
 #endif /* AUDIO_PROCESSING_H */

@@ -1,15 +1,7 @@
-/*
- * pi_regulator.h
- *
- *  Created on: 10 mai 2022
- *      Author: adrie
- */
+#ifndef PI_REGULATOR_H
+#define PI_REGULATOR_H
 
-#ifndef PI_REGULATOR_H_
-#define PI_REGULATOR_H_
+//start the PI regulator thread
+void pi_regulator_start();
 
-
-
-
-
-#endif /* PI_REGULATOR_H_ */
+#endif /* PI_REGULATOR_H */

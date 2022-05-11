@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 1
+ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 1
   55 0018 00000000 		.word	.LC0
   56              		.cfi_endproc
   57              	.LFE112:
-ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 2
+ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s 			page 2
 
 
   58              		.size	_unhandled_exception, .-_unhandled_exception
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 1
  112              		.thumb_set Vector154,_unhandled_exception
  113              		.weak	Vector150
  114              		.thumb_set Vector150,_unhandled_exception
-ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 3
+ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s 			page 3
 
 
  115              		.weak	Vector14C
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 1
  169              		.weak	VectorE0
  170              		.thumb_set VectorE0,_unhandled_exception
  171              		.weak	VectorDC
-ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 4
+ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s 			page 4
 
 
  172              		.thumb_set VectorDC,_unhandled_exception
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 1
  226              		.thumb_set Vector70,_unhandled_exception
  227              		.weak	Vector6C
  228              		.thumb_set Vector6C,_unhandled_exception
-ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 5
+ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s 			page 5
 
 
  229              		.weak	Vector68
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 1
  283              		.align	2
  284              	.LC0:
  285 0000 756E6861 		.ascii	"unhandled exception\000"
-ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 6
+ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s 			page 6
 
 
  285      6E646C65 
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 1
  336 00b4 00000000 		.word	VectorB4
  337 00b8 00000000 		.word	VectorB8
  338 00bc 00000000 		.word	VectorBC
-ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 7
+ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s 			page 7
 
 
  339 00c0 00000000 		.word	VectorC0
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 1
  393 0198 00000000 		.word	Vector198
  394 019c 00000000 		.word	Vector19C
  395 01a0 00000000 		.word	Vector1A0
-ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 8
+ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s 			page 8
 
 
  396 01a4 00000000 		.word	Vector1A4
@@ -430,8 +430,8 @@ ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 1
  402 01bc 00000000 		.word	Vector1BC
  403              		.text
  404              	.Letext0:
- 405              		.file 2 "c:\\users\\adrie\\onedrive\\documents\\eclipse\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi
- 406              		.file 3 "c:\\users\\adrie\\onedrive\\documents\\eclipse\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi
+ 405              		.file 2 "c:\\robotique\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi-7-2017-q4-major-win32\\arm-none-
+ 406              		.file 3 "c:\\robotique\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi-7-2017-q4-major-win32\\arm-none-
  407              		.file 4 "../lib/e-puck2_main-processor/ChibiOS//os/ext/CMSIS/include/core_cm4.h"
  408              		.file 5 "../lib/e-puck2_main-processor/ChibiOS//os/ext/CMSIS/ST/system_stm32f4xx.h"
  409              		.section	.debug_info,"",%progbits
@@ -441,25 +441,25 @@ ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 1
  413 0006 00000000 		.4byte	.Ldebug_abbrev0
  414 000a 04       		.byte	0x4
  415 000b 01       		.uleb128 0x1
- 416 000c 87010000 		.4byte	.LASF36
+ 416 000c 6A010000 		.4byte	.LASF36
  417 0010 0C       		.byte	0xc
- 418 0011 FF000000 		.4byte	.LASF37
- 419 0015 63000000 		.4byte	.LASF38
+ 418 0011 C4000000 		.4byte	.LASF37
+ 419 0015 4C010000 		.4byte	.LASF38
  420 0019 00000000 		.4byte	.Ldebug_ranges0+0
  421 001d 00000000 		.4byte	0
  422 0021 00000000 		.4byte	.Ldebug_line0
  423 0025 02       		.uleb128 0x2
  424 0026 01       		.byte	0x1
  425 0027 06       		.byte	0x6
- 426 0028 A7030000 		.4byte	.LASF0
+ 426 0028 8A030000 		.4byte	.LASF0
  427 002c 02       		.uleb128 0x2
  428 002d 01       		.byte	0x1
  429 002e 08       		.byte	0x8
- 430 002f C6000000 		.4byte	.LASF1
+ 430 002f 8B000000 		.4byte	.LASF1
  431 0033 02       		.uleb128 0x2
  432 0034 02       		.byte	0x2
  433 0035 05       		.byte	0x5
- 434 0036 6F030000 		.4byte	.LASF2
+ 434 0036 52030000 		.4byte	.LASF2
  435 003a 02       		.uleb128 0x2
  436 003b 02       		.byte	0x2
  437 003c 07       		.byte	0x7
@@ -472,27 +472,27 @@ ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 1
  444 004c 02       		.uleb128 0x2
  445 004d 04       		.byte	0x4
  446 004e 05       		.byte	0x5
- 447 004f 82030000 		.4byte	.LASF4
+ 447 004f 65030000 		.4byte	.LASF4
  448 0053 03       		.uleb128 0x3
- 449 0054 70010000 		.4byte	.LASF6
+ 449 0054 35010000 		.4byte	.LASF6
  450 0058 02       		.byte	0x2
  451 0059 4F       		.byte	0x4f
  452 005a 5E000000 		.4byte	0x5e
-ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 9
+ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s 			page 9
 
 
  453 005e 02       		.uleb128 0x2
  454 005f 04       		.byte	0x4
  455 0060 07       		.byte	0x7
- 456 0061 D4000000 		.4byte	.LASF7
+ 456 0061 99000000 		.4byte	.LASF7
  457 0065 02       		.uleb128 0x2
  458 0066 08       		.byte	0x8
  459 0067 05       		.byte	0x5
- 460 0068 34030000 		.4byte	.LASF8
+ 460 0068 17030000 		.4byte	.LASF8
  461 006c 02       		.uleb128 0x2
  462 006d 08       		.byte	0x8
  463 006e 07       		.byte	0x7
- 464 006f E1020000 		.4byte	.LASF9
+ 464 006f C4020000 		.4byte	.LASF9
  465 0073 04       		.uleb128 0x4
  466 0074 04       		.byte	0x4
  467 0075 05       		.byte	0x5
@@ -500,26 +500,26 @@ ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 1
  469 007a 02       		.uleb128 0x2
  470 007b 04       		.byte	0x4
  471 007c 07       		.byte	0x7
- 472 007d CB020000 		.4byte	.LASF10
+ 472 007d AE020000 		.4byte	.LASF10
  473 0081 03       		.uleb128 0x3
- 474 0082 A9000000 		.4byte	.LASF11
+ 474 0082 6E000000 		.4byte	.LASF11
  475 0086 03       		.byte	0x3
  476 0087 2C       		.byte	0x2c
  477 0088 41000000 		.4byte	0x41
  478 008c 05       		.uleb128 0x5
  479 008d 81000000 		.4byte	0x81
  480 0091 03       		.uleb128 0x3
- 481 0092 79030000 		.4byte	.LASF12
+ 481 0092 5C030000 		.4byte	.LASF12
  482 0096 03       		.byte	0x3
  483 0097 30       		.byte	0x30
  484 0098 53000000 		.4byte	0x53
  485 009c 06       		.uleb128 0x6
- 486 009d F2000000 		.4byte	.LASF13
+ 486 009d B7000000 		.4byte	.LASF13
  487 00a1 04       		.byte	0x4
  488 00a2 A706     		.2byte	0x6a7
  489 00a4 8C000000 		.4byte	0x8c
  490 00a8 07       		.uleb128 0x7
- 491 00a9 42030000 		.4byte	.LASF14
+ 491 00a9 25030000 		.4byte	.LASF14
  492 00ad 05       		.byte	0x5
  493 00ae 4C       		.byte	0x4c
  494 00af 91000000 		.4byte	0x91
@@ -538,34 +538,34 @@ ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 1
  507 00c9 31       		.byte	0x31
  508 00ca 9B010000 		.4byte	0x19b
  509 00ce 0B       		.uleb128 0xb
-ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 10
+ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s 			page 10
 
 
- 510 00cf 9E000000 		.4byte	.LASF16
+ 510 00cf 63000000 		.4byte	.LASF16
  511 00d3 01       		.byte	0x1
  512 00d4 32       		.byte	0x32
  513 00d5 9B010000 		.4byte	0x19b
  514 00d9 00       		.byte	0
  515 00da 0B       		.uleb128 0xb
- 516 00db 13030000 		.4byte	.LASF17
+ 516 00db F6020000 		.4byte	.LASF17
  517 00df 01       		.byte	0x1
  518 00e0 33       		.byte	0x33
  519 00e1 B3000000 		.4byte	0xb3
  520 00e5 04       		.byte	0x4
  521 00e6 0B       		.uleb128 0xb
- 522 00e7 7B010000 		.4byte	.LASF18
+ 522 00e7 40010000 		.4byte	.LASF18
  523 00eb 01       		.byte	0x1
  524 00ec 34       		.byte	0x34
  525 00ed B3000000 		.4byte	0xb3
  526 00f1 08       		.byte	0x8
  527 00f2 0B       		.uleb128 0xb
- 528 00f3 5E010000 		.4byte	.LASF19
+ 528 00f3 23010000 		.4byte	.LASF19
  529 00f7 01       		.byte	0x1
  530 00f8 35       		.byte	0x35
  531 00f9 B3000000 		.4byte	0xb3
  532 00fd 0C       		.byte	0xc
  533 00fe 0B       		.uleb128 0xb
- 534 00ff 95030000 		.4byte	.LASF20
+ 534 00ff 78030000 		.4byte	.LASF20
  535 0103 01       		.byte	0x1
  536 0104 36       		.byte	0x36
  537 0105 B3000000 		.4byte	0xb3
@@ -577,46 +577,46 @@ ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 1
  543 0111 B3000000 		.4byte	0xb3
  544 0115 14       		.byte	0x14
  545 0116 0B       		.uleb128 0xb
- 546 0117 21030000 		.4byte	.LASF22
+ 546 0117 04030000 		.4byte	.LASF22
  547 011b 01       		.byte	0x1
  548 011c 38       		.byte	0x38
  549 011d B3000000 		.4byte	0xb3
  550 0121 18       		.byte	0x18
  551 0122 0B       		.uleb128 0xb
- 552 0123 55010000 		.4byte	.LASF23
+ 552 0123 1A010000 		.4byte	.LASF23
  553 0127 01       		.byte	0x1
  554 0128 39       		.byte	0x39
  555 0129 B3000000 		.4byte	0xb3
  556 012d 1C       		.byte	0x1c
  557 012e 0B       		.uleb128 0xb
- 558 012f D8020000 		.4byte	.LASF24
+ 558 012f BB020000 		.4byte	.LASF24
  559 0133 01       		.byte	0x1
  560 0134 3A       		.byte	0x3a
  561 0135 B3000000 		.4byte	0xb3
  562 0139 20       		.byte	0x20
  563 013a 0B       		.uleb128 0xb
- 564 013b F8020000 		.4byte	.LASF25
+ 564 013b DB020000 		.4byte	.LASF25
  565 013f 01       		.byte	0x1
  566 0140 3B       		.byte	0x3b
-ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 11
+ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s 			page 11
 
 
  567 0141 B3000000 		.4byte	0xb3
  568 0145 24       		.byte	0x24
  569 0146 0B       		.uleb128 0xb
- 570 0147 01030000 		.4byte	.LASF26
+ 570 0147 E4020000 		.4byte	.LASF26
  571 014b 01       		.byte	0x1
  572 014c 3C       		.byte	0x3c
  573 014d B3000000 		.4byte	0xb3
  574 0151 28       		.byte	0x28
  575 0152 0B       		.uleb128 0xb
- 576 0153 E6000000 		.4byte	.LASF27
+ 576 0153 AB000000 		.4byte	.LASF27
  577 0157 01       		.byte	0x1
  578 0158 3D       		.byte	0x3d
  579 0159 B3000000 		.4byte	0xb3
  580 015d 2C       		.byte	0x2c
  581 015e 0B       		.uleb128 0xb
- 582 015f B1000000 		.4byte	.LASF28
+ 582 015f 76000000 		.4byte	.LASF28
  583 0163 01       		.byte	0x1
  584 0164 3E       		.byte	0x3e
  585 0165 B3000000 		.4byte	0xb3
@@ -640,7 +640,7 @@ ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 1
  603 0189 B3000000 		.4byte	0xb3
  604 018d 3C       		.byte	0x3c
  605 018e 0B       		.uleb128 0xb
- 606 018f 67030000 		.4byte	.LASF32
+ 606 018f 4A030000 		.4byte	.LASF32
  607 0193 01       		.byte	0x1
  608 0194 42       		.byte	0x42
  609 0195 A1010000 		.4byte	0x1a1
@@ -657,20 +657,20 @@ ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 1
  620 01af 5F       		.byte	0x5f
  621 01b0 00       		.byte	0
  622 01b1 03       		.uleb128 0x3
- 623 01b2 B3030000 		.4byte	.LASF33
-ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 12
+ 623 01b2 96030000 		.4byte	.LASF33
+ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s 			page 12
 
 
  624 01b6 01       		.byte	0x1
  625 01b7 43       		.byte	0x43
  626 01b8 C5000000 		.4byte	0xc5
  627 01bc 07       		.uleb128 0x7
- 628 01bd BD030000 		.4byte	.LASF34
+ 628 01bd A0030000 		.4byte	.LASF34
  629 01c1 01       		.byte	0x1
  630 01c2 58       		.byte	0x58
  631 01c3 91000000 		.4byte	0x91
  632 01c7 0E       		.uleb128 0xe
- 633 01c8 0A030000 		.4byte	.LASF35
+ 633 01c8 ED020000 		.4byte	.LASF35
  634 01cc 01       		.byte	0x1
  635 01cd D701     		.2byte	0x1d7
  636 01cf B1010000 		.4byte	0x1b1
@@ -678,7 +678,7 @@ ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 1
  638 01d4 03       		.byte	0x3
  639 01d5 00000000 		.4byte	_vectors
  640 01d9 0F       		.uleb128 0xf
- 641 01da 52030000 		.4byte	.LASF39
+ 641 01da 35030000 		.4byte	.LASF39
  642 01de 01       		.byte	0x1
  643 01df 4F       		.byte	0x4f
  644 01e0 00000000 		.4byte	.LFB112
@@ -698,8 +698,8 @@ ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 1
  658 0200 00       		.byte	0
  659 0201 00       		.byte	0
  660 0202 12       		.uleb128 0x12
- 661 0203 8B030000 		.4byte	.LASF40
- 662 0207 8B030000 		.4byte	.LASF40
+ 661 0203 6E030000 		.4byte	.LASF40
+ 662 0207 6E030000 		.4byte	.LASF40
  663 020b 01       		.byte	0x1
  664 020c 4C       		.byte	0x4c
  665 020d 00       		.byte	0
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 1
  678 000a 0E       		.uleb128 0xe
  679 000b 55       		.uleb128 0x55
  680 000c 17       		.uleb128 0x17
-ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 13
+ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s 			page 13
 
 
  681 000d 11       		.uleb128 0x11
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 1
  735 0043 0B       		.uleb128 0xb
  736 0044 3B       		.uleb128 0x3b
  737 0045 05       		.uleb128 0x5
-ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 14
+ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s 			page 14
 
 
  738 0046 49       		.uleb128 0x49
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 1
  792 007c 0B       		.uleb128 0xb
  793 007d 0D       		.uleb128 0xd
  794 007e 00       		.byte	0
-ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 15
+ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s 			page 15
 
 
  795 007f 03       		.uleb128 0x3
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 1
  849 00b5 3A       		.uleb128 0x3a
  850 00b6 0B       		.uleb128 0xb
  851 00b7 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 16
+ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s 			page 16
 
 
  852 00b8 0B       		.uleb128 0xb
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 1
  906 0006 00000000 		.4byte	.Ldebug_info0
  907 000a 04       		.byte	0x4
  908 000b 00       		.byte	0
-ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 17
+ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s 			page 17
 
 
  909 000c 0000     		.2byte	0
@@ -975,8 +975,8 @@ ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 1
  920 000c 00000000 		.4byte	0
  921              		.section	.debug_line,"",%progbits
  922              	.Ldebug_line0:
- 923 0000 46020000 		.section	.debug_str,"MS",%progbits,1
- 923      02002C02 
+ 923 0000 0C020000 		.section	.debug_str,"MS",%progbits,1
+ 923      0200F201 
  923      00000201 
  923      FB0E0D00 
  923      01010101 
@@ -1015,348 +1015,344 @@ ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 1
  937      7369676E 
  937      65642069 
  937      6E7400
- 938              	.LASF38:
- 939 0063 433A5C55 		.ascii	"C:\\Users\\adrie\\OneDrive\\Documents\\GitHub\\Proj"
- 939      73657273 
-ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 18
+ 938              	.LASF16:
+ 939 0063 696E6974 		.ascii	"init_stack\000"
+ 939      5F737461 
+ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s 			page 18
 
 
- 939      5C616472 
- 939      69655C4F 
- 939      6E654472 
- 940 0090 6563745F 		.ascii	"ect_robotique\000"
- 940      726F626F 
- 940      74697175 
- 940      6500
- 941              	.LASF16:
- 942 009e 696E6974 		.ascii	"init_stack\000"
- 942      5F737461 
- 942      636B00
- 943              	.LASF11:
- 944 00a9 696E7433 		.ascii	"int32_t\000"
- 944      325F7400 
- 945              	.LASF28:
- 946 00b1 64656275 		.ascii	"debugmonitor_handler\000"
- 946      676D6F6E 
- 946      69746F72 
- 946      5F68616E 
- 946      646C6572 
- 947              	.LASF1:
- 948 00c6 756E7369 		.ascii	"unsigned char\000"
- 948      676E6564 
- 948      20636861 
- 948      7200
- 949              	.LASF7:
- 950 00d4 6C6F6E67 		.ascii	"long unsigned int\000"
- 950      20756E73 
- 950      69676E65 
- 950      6420696E 
- 950      7400
- 951              	.LASF27:
- 952 00e6 7376635F 		.ascii	"svc_handler\000"
- 952      68616E64 
- 952      6C657200 
- 953              	.LASF13:
- 954 00f2 49544D5F 		.ascii	"ITM_RxBuffer\000"
- 954      52784275 
- 954      66666572 
- 954      00
- 955              	.LASF37:
- 956 00ff 2E2E2F6C 		.ascii	"../lib/e-puck2_main-processor/ChibiOS//os/common/po"
- 956      69622F65 
- 956      2D707563 
- 956      6B325F6D 
- 956      61696E2D 
- 957 0132 7274732F 		.ascii	"rts/ARMCMx/compilers/GCC/vectors.c\000"
- 957      41524D43 
- 957      4D782F63 
- 957      6F6D7069 
- 957      6C657273 
- 958              	.LASF23:
- 959 0155 76656374 		.ascii	"vector1c\000"
- 959      6F723163 
- 959      00
- 960              	.LASF19:
- 961 015e 68617264 		.ascii	"hardfault_handler\000"
-ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 19
+ 939      636B00
+ 940              	.LASF11:
+ 941 006e 696E7433 		.ascii	"int32_t\000"
+ 941      325F7400 
+ 942              	.LASF28:
+ 943 0076 64656275 		.ascii	"debugmonitor_handler\000"
+ 943      676D6F6E 
+ 943      69746F72 
+ 943      5F68616E 
+ 943      646C6572 
+ 944              	.LASF1:
+ 945 008b 756E7369 		.ascii	"unsigned char\000"
+ 945      676E6564 
+ 945      20636861 
+ 945      7200
+ 946              	.LASF7:
+ 947 0099 6C6F6E67 		.ascii	"long unsigned int\000"
+ 947      20756E73 
+ 947      69676E65 
+ 947      6420696E 
+ 947      7400
+ 948              	.LASF27:
+ 949 00ab 7376635F 		.ascii	"svc_handler\000"
+ 949      68616E64 
+ 949      6C657200 
+ 950              	.LASF13:
+ 951 00b7 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 951      52784275 
+ 951      66666572 
+ 951      00
+ 952              	.LASF37:
+ 953 00c4 2E2E2F6C 		.ascii	"../lib/e-puck2_main-processor/ChibiOS//os/common/po"
+ 953      69622F65 
+ 953      2D707563 
+ 953      6B325F6D 
+ 953      61696E2D 
+ 954 00f7 7274732F 		.ascii	"rts/ARMCMx/compilers/GCC/vectors.c\000"
+ 954      41524D43 
+ 954      4D782F63 
+ 954      6F6D7069 
+ 954      6C657273 
+ 955              	.LASF23:
+ 956 011a 76656374 		.ascii	"vector1c\000"
+ 956      6F723163 
+ 956      00
+ 957              	.LASF19:
+ 958 0123 68617264 		.ascii	"hardfault_handler\000"
+ 958      6661756C 
+ 958      745F6861 
+ 958      6E646C65 
+ 958      7200
+ 959              	.LASF6:
+ 960 0135 5F5F7569 		.ascii	"__uint32_t\000"
+ 960      6E743332 
+ 960      5F7400
+ 961              	.LASF18:
+ 962 0140 6E6D695F 		.ascii	"nmi_handler\000"
+ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s 			page 19
 
 
- 961      6661756C 
- 961      745F6861 
- 961      6E646C65 
- 961      7200
- 962              	.LASF6:
- 963 0170 5F5F7569 		.ascii	"__uint32_t\000"
- 963      6E743332 
- 963      5F7400
- 964              	.LASF18:
- 965 017b 6E6D695F 		.ascii	"nmi_handler\000"
- 965      68616E64 
- 965      6C657200 
- 966              	.LASF36:
- 967 0187 474E5520 		.ascii	"GNU C11 7.2.1 20170904 (release) [ARM/embedded-7-br"
- 967      43313120 
- 967      372E322E 
- 967      31203230 
- 967      31373039 
- 968 01ba 616E6368 		.ascii	"anch revision 255204] -mcpu=cortex-m4 -mfloat-abi=h"
- 968      20726576 
- 968      6973696F 
- 968      6E203235 
- 968      35323034 
- 969 01ed 61726420 		.ascii	"ard -mfpu=fpv4-sp-d16 -mno-thumb-interwork -mthumb "
- 969      2D6D6670 
- 969      753D6670 
- 969      76342D73 
- 969      702D6431 
- 970 0220 2D676764 		.ascii	"-ggdb -O2 -fomit-frame-pointer -falign-functions=16"
- 970      62202D4F 
- 970      32202D66 
- 970      6F6D6974 
- 970      2D667261 
- 971 0253 202D666E 		.ascii	" -fno-strict-aliasing -fstack-protector-all -ffunct"
- 971      6F2D7374 
- 971      72696374 
- 971      2D616C69 
- 971      6173696E 
- 972 0286 696F6E2D 		.ascii	"ion-sections -fdata-sections -fno-common -fsingle-p"
- 972      73656374 
- 972      696F6E73 
- 972      202D6664 
- 972      6174612D 
- 973 02b9 72656369 		.ascii	"recision-constant\000"
- 973      73696F6E 
- 973      2D636F6E 
- 973      7374616E 
- 973      7400
- 974              	.LASF10:
- 975 02cb 756E7369 		.ascii	"unsigned int\000"
- 975      676E6564 
- 975      20696E74 
- 975      00
- 976              	.LASF24:
- 977 02d8 76656374 		.ascii	"vector20\000"
- 977      6F723230 
- 977      00
-ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 20
+ 962      68616E64 
+ 962      6C657200 
+ 963              	.LASF38:
+ 964 014c 433A5C52 		.ascii	"C:\\Robotique\\Projet_robotique\000"
+ 964      6F626F74 
+ 964      69717565 
+ 964      5C50726F 
+ 964      6A65745F 
+ 965              	.LASF36:
+ 966 016a 474E5520 		.ascii	"GNU C11 7.2.1 20170904 (release) [ARM/embedded-7-br"
+ 966      43313120 
+ 966      372E322E 
+ 966      31203230 
+ 966      31373039 
+ 967 019d 616E6368 		.ascii	"anch revision 255204] -mcpu=cortex-m4 -mfloat-abi=h"
+ 967      20726576 
+ 967      6973696F 
+ 967      6E203235 
+ 967      35323034 
+ 968 01d0 61726420 		.ascii	"ard -mfpu=fpv4-sp-d16 -mno-thumb-interwork -mthumb "
+ 968      2D6D6670 
+ 968      753D6670 
+ 968      76342D73 
+ 968      702D6431 
+ 969 0203 2D676764 		.ascii	"-ggdb -O2 -fomit-frame-pointer -falign-functions=16"
+ 969      62202D4F 
+ 969      32202D66 
+ 969      6F6D6974 
+ 969      2D667261 
+ 970 0236 202D666E 		.ascii	" -fno-strict-aliasing -fstack-protector-all -ffunct"
+ 970      6F2D7374 
+ 970      72696374 
+ 970      2D616C69 
+ 970      6173696E 
+ 971 0269 696F6E2D 		.ascii	"ion-sections -fdata-sections -fno-common -fsingle-p"
+ 971      73656374 
+ 971      696F6E73 
+ 971      202D6664 
+ 971      6174612D 
+ 972 029c 72656369 		.ascii	"recision-constant\000"
+ 972      73696F6E 
+ 972      2D636F6E 
+ 972      7374616E 
+ 972      7400
+ 973              	.LASF10:
+ 974 02ae 756E7369 		.ascii	"unsigned int\000"
+ 974      676E6564 
+ 974      20696E74 
+ 974      00
+ 975              	.LASF24:
+ 976 02bb 76656374 		.ascii	"vector20\000"
+ 976      6F723230 
+ 976      00
+ 977              	.LASF9:
+ 978 02c4 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 978      206C6F6E 
+ 978      6720756E 
+ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s 			page 20
 
 
- 978              	.LASF9:
- 979 02e1 6C6F6E67 		.ascii	"long long unsigned int\000"
- 979      206C6F6E 
- 979      6720756E 
- 979      7369676E 
- 979      65642069 
- 980              	.LASF25:
- 981 02f8 76656374 		.ascii	"vector24\000"
- 981      6F723234 
- 981      00
- 982              	.LASF26:
- 983 0301 76656374 		.ascii	"vector28\000"
- 983      6F723238 
- 983      00
- 984              	.LASF35:
- 985 030a 5F766563 		.ascii	"_vectors\000"
- 985      746F7273 
- 985      00
- 986              	.LASF17:
- 987 0313 72657365 		.ascii	"reset_handler\000"
- 987      745F6861 
- 987      6E646C65 
- 987      7200
- 988              	.LASF22:
- 989 0321 75736167 		.ascii	"usagefault_handler\000"
- 989      65666175 
- 989      6C745F68 
- 989      616E646C 
- 989      657200
- 990              	.LASF8:
- 991 0334 6C6F6E67 		.ascii	"long long int\000"
- 991      206C6F6E 
- 991      6720696E 
- 991      7400
- 992              	.LASF14:
- 993 0342 53797374 		.ascii	"SystemCoreClock\000"
- 993      656D436F 
- 993      7265436C 
- 993      6F636B00 
- 994              	.LASF39:
- 995 0352 5F756E68 		.ascii	"_unhandled_exception\000"
- 995      616E646C 
- 995      65645F65 
- 995      78636570 
- 995      74696F6E 
- 996              	.LASF32:
- 997 0367 76656374 		.ascii	"vectors\000"
- 997      6F727300 
- 998              	.LASF2:
- 999 036f 73686F72 		.ascii	"short int\000"
- 999      7420696E 
- 999      7400
- 1000              	.LASF12:
- 1001 0379 75696E74 		.ascii	"uint32_t\000"
- 1001      33325F74 
- 1001      00
- 1002              	.LASF4:
-ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 21
+ 978      7369676E 
+ 978      65642069 
+ 979              	.LASF25:
+ 980 02db 76656374 		.ascii	"vector24\000"
+ 980      6F723234 
+ 980      00
+ 981              	.LASF26:
+ 982 02e4 76656374 		.ascii	"vector28\000"
+ 982      6F723238 
+ 982      00
+ 983              	.LASF35:
+ 984 02ed 5F766563 		.ascii	"_vectors\000"
+ 984      746F7273 
+ 984      00
+ 985              	.LASF17:
+ 986 02f6 72657365 		.ascii	"reset_handler\000"
+ 986      745F6861 
+ 986      6E646C65 
+ 986      7200
+ 987              	.LASF22:
+ 988 0304 75736167 		.ascii	"usagefault_handler\000"
+ 988      65666175 
+ 988      6C745F68 
+ 988      616E646C 
+ 988      657200
+ 989              	.LASF8:
+ 990 0317 6C6F6E67 		.ascii	"long long int\000"
+ 990      206C6F6E 
+ 990      6720696E 
+ 990      7400
+ 991              	.LASF14:
+ 992 0325 53797374 		.ascii	"SystemCoreClock\000"
+ 992      656D436F 
+ 992      7265436C 
+ 992      6F636B00 
+ 993              	.LASF39:
+ 994 0335 5F756E68 		.ascii	"_unhandled_exception\000"
+ 994      616E646C 
+ 994      65645F65 
+ 994      78636570 
+ 994      74696F6E 
+ 995              	.LASF32:
+ 996 034a 76656374 		.ascii	"vectors\000"
+ 996      6F727300 
+ 997              	.LASF2:
+ 998 0352 73686F72 		.ascii	"short int\000"
+ 998      7420696E 
+ 998      7400
+ 999              	.LASF12:
+ 1000 035c 75696E74 		.ascii	"uint32_t\000"
+ 1000      33325F74 
+ 1000      00
+ 1001              	.LASF4:
+ 1002 0365 6C6F6E67 		.ascii	"long int\000"
+ 1002      20696E74 
+ 1002      00
+ 1003              	.LASF40:
+ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s 			page 21
 
 
- 1003 0382 6C6F6E67 		.ascii	"long int\000"
- 1003      20696E74 
- 1003      00
- 1004              	.LASF40:
- 1005 038b 63685379 		.ascii	"chSysHalt\000"
- 1005      7348616C 
- 1005      7400
- 1006              	.LASF20:
- 1007 0395 6D656D6D 		.ascii	"memmanage_handler\000"
- 1007      616E6167 
- 1007      655F6861 
- 1007      6E646C65 
- 1007      7200
- 1008              	.LASF0:
- 1009 03a7 7369676E 		.ascii	"signed char\000"
- 1009      65642063 
- 1009      68617200 
- 1010              	.LASF33:
- 1011 03b3 76656374 		.ascii	"vectors_t\000"
- 1011      6F72735F 
- 1011      7400
- 1012              	.LASF34:
- 1013 03bd 5F5F6D61 		.ascii	"__main_stack_end__\000"
- 1013      696E5F73 
- 1013      7461636B 
- 1013      5F656E64 
- 1013      5F5F00
- 1014              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 7.2.1 20170904 (release) [ARM
-ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 22
+ 1004 036e 63685379 		.ascii	"chSysHalt\000"
+ 1004      7348616C 
+ 1004      7400
+ 1005              	.LASF20:
+ 1006 0378 6D656D6D 		.ascii	"memmanage_handler\000"
+ 1006      616E6167 
+ 1006      655F6861 
+ 1006      6E646C65 
+ 1006      7200
+ 1007              	.LASF0:
+ 1008 038a 7369676E 		.ascii	"signed char\000"
+ 1008      65642063 
+ 1008      68617200 
+ 1009              	.LASF33:
+ 1010 0396 76656374 		.ascii	"vectors_t\000"
+ 1010      6F72735F 
+ 1010      7400
+ 1011              	.LASF34:
+ 1012 03a0 5F5F6D61 		.ascii	"__main_stack_end__\000"
+ 1012      696E5F73 
+ 1012      7461636B 
+ 1012      5F656E64 
+ 1012      5F5F00
+ 1013              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 7.2.1 20170904 (release) [ARM
+ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s 			page 22
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 vectors.c
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:18     .text._unhandled_exception:00000000 $t
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 _unhandled_exception
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:54     .text._unhandled_exception:00000014 $d
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector1BC
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector1B8
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector1B4
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector1B0
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector1AC
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector1A8
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector1A4
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector1A0
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector19C
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector198
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector194
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector190
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector18C
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector188
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector184
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector180
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector17C
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector178
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector174
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector170
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector16C
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector168
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector164
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector160
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector15C
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector158
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector154
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector150
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector14C
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector148
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector144
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector140
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector13C
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector138
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector134
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector130
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector12C
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector128
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector124
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector120
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector11C
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector118
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector114
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector110
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector10C
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector108
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector104
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector100
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 VectorFC
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 VectorF8
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 VectorF4
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 VectorF0
-ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 23
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:18     .text._unhandled_exception:00000000 $t
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 _unhandled_exception
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:54     .text._unhandled_exception:00000014 $d
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector1BC
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector1B8
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector1B4
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector1B0
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector1AC
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector1A8
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector1A4
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector1A0
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector19C
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector198
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector194
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector190
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector18C
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector188
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector184
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector180
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector17C
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector178
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector174
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector170
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector16C
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector168
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector164
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector160
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector15C
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector158
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector154
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector150
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector14C
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector148
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector144
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector140
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector13C
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector138
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector134
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector130
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector12C
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector128
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector124
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector120
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector11C
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector118
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector114
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector110
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector10C
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector108
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector104
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector100
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 VectorFC
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 VectorF8
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 VectorF4
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 VectorF0
+ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s 			page 23
 
 
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 VectorEC
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 VectorE8
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 VectorE4
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 VectorE0
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 VectorDC
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 VectorD8
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 VectorD4
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 VectorD0
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 VectorCC
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 VectorC8
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 VectorC4
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 VectorC0
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 VectorBC
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 VectorB8
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 VectorB4
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 VectorB0
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 VectorAC
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 VectorA8
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 VectorA4
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 VectorA0
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector9C
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector98
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector94
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector90
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector8C
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector88
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector84
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector80
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector7C
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector78
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector74
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector70
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector6C
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector68
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector64
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector60
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector5C
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector58
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector54
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector50
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector4C
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector48
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector44
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector40
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 SysTick_Handler
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 PendSV_Handler
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector34
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 DebugMon_Handler
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 SVC_Handler
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector28
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector24
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector20
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Vector1C
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 UsageFault_Handler
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 BusFault_Handler
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 MemManage_Handler
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 HardFault_Handler
-ARM GAS  C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s 			page 24
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 VectorEC
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 VectorE8
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 VectorE4
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 VectorE0
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 VectorDC
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 VectorD8
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 VectorD4
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 VectorD0
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 VectorCC
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 VectorC8
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 VectorC4
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 VectorC0
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 VectorBC
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 VectorB8
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 VectorB4
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 VectorB0
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 VectorAC
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 VectorA8
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 VectorA4
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 VectorA0
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector9C
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector98
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector94
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector90
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector8C
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector88
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector84
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector80
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector7C
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector78
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector74
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector70
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector6C
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector68
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector64
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector60
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector5C
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector58
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector54
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector50
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector4C
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector48
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector44
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector40
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 SysTick_Handler
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 PendSV_Handler
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector34
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 DebugMon_Handler
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 SVC_Handler
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector28
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector24
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector20
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Vector1C
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 UsageFault_Handler
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 BusFault_Handler
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 MemManage_Handler
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 HardFault_Handler
+ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s 			page 24
 
 
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 NMI_Handler
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:26     .text._unhandled_exception:00000000 Reset_Handler
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:290    .vectors:00000000 _vectors
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:283    .rodata._unhandled_exception.str1.4:00000000 $d
-C:\Users\adrie\AppData\Local\Temp\ccb6knB1.s:287    .vectors:00000000 $d
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 NMI_Handler
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:26     .text._unhandled_exception:00000000 Reset_Handler
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:290    .vectors:00000000 _vectors
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:283    .rodata._unhandled_exception.str1.4:00000000 $d
+C:\Users\JEANCO~1\AppData\Local\Temp\ccCrl2Zz.s:287    .vectors:00000000 $d
 
 UNDEFINED SYMBOLS
 chSysHalt

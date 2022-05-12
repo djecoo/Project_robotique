@@ -266,7 +266,7 @@ double calcul_distance(int32_t intensite_moyenne, int32_t puissance_source){
 	double intensite_transition = intensite_moyenne;
 	double distance_source = sqrt(((double)puissance_source)/(((double)intensite_transition)*4*3.1415) );
 
-	return distance_source;
+	return 2*distance_source;
 }
 
 void calcul_angle(int max_right,int max_left,int max_front,int max_back){
@@ -608,8 +608,12 @@ int16_t pi_regulator(float distance, float goal){
 
 	static float sum_error = 0;
 
-	error = distance - goal;
-	//error= 0;
+	if(distance){
+		error = distance - goal;
+	}else{
+		error = 0;
+	}
+
 
 	//disables the PI regulator if the error is to small
 	//this avoids to always move as we cannot exactly be where we want and
@@ -627,7 +631,7 @@ int16_t pi_regulator(float distance, float goal){
 		sum_error = -MAX_SUM_ERROR;
 	}
 
-	speed = KP * error + KI * sum_error;
+	speed = KP * error;// + KI * sum_error;
 
     return (int16_t)speed;
 }
@@ -645,7 +649,7 @@ static THD_FUNCTION(PiRegulator, arg) {
     int32_t puissance_moyenne = 0;
     int16_t frequence_max = 0;
     int32_t puissance_source = 0;
-    long double distance_source = 0.1;
+    double distance_source = 0;
 
 
 
@@ -661,13 +665,16 @@ static THD_FUNCTION(PiRegulator, arg) {
         	puissance_source = 0;
         }
 
-        if(puissance_moyenne >0)
-
-
+        if(puissance_source > 0){
+        	distance_source = sqrt(((double)puissance_source)/(((double)puissance_moyenne)*4*3.1415) );
+        	distance_source = calcul_distance(puissance_moyenne, puissance_source);
+        }
 
         //computes the speed to give to the motors
         //distance_cm is modified by the image processing thread
         speed = pi_regulator(calcul_distance(puissance_moyenne, puissance_source), DIST_REF);
+
+        //chprintf((BaseSequentialStream *) &SDU1,"speed  = %d, DISTANCE = %lf \n", speed, distance_source);
 
         //computes a correction factor to let the robot rotate to be in front of the line
         int angle = get_line_position();
@@ -676,22 +683,23 @@ static THD_FUNCTION(PiRegulator, arg) {
         	angle = (angle - 360);
         speed_correction = angle;
 
+
         //if the line is nearly in front of the camera, don't rotate
        /* if(abs(speed_correction) < ROTATION_THRESHOLD){
         	speed_correction = 0;
         }*/
 
-        distance_source = 0.3;
+
         //chprintf((BaseSequentialStream *) &SDU1,"puissance_moyenne = %d /n", puissance_moyenne);
-        chprintf((BaseSequentialStream *) &SDU1,"puissance_source = %d, DISTANCE = %d \n", puissance_source, distance_source);
+        //chprintf((BaseSequentialStream *) &SDU1,"DISTANCE = %lf \n", distance_source);
         //chprintf((BaseSequentialStream *) &SDU1,"DISTANCE  = %d \n", calcul_distance());
         //chprintf((BaseSequentialStream *) &SDU1,"calcul_moyenne(FRONT) = %d\n,calcul_moyenne(LEFT) = %d, calcul_moyenne(BACK) = %d, calcul_moyenne(RIGHT) = %d\n",calcul_moyenne(FRONT), calcul_moyenne(LEFT),calcul_moyenne(BACK),calcul_moyenne(RIGHT));
 
-        		if(puissance_moyenne > 100000 /*&& get_max_norm_index() > MIN_FREQ*/ ) // MODULER VALEUR
+        		if(puissance_moyenne > 1000 /*&& get_max_norm_index() > MIN_FREQ*/ ) // MODULER VALEUR
         {
         	//applies the speed from the PI regulator and the correction for the rotation
-        	//right_motor_set_speed(/*speed*/ - ROTATION_COEFF * speed_correction);
-        	//left_motor_set_speed(/*speed*/ + ROTATION_COEFF * speed_correction);
+        	right_motor_set_speed(speed - ROTATION_COEFF * speed_correction);
+        	left_motor_set_speed(speed + ROTATION_COEFF * speed_correction);
         	// AAAA chprintf((BaseSequentialStream *) &SDU1,"speed_correction = %d \n", speed_correction);
 
         }else{

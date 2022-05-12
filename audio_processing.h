@@ -28,9 +28,27 @@ typedef enum{
 	BACK
 }MICRO_NAME;
 
+typedef enum{
+	DEVANT = 0,
+	DEVANT_DROIT,
+	DERRIERE_DROIT,
+	DERRIERE,
+	DERRIERE_GAUCHE,
+	DEVANT_GAUCHE,
+	ARRET
+
+
+
+} DIRECTION_ROBOT;
+
 /*
  * Return the index of the maximum after the fft
  */
+
+
+DIRECTION_ROBOT calcul_direction(int vit_droit, int vit_gauche );
+
+void m_a_j_coeff_catpeurs(direction);
 
 int calcul_moyenne(MICRO_NAME micro);
 

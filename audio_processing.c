@@ -12,6 +12,8 @@
 #include <arm_math.h>
 #include <leds.h>
 
+
+
 //semaphore
 static BSEMAPHORE_DECL(sendToComputer_sem, TRUE);
 
@@ -26,7 +28,7 @@ static int nbr_passage = 0;
 static uint8_t cote_max;
 //tableau pour stocker les valeurs des micros
 
-static int moyenne[4][3]; // 4 pour nbr micro et 3 pour le nbr d'echantillon
+static int moyenne[4][4]; // 4 pour nbr micro et 3 pour le nbr d'echantillon
 
 //2 times FFT_SIZE because these arrays contain complex numbers (real + imaginary)
 static float micLeft_cmplx_input[2 * FFT_SIZE];
@@ -38,12 +40,12 @@ static float micLeft_output[FFT_SIZE];
 static float micRight_output[FFT_SIZE];
 static float micFront_output[FFT_SIZE];
 static float micBack_output[FFT_SIZE];
-
+static uint8_t coeff_capteur[8] = {0,0,0,0,0,0,0}; // en % -> /100
 
 
 
 #define MIN_VALUE_THRESHOLD	10000
-
+#define VALEUR_DETECTION_CHOC 200
 #define DISTANCE_REFERENCE 40000 // valeur équivalente à 6cm
 #define MIN_FREQ		10	//we don't analyze before this index to not use resources for nothing
 #define FREQ_FORWARD	16	//250Hz
@@ -68,13 +70,15 @@ static float micBack_output[FFT_SIZE];
 #define PID_KP 			800
 #define PID_KI			3.5*/
 
-#define NBR_ECHANTILLON 3
+#define NBR_ECHANTILLON 4
 #define NBR_MICRO 4
-
+#define VALEUR_MINIMUM 1500
 #define MARGE_ANGLE 0.12 //%
+#define VALEUR_MIN_PROXY 200
 
 #define DIST_REF 0.07 //[m]
 
+#define PERCENT
 
 
 /*
@@ -195,10 +199,10 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 		//sends only one FFT result over 10 for 1 mic to not flood the computer
 		//sends to UART3
 
-		int max_right = 0.99*get_max_norm_index(RIGHT_OUTPUT).max;
-		int max_left = 0.99*get_max_norm_index(LEFT_OUTPUT).max;
+		int max_right = 0.98*get_max_norm_index(RIGHT_OUTPUT).max;
+		int max_left = 0.98*get_max_norm_index(LEFT_OUTPUT).max;
 		int max_front = get_max_norm_index(FRONT_OUTPUT).max;
-		int max_back = 0.99*get_max_norm_index(BACK_OUTPUT).max; //facteur de correction pour faiblesse du micro
+		int max_back = 0.98*get_max_norm_index(BACK_OUTPUT).max; //facteur de correction pour faiblesse du micro
 		int norm_right = get_max_norm_index(RIGHT_OUTPUT).norm;
 		int norm_left = get_max_norm_index(LEFT_OUTPUT).norm;
 		int norm_front = get_max_norm_index(FRONT_OUTPUT).norm;
@@ -643,7 +647,7 @@ static THD_FUNCTION(PiRegulator, arg) {
     (void)arg;
 
     systime_t time;
-
+    float correction_proxy = 0;
     int16_t speed = 0;
     int16_t speed_correction = 0;
     int32_t puissance_moyenne = 0;
@@ -695,12 +699,67 @@ static THD_FUNCTION(PiRegulator, arg) {
         //chprintf((BaseSequentialStream *) &SDU1,"DISTANCE  = %d \n", calcul_distance());
         //chprintf((BaseSequentialStream *) &SDU1,"calcul_moyenne(FRONT) = %d\n,calcul_moyenne(LEFT) = %d, calcul_moyenne(BACK) = %d, calcul_moyenne(RIGHT) = %d\n",calcul_moyenne(FRONT), calcul_moyenne(LEFT),calcul_moyenne(BACK),calcul_moyenne(RIGHT));
 
-        		if(puissance_moyenne > 1000 /*&& get_max_norm_index() > MIN_FREQ*/ ) // MODULER VALEUR
+        DIRECTION_ROBOT direction = calcul_direction(speed - ROTATION_COEFF * speed_correction,speed + ROTATION_COEFF * speed_correction);
+
+        m_a_j_coeff_catpeurs(direction);
+
+
+        int* bufferProxy = get_proxy_buffer_ptr();
+        for(uint8_t i = 0; i<8 ;i++){
+        	bufferProxy[i] *= (coeff_capteur[i]/100);
+         }
+
+        		if(puissance_moyenne > VALEUR_MINIMUM && direction == ARRET/*&& get_max_norm_index() > MIN_FREQ*/ ) // MODULER VALEUR
         {
         	//applies the speed from the PI regulator and the correction for the rotation
         	right_motor_set_speed(speed - ROTATION_COEFF * speed_correction);
         	left_motor_set_speed(speed + ROTATION_COEFF * speed_correction);
         	// AAAA chprintf((BaseSequentialStream *) &SDU1,"speed_correction = %d \n", speed_correction);
+
+
+
+        }else if (puissance_moyenne > VALEUR_MINIMUM){
+        	int max_buffer =0;
+        	uint8_t norme_max_buffer = 0;
+        	//200 valeur detection choc, 3920 valeur max
+        	for(uint8_t i =0; i<8;i++){
+        		if(bufferProxy[i] > max_buffer){
+        			max_buffer = bufferProxy[i];
+        			norme_max_buffer = i;
+        		}
+        	}
+        	if(max_buffer <VALEUR_DETECTION_CHOC){ //pas de correction
+        		right_motor_set_speed(speed - ROTATION_COEFF * speed_correction);
+        		left_motor_set_speed(speed + ROTATION_COEFF * speed_correction);
+
+        	}else{
+        		//parametre roation proxy entre 1 et 10 -> determine l'urgence de la rotation
+        		correction_proxy = (1+(((max_buffer-VALEUR_DETECTION_CHOC)*10)/(3920-VALEUR_DETECTION_CHOC)));
+        		int moyenne_supp = 0;
+        		int moyenne_inf = 0;
+        		/*//on determine la moyenne des capteurs à droite et à gauche pour déterminer le sens de la rotation->le sens de correction_proxy
+        			if(norme_max_erreur >=2 && moyenne_inf !=0)
+        				moyenne_inf = (bufferProxy[norme_max_buffer-1]+bufferProxy[norme_max_buffer-2])/2;
+        			if(norme_max_erreur <=5 && moyenne_supp!=0)
+        				moyenne_supp = (bufferProxy[norme_max_buffer+1]+bufferProxy[norme_max_buffer+2])/2;
+        			if(norme_max_erreur == 1){
+        				moyenne_inf = (bufferProxy[0]+bufferProxy[7])/2;
+        			}else if(norme_max_erreur == 0){
+        				moyenne_inf = (bufferProxy[6]+bufferProxy[7])/2;
+        			}
+        			if(norme_max_erreur == 7){
+        				moyenne_supp = (bufferProxy[0]+bufferProxy[1])/2;
+        			}else if(norme_max_erreur == 5){
+        				moyenne_suppp = (bufferProxy[0]+bufferProxy[7])/2;
+        			}*/
+
+        		//Ou alors on determine avec le sens de de speed_correction
+
+
+        		right_motor_set_speed(speed - ROTATION_COEFF * speed_correction*correction_proxy);
+        		left_motor_set_speed(speed + ROTATION_COEFF * speed_correction*correction_proxy);
+        	}
+
 
         }else{
         	left_motor_set_speed(0);
@@ -715,4 +774,131 @@ static THD_FUNCTION(PiRegulator, arg) {
 void pi_regulator_start(){
 	chThdCreateStatic(waPiRegulator, sizeof(waPiRegulator), NORMALPRIO, PiRegulator, NULL);
 }
+
+DIRECTION_ROBOT calcul_direction(int vit_droit, int vit_gauche ){
+	int borne_gauche_supp = 1.1*vit_gauche;
+	int borne_gauche_min = 0.9*vit_gauche;
+	if(vit_droit == 0 && vit_gauche == 0){
+	return ARRET;
+	chprintf((BaseSequentialStream *) &SDU1,"ARRET\n");
+	}
+
+	if(vit_droit >=0 && vit_gauche>=0){
+		if(vit_droit>vit_gauche && vit_droit>borne_gauche_supp){
+			return DEVANT_GAUCHE;
+		}else if((vit_droit>vit_gauche && borne_gauche_supp >vit_droit) || vit_gauche == vit_droit){
+			return DEVANT;
+
+		}else if(vit_gauche > vit_droit && borne_gauche_min<vit_droit ){
+			return DEVANT;
+		}else{
+			return DEVANT_DROIT;
+		}
+	}else if(vit_droit<=0 && vit_gauche >=0){
+		if((-vit_droit) == vit_gauche || ((-vit_droit) >vit_gauche && borne_gauche_supp > (-vit_droit))){
+			return ARRET;
+		}else if(vit_gauche>(-vit_droit) && (-vit_droit)>borne_gauche_min){
+			return ARRET;
+		}else{
+			return DEVANT_DROIT;
+		}
+
+	}else if(vit_droit>=0 && vit_gauche<=0){
+		if((-vit_gauche)== vit_droit || ((-vit_gauche)>vit_droit && (-borne_gauche_min)<vit_droit)){
+			return ARRET;
+		}else if(vit_droit>(-vit_gauche) && vit_droit <(-borne_gauche_supp) ){
+			return ARRET;
+		}else if(vit_droit >vit_gauche){
+			return DEVANT_GAUCHE;
+		}else{
+			return DERRIERE_DROIT;
+		}
+	}else if(vit_droit<0 && vit_gauche<0){
+		if(vit_droit>vit_gauche && vit_droit>borne_gauche_min){
+			return DERRIERE_DROIT;
+		}else if((vit_droit>vit_gauche && borne_gauche_min > vit_droit) || vit_gauche == vit_droit){
+			return DERRIERE;
+		}else if(vit_gauche > vit_droit && borne_gauche_supp < vit_droit ){
+			return DERRIERE;
+		}else{
+			return DERRIERE_GAUCHE;
+		}
+
+	}else{
+		return ARRET;
+	}
+
+}
+
+void m_a_j_coeff_catpeurs(direction){
+	if(direction == DEVANT){
+		coeff_capteur[0] = 100;
+		coeff_capteur[1] = 60;
+		coeff_capteur[2] = 20;
+		coeff_capteur[3] = 0;
+		coeff_capteur[4] = 0;
+		coeff_capteur[5] = 20;
+		coeff_capteur[6] = 60;
+		coeff_capteur[7] = 100;
+
+
+	}else if(direction == DEVANT_DROIT){
+		coeff_capteur[0] = 80;
+		coeff_capteur[1] = 100;
+		coeff_capteur[2] = 80;
+		coeff_capteur[3] = 20;
+		coeff_capteur[4] = 0;
+		coeff_capteur[5] = 0;
+		coeff_capteur[6] = 0;
+		coeff_capteur[7] = 60;
+	}else if(direction == DERRIERE_DROIT){
+		coeff_capteur[0] = 0;
+		coeff_capteur[1] = 30;
+		coeff_capteur[2] = 80;
+		coeff_capteur[3] = 100;
+		coeff_capteur[4] = 80;
+		coeff_capteur[5] = 20;
+		coeff_capteur[6] = 0;
+		coeff_capteur[7] = 0;
+
+	}else if (direction == DERRIERE_GAUCHE){
+		coeff_capteur[0] = 0;
+		coeff_capteur[1] = 0;
+		coeff_capteur[2] = 20;
+		coeff_capteur[3] = 80;
+		coeff_capteur[4] = 100;
+		coeff_capteur[5] = 80;
+		coeff_capteur[6] = 20;
+		coeff_capteur[7] = 0;
+	}else if (direction == DEVANT_GAUCHE){
+		coeff_capteur[0] = 60;
+		coeff_capteur[1] = 0;
+		coeff_capteur[2] = 0;
+		coeff_capteur[3] = 0;
+		coeff_capteur[4] = 20;
+		coeff_capteur[5] = 80;
+		coeff_capteur[6] = 100;
+		coeff_capteur[7] = 80;
+
+	}else if (direction == DERRIERE){
+		coeff_capteur[0] = 0;
+		coeff_capteur[1] = 0;
+		coeff_capteur[2] = 40;
+		coeff_capteur[3] = 100;
+		coeff_capteur[4] = 100;
+		coeff_capteur[5] = 40;
+		coeff_capteur[6] = 0;
+		coeff_capteur[7] = 0;
+	}else{
+		coeff_capteur[0] = 0;
+		coeff_capteur[1] = 0;
+		coeff_capteur[2] = 0;
+		coeff_capteur[3] = 0;
+		coeff_capteur[4] = 0;
+		coeff_capteur[5] = 0;
+		coeff_capteur[6] = 0;
+		coeff_capteur[7] = 0;
+	}
+}
+
 

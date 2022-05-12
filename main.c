@@ -11,17 +11,28 @@
 #include <motors.h>
 #include <audio/microphone.h>
 #include <leds.h>
-
+#include <i2c.h>
+#include<sensors/proximity.h>
+#include<msgbus/messagebus.h>
 #include <audio_processing.h>
 #include <fft.h>
 #include <communications.h>
 #include <arm_math.h>
+#include<capture_ir.h>
+
+
 
 //uncomment to send the FFTs results from the real microphones
 #define SEND_FROM_MIC
 
 //uncomment to use double buffering to send the FFT to the computer
 #define DOUBLE_BUFFERING
+
+messagebus_t bus;
+
+//initialise bus pour ir ??-> a verifier
+MUTEX_DECL(bus_lock);
+CONDVAR_DECL(bus_condvar);
 
 static void serial_start(void)
 {
@@ -63,6 +74,11 @@ int main(void)
     chSysInit();
     mpu_init();
 
+
+
+
+
+    messagebus_init(&bus, &bus_lock, &bus_condvar);
     //starts the serial communication
     serial_start();
     //starts the USB communication
@@ -75,8 +91,14 @@ int main(void)
     //start the pi regulator
     pi_regulator_start();
 
+    //start the proximity sensor
+     proximity_start();
 
+    //calibrate the proximity sensor with the ambient light
+    calibrate_ir();
 
+    //start the ir capture
+    capture_ir_start();
 
 
     //temp tab used to store values in complex_float format

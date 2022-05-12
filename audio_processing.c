@@ -18,9 +18,10 @@ static BSEMAPHORE_DECL(sendToComputer_sem, TRUE);
 
 //les valeur de la position du haut parleur par rapport aux micros
 static int angle;
-static int distance;
+static double distance;
 static int reference = 0;
 static int nbr_passage = 0;
+//static uint32_t puissance_source = 0;
 //pour savoir approximativement d'ou vient le soin
 static uint8_t cote_max;
 //tableau pour stocker les valeurs des micros
@@ -72,7 +73,7 @@ static float micBack_output[FFT_SIZE];
 
 #define MARGE_ANGLE 0.12 //%
 
-#define DIST_REF 7.5 //[cm]
+#define DIST_REF 0.07 //[m]
 
 
 
@@ -230,7 +231,7 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 			calcul_angle(moyenne_right,moyenne_left,moyenne_front,moyenne_back);
 			cote_max = RIGHT;
 
-			calcul_distance();
+			//calcul_distance(puissance_moyenne);
 			//chprintf((BaseSequentialStream*)&SDU1,"moyenne_front = %d \n",moyenne_front);
 			//chprintf((BaseSequentialStream*)&SDU1,"moyenne_right = %d \n, moyenne_left = %d \n, moyenne_front = %d \n,moyenne_back = %d \n\n\n\n ",moyenne_right,moyenne_left,moyenne_front,moyenne_back);
 			//chprintf((BaseSequentialStream*)&SDU1,"angle = %d \n",angle);
@@ -260,9 +261,12 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 	}
 }
 
-void calcul_distance(){
-	distance = get_max_front_moyenne();
-	return;
+double calcul_distance(int32_t intensite_moyenne, int32_t puissance_source){
+
+	double intensite_transition = intensite_moyenne;
+	double distance_source = sqrt(((double)puissance_source)/(((double)intensite_transition)*4*3.1415) );
+
+	return distance_source;
 }
 
 void calcul_angle(int max_right,int max_left,int max_front,int max_back){
@@ -284,7 +288,7 @@ void calcul_angle(int max_right,int max_left,int max_front,int max_back){
 			return;
 		}
 	}
-	if (max_left>=max_front && max_left>= max_back && supremum!=-1){
+	if (max_left>=max_front && max_left>= max_back && supremum!=-1){ // ?????? Tout le temps vrai ?
 		transition = max_left*(1-MARGE_ANGLE);
 		if(transition>=max_front && transition>= max_back){
 			supremum = LEFT;
@@ -638,13 +642,32 @@ static THD_FUNCTION(PiRegulator, arg) {
 
     int16_t speed = 0;
     int16_t speed_correction = 0;
+    int32_t puissance_moyenne = 0;
+    int16_t frequence_max = 0;
+    int32_t puissance_source = 0;
+    long double distance_source = 0.1;
+
+
 
     while(1){
         time = chVTGetSystemTime();
 
+
+        puissance_moyenne = (calcul_moyenne(FRONT)+calcul_moyenne(LEFT)+calcul_moyenne(BACK)+calcul_moyenne(RIGHT))/4;
+
+        if(puissance_moyenne > 20000 && puissance_source == 0){ // calcul puissance si il y a une source et si pas identifiee, à moduler
+        	puissance_source = puissance_moyenne*4*PI*DIST_REF*DIST_REF;
+        }else if(puissance_moyenne < 20000){
+        	puissance_source = 0;
+        }
+
+        if(puissance_moyenne >0)
+
+
+
         //computes the speed to give to the motors
         //distance_cm is modified by the image processing thread
-        speed = pi_regulator(get_distance_cm(), GOAL_DISTANCE);
+        speed = pi_regulator(calcul_distance(puissance_moyenne, puissance_source), DIST_REF);
 
         //computes a correction factor to let the robot rotate to be in front of the line
         int angle = get_line_position();
@@ -658,11 +681,24 @@ static THD_FUNCTION(PiRegulator, arg) {
         	speed_correction = 0;
         }*/
 
-        //applies the speed from the PI regulator and the correction for the rotation
-		right_motor_set_speed(speed - ROTATION_COEFF * speed_correction);
-		left_motor_set_speed(speed + ROTATION_COEFF * speed_correction);
-        //left_motor_set_speed(0);
-        //right_motor_set_speed(0);
+        distance_source = 0.3;
+        //chprintf((BaseSequentialStream *) &SDU1,"puissance_moyenne = %d /n", puissance_moyenne);
+        chprintf((BaseSequentialStream *) &SDU1,"puissance_source = %d, DISTANCE = %d \n", puissance_source, distance_source);
+        //chprintf((BaseSequentialStream *) &SDU1,"DISTANCE  = %d \n", calcul_distance());
+        //chprintf((BaseSequentialStream *) &SDU1,"calcul_moyenne(FRONT) = %d\n,calcul_moyenne(LEFT) = %d, calcul_moyenne(BACK) = %d, calcul_moyenne(RIGHT) = %d\n",calcul_moyenne(FRONT), calcul_moyenne(LEFT),calcul_moyenne(BACK),calcul_moyenne(RIGHT));
+
+        		if(puissance_moyenne > 100000 /*&& get_max_norm_index() > MIN_FREQ*/ ) // MODULER VALEUR
+        {
+        	//applies the speed from the PI regulator and the correction for the rotation
+        	//right_motor_set_speed(/*speed*/ - ROTATION_COEFF * speed_correction);
+        	//left_motor_set_speed(/*speed*/ + ROTATION_COEFF * speed_correction);
+        	// AAAA chprintf((BaseSequentialStream *) &SDU1,"speed_correction = %d \n", speed_correction);
+
+        }else{
+        	left_motor_set_speed(0);
+        	right_motor_set_speed(0);
+        	// AAAAA chprintf((BaseSequentialStream *) &SDU1,"EN PLACE \n");
+        }
         //100Hz
         chThdSleepUntilWindowed(time, time + MS2ST(10));
     }

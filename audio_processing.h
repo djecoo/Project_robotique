@@ -62,6 +62,6 @@ float* get_audio_buffer_ptr(BUFFER_NAME_t name);
 
 int get_max_front_moyenne(void);
 
-void calcul_distance(void);
+double calcul_distance(int32_t intensite_moyenne, int32_t puissance_source);
 
 #endif /* AUDIO_PROCESSING_H */

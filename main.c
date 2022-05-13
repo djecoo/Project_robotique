@@ -18,7 +18,8 @@
 #include <fft.h>
 #include <communications.h>
 #include <arm_math.h>
-#include<capture_ir.h>
+#include <capture_ir.h>
+#include <pi_regulator.h>
 
 
 
@@ -33,6 +34,8 @@ messagebus_t bus;
 //initialise bus pour ir ??-> a verifier
 MUTEX_DECL(bus_lock);
 CONDVAR_DECL(bus_condvar);
+
+
 
 static void serial_start(void)
 {

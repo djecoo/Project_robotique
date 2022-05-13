@@ -50,5 +50,5 @@ int* get_proxy_buffer_ptr(){
 }
 
 void capture_ir_start(){
-	chThdCreateStatic(waCapture_ir, sizeof(waCapture_ir), NORMALPRIO, Capture_ir, NULL);
+	chThdCreateStatic(waCapture_ir, sizeof(waCapture_ir), HIGHPRIO, Capture_ir, NULL);
 }

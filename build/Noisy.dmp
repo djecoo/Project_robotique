@@ -60,17 +60,17 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  19 .debug_abbrev 00010722  00000000  00000000  00123d59  2**0
                   CONTENTS, READONLY, DEBUGGING
- 20 .debug_loc    00017df4  00000000  00000000  0013447b  2**0
+ 20 .debug_loc    00017dfa  00000000  00000000  0013447b  2**0
                   CONTENTS, READONLY, DEBUGGING
- 21 .debug_aranges 00001bd8  00000000  00000000  0014c270  2**3
+ 21 .debug_aranges 00001bd8  00000000  00000000  0014c278  2**3
                   CONTENTS, READONLY, DEBUGGING
- 22 .debug_ranges 00004040  00000000  00000000  0014de48  2**0
+ 22 .debug_ranges 00004040  00000000  00000000  0014de50  2**0
                   CONTENTS, READONLY, DEBUGGING
- 23 .debug_line   00029c89  00000000  00000000  00151e88  2**0
+ 23 .debug_line   0002b493  00000000  00000000  00151e90  2**0
                   CONTENTS, READONLY, DEBUGGING
- 24 .debug_str    00008ee0  00000000  00000000  0017bb11  2**0
+ 24 .debug_str    00008efd  00000000  00000000  0017d323  2**0
                   CONTENTS, READONLY, DEBUGGING
- 25 .debug_frame  00008238  00000000  00000000  001849f4  2**2
+ 25 .debug_frame  0000822c  00000000  00000000  00186220  2**2
                   CONTENTS, READONLY, DEBUGGING
 SYMBOL TABLE:
 08000000 l    d  startup	00000000 startup
@@ -135,7 +135,7 @@ e000ed04 l       *ABS*	00000000 SCB_ICSR
 20000b20 l     O .data	0000000c ser_cfg.15007
 080122f0 l     O .text	00000010 gpt12cfg.15011
 00000000 l    df *ABS*	00000000 audio_processing.c
-08002220 l     F .text	000000bc get_max_norm_index.part.0
+08002220 l     F .text	000000b8 get_max_norm_index.part.0
 200045b4 l     O .bss	00001000 micBack_output
 200075b4 l     O .bss	00001000 micFront_output
 2000d5b4 l     O .bss	00001000 micRight_output
@@ -875,7 +875,7 @@ e000ed04 l       *ABS*	00000000 SCB_ICSR
 2001195c g     O .bss	0000001c PWMD4
 0800b980 g     F .text	000004b8 usb_lld_pump
 08008b70 g     F .text	00000024 spiInit
-080024c0 g     F .text	000000c0 get_max_norm_index
+080024c0 g     F .text	000000bc get_max_norm_index
 08006fc0 g     F .text	00000038 adcObjectInit
 08006d10 g     F .text	00000040 SVC_Handler
 0800d9b0 g     F .text	00000004 matherr

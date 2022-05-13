@@ -44,42 +44,6 @@ static uint8_t coeff_capteur[8] = {0,0,0,0,0,0,0}; // en % -> /100
 
 
 
-#define MIN_VALUE_THRESHOLD	10000
-#define VALEUR_DETECTION_CHOC 200
-#define DISTANCE_REFERENCE 40000 // valeur équivalente à 6cm
-#define MIN_FREQ		10	//we don't analyze before this index to not use resources for nothing
-#define FREQ_FORWARD	16	//250Hz
-#define FREQ_LEFT		19	//296Hz
-#define FREQ_RIGHT		23	//359HZ
-#define FREQ_BACKWARD	26	//406Hz
-#define MAX_FREQ		2*FFT_SIZE	//we don't analyze after this index to not use resources for nothing
-
-#define FREQ_FORWARD_L		(FREQ_FORWARD-1)
-#define FREQ_FORWARD_H		(FREQ_FORWARD+1)
-#define FREQ_LEFT_L			(FREQ_LEFT-1)
-#define FREQ_LEFT_H			(FREQ_LEFT+1)
-#define FREQ_RIGHT_L		(FREQ_RIGHT-1)
-#define FREQ_RIGHT_H		(FREQ_RIGHT+1)
-#define FREQ_BACKWARD_L		(FREQ_BACKWARD-1)
-#define FREQ_BACKWARD_H		(FREQ_BACKWARD+1)
-
-/*#define PID_ERROR_THRESHOLD	0
-#define ROTATION_THRESHOLD 	0
-#define ROTATION_COEFF		1000
-#define ANGLE_ERROR_COEFF	10
-#define PID_KP 			800
-#define PID_KI			3.5*/
-
-#define NBR_ECHANTILLON 4
-#define NBR_MICRO 4
-#define VALEUR_MINIMUM 1500
-#define MARGE_ANGLE 0.12 //%
-#define VALEUR_MIN_PROXY 200
-
-#define DIST_REF 0.07 //[m]
-
-#define PERCENT
-
 
 /*
 *	Simple function used to detect the highest value in a buffer
@@ -203,10 +167,10 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 		int max_left = 0.98*get_max_norm_index(LEFT_OUTPUT).max;
 		int max_front = get_max_norm_index(FRONT_OUTPUT).max;
 		int max_back = 0.98*get_max_norm_index(BACK_OUTPUT).max; //facteur de correction pour faiblesse du micro
-		int norm_right = get_max_norm_index(RIGHT_OUTPUT).norm;
-		int norm_left = get_max_norm_index(LEFT_OUTPUT).norm;
-		int norm_front = get_max_norm_index(FRONT_OUTPUT).norm;
-		int norm_back = get_max_norm_index(BACK_OUTPUT).norm;
+		//int norm_right = get_max_norm_index(RIGHT_OUTPUT).norm;
+		//int norm_left = get_max_norm_index(LEFT_OUTPUT).norm;
+		//int norm_front = get_max_norm_index(FRONT_OUTPUT).norm;
+		//int norm_back = get_max_norm_index(BACK_OUTPUT).norm;
 
 		//chprintf((BaseSequentialStream *) &SDU1,"max_right  = %d max_norm_index_right = %d\n,max_left = %d max_norm_index_left = %d \n",max_right, norm_right,max_left,norm_left);
 		//chprintf((BaseSequentialStream *) &SDU1,"Max_front  = %d max_norm_index_front = %d\n,max_back = %d max_norm_index_back = %d \n\n\n",max_front,norm_front,max_back,norm_back);
@@ -225,35 +189,18 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 
 
 
-			int moyenne_right = calcul_moyenne(RIGHT);
-			int moyenne_left = calcul_moyenne(LEFT);
-			int moyenne_front = calcul_moyenne(FRONT);
-			int moyenne_back = calcul_moyenne(BACK);
+			int16_t moyenne_right = calcul_moyenne(RIGHT);
+			int16_t moyenne_left = calcul_moyenne(LEFT);
+			int16_t moyenne_front = calcul_moyenne(FRONT);
+			int16_t moyenne_back = calcul_moyenne(BACK);
 
 			led_direction(moyenne_right,moyenne_left,moyenne_front,moyenne_back);
 
 			calcul_angle(moyenne_right,moyenne_left,moyenne_front,moyenne_back);
 			cote_max = RIGHT;
 
-			//calcul_distance(puissance_moyenne);
-			//chprintf((BaseSequentialStream*)&SDU1,"moyenne_front = %d \n",moyenne_front);
-			//chprintf((BaseSequentialStream*)&SDU1,"moyenne_right = %d \n, moyenne_left = %d \n, moyenne_front = %d \n,moyenne_back = %d \n\n\n\n ",moyenne_right,moyenne_left,moyenne_front,moyenne_back);
-			//chprintf((BaseSequentialStream*)&SDU1,"angle = %d \n",angle);
-			// APPEL DU PID POUR LOCALISER DOU VIENT LE SON ET TOURNER EN FONCTION
 
-			//chprintf((BaseSequentialStream*)&SDU1,"moyenne_right  = %d \n " , moyenne_right);
-			/*int speed_correction = pi_regulator(max_right, max_left, max_front, max_back);
-			//chprintf((BaseSequentialStream *)&SD3, "max_front = %d \n", max_front);
-			//if the sound is nearly in front of the camera, don't rotate
-			if(abs(speed_correction) < ROTATION_THRESHOLD){ // SI ON EST DEJA EN FACE DU SON NE RIEN FAIRE
-				speed_correction = 0;
-			}
 
-			//applies the speed from the PI regulator and the correction for the rotation
-			right_motor_set_speed(ROTATION_COEFF * speed_correction);
-			left_motor_set_speed(- ROTATION_COEFF * speed_correction);
-
-		*/
 		}
 
 		nb_samples = 0;
@@ -375,9 +322,6 @@ void calcul_angle(int max_right,int max_left,int max_front,int max_back){
 		angle = 292;
 		return;
 	}
-
-
-
 
 return;
 
@@ -501,85 +445,6 @@ void led_direction(int max_right,int max_left,int max_front,int max_back){
 	return;
 	}
 
-/*int pi_regulator(int max_right, int max_left, int max_front, int max_back){ // PID
-
-	float error = 0; // DIFFERENCE
-	float angle_correction = 0; // DIFFERENCE D'ANGLE ENTRE ROBOT / SON
-
-
-
-	if (max_right > max_left && max_right > max_front && max_right > max_back) // TEST SI MICRO DROIT PLUS PROCHE
-	{
-		error = (max_front-max_back)/(max_front+max_left+max_back+max_right); // TEST DE QUEL COTE EST SON PAR RAPPORT AU MICRO DROIT
-		angle_correction = -PI/2 + ANGLE_ERROR_COEFF* error; // CALCUL DE L'ANGLE PAR RAPPORT AU ROBOT, COEFF ANGLE_ERROR A CHANGER POUR OBTENIR VRAIE VALEUR D'ORDRE
-
-		if(fabs(angle_correction) < PID_ERROR_THRESHOLD){ // SI ANGLE TROP FAIBLE RIEN FAIRE
-				return 0;
-
-		}
-		chprintf((BaseSequentialStream *) &SDU1,"max_RIGHT  = %d max_front = %d\n,max_left = %d max_back = %d \n",max_right, max_front ,max_left,max_back);
-		chprintf((BaseSequentialStream *) &SDU1,"PID_KP * angle_correction  = %d angle_correction = %d, error = %d\n",PID_KP * angle_correction, angle_correction, error);
-
-		return (int16_t) PID_KP * angle_correction; // RETOUNER VALEUR POUR CHANGER VITESSE MOTEUR, KP A MODULER
-	}
-
-	if (max_back > max_left && max_back > max_front && max_back > max_right)
-	{
-			error = (max_right-max_left)/(max_front+max_left+max_back+max_right);
-			if(error > 0){
-				angle_correction = -PI + ANGLE_ERROR_COEFF* error;
-			}
-
-			if(error < 0){
-				angle_correction = PI - ANGLE_ERROR_COEFF* error;
-			}
-
-			if(fabs(angle_correction) < PID_ERROR_THRESHOLD){
-					return 0;
-
-			}
-
-			chprintf((BaseSequentialStream *) &SDU1,"max_right  = %d max_front = %d\n,max_left = %d max_BACK = %d \n",max_right, max_front ,max_left,max_back);
-			chprintf((BaseSequentialStream *) &SDU1,"PID_KP * angle_correction  = %d angle_correction = %d, error = %d\n",PID_KP * angle_correction, angle_correction, error);
-
-			return (int16_t) PID_KP * angle_correction;
-	}
-
-	if (max_left > max_right && max_left > max_front && max_left > max_back)
-	{
-			error = (max_front-max_back)/(max_front+max_left+max_back+max_right);
-			angle_correction = PI/2 - ANGLE_ERROR_COEFF* error;
-
-			if(fabs(angle_correction) < PID_ERROR_THRESHOLD){
-					return 0;
-
-			}
-
-			chprintf((BaseSequentialStream *) &SDU1,"max_right  = %d max_front = %d\n,max_LEFT = %d max_back = %d \n",max_right, max_front ,max_left,max_back);
-			chprintf((BaseSequentialStream *) &SDU1,"PID_KP * angle_correction  = %d angle_correction = %d, error = %d\n",PID_KP * angle_correction, angle_correction, error);
-
-			return (int16_t) PID_KP * angle_correction;
-	}
-
-	if (max_front > max_right && max_front > max_left && max_front > max_back)
-	{
-			error = (max_left-max_right)/(max_front+max_left+max_back+max_right);
-			angle_correction = 0 +ANGLE_ERROR_COEFF* error;
-
-			if(fabs(angle_correction) < PID_ERROR_THRESHOLD){
-						return 0;
-
-			}
-
-			chprintf((BaseSequentialStream *) &SDU1,"max_right  = %d max_FRONT = %d\n,max_left = %d max_back = %d \n",max_right, max_front ,max_left,max_back);
-			chprintf((BaseSequentialStream *) &SDU1,"PID_KP * angle_correction  = %d angle_correction = %d, error = %d\n",PID_KP * angle_correction, angle_correction, error);
-
-			return (int16_t) PID_KP * angle_correction;
-	}
-
-	return 0;
-}*/
-
 
 void echantillone_distance(valeur){
 	reference = (int)valeur;
@@ -604,176 +469,7 @@ float get_distance_cm(void){
 }
 
 
-//simple PI regulator implementation
-int16_t pi_regulator(float distance, float goal){
 
-	float error = 0;
-	float speed = 0;
-
-	static float sum_error = 0;
-
-	if(distance){
-		error = distance - goal;
-	}else{
-		error = 0;
-	}
-
-
-	//disables the PI regulator if the error is to small
-	//this avoids to always move as we cannot exactly be where we want and
-	//the camera is a bit noisy
-	if(fabs(error) < ERROR_THRESHOLD){
-		return 0;
-	}
-
-	sum_error += error;
-
-	//we set a maximum and a minimum for the sum to avoid an uncontrolled growth
-	if(sum_error > MAX_SUM_ERROR){
-		sum_error = MAX_SUM_ERROR;
-	}else if(sum_error < -MAX_SUM_ERROR){
-		sum_error = -MAX_SUM_ERROR;
-	}
-
-	speed = KP * error;// + KI * sum_error;
-
-    return (int16_t)speed;
-}
-
-static THD_WORKING_AREA(waPiRegulator, 256);
-static THD_FUNCTION(PiRegulator, arg) {
-
-    chRegSetThreadName(__FUNCTION__);
-    (void)arg;
-
-    systime_t time;
-    float correction_proxy = 0;
-    int16_t speed = 0;
-    int16_t speed_correction = 0;
-    int32_t puissance_moyenne = 0;
-    int16_t frequence_max = 0;
-    int32_t puissance_source = 0;
-    double distance_source = 0;
-
-
-
-    while(1){
-        time = chVTGetSystemTime();
-
-
-        puissance_moyenne = (calcul_moyenne(FRONT)+calcul_moyenne(LEFT)+calcul_moyenne(BACK)+calcul_moyenne(RIGHT))/4;
-
-        if(puissance_moyenne > 20000 && puissance_source == 0){ // calcul puissance si il y a une source et si pas identifiee, à moduler
-        	puissance_source = puissance_moyenne*4*PI*DIST_REF*DIST_REF;
-        }else if(puissance_moyenne < 20000){
-        	puissance_source = 0;
-        }
-
-        if(puissance_source > 0){
-        	distance_source = sqrt(((double)puissance_source)/(((double)puissance_moyenne)*4*3.1415) );
-        	distance_source = calcul_distance(puissance_moyenne, puissance_source);
-        }
-
-        //computes the speed to give to the motors
-        //distance_cm is modified by the image processing thread
-        speed = pi_regulator(calcul_distance(puissance_moyenne, puissance_source), DIST_REF);
-
-        //chprintf((BaseSequentialStream *) &SDU1,"speed  = %d, DISTANCE = %lf \n", speed, distance_source);
-
-        //computes a correction factor to let the robot rotate to be in front of the line
-        int angle = get_line_position();
-
-        if (angle >180)
-        	angle = (angle - 360);
-        speed_correction = angle;
-
-
-        //if the line is nearly in front of the camera, don't rotate
-       /* if(abs(speed_correction) < ROTATION_THRESHOLD){
-        	speed_correction = 0;
-        }*/
-
-
-        //chprintf((BaseSequentialStream *) &SDU1,"puissance_moyenne = %d /n", puissance_moyenne);
-        //chprintf((BaseSequentialStream *) &SDU1,"DISTANCE = %lf \n", distance_source);
-        //chprintf((BaseSequentialStream *) &SDU1,"DISTANCE  = %d \n", calcul_distance());
-        //chprintf((BaseSequentialStream *) &SDU1,"calcul_moyenne(FRONT) = %d\n,calcul_moyenne(LEFT) = %d, calcul_moyenne(BACK) = %d, calcul_moyenne(RIGHT) = %d\n",calcul_moyenne(FRONT), calcul_moyenne(LEFT),calcul_moyenne(BACK),calcul_moyenne(RIGHT));
-
-        DIRECTION_ROBOT direction = calcul_direction(speed - ROTATION_COEFF * speed_correction,speed + ROTATION_COEFF * speed_correction);
-
-        m_a_j_coeff_catpeurs(direction);
-
-
-        int* bufferProxy = get_proxy_buffer_ptr();
-        for(uint8_t i = 0; i<8 ;i++){
-        	bufferProxy[i] *= (coeff_capteur[i]/100);
-         }
-
-        		if(puissance_moyenne > VALEUR_MINIMUM && direction == ARRET/*&& get_max_norm_index() > MIN_FREQ*/ ) // MODULER VALEUR
-        {
-        	//applies the speed from the PI regulator and the correction for the rotation
-        	right_motor_set_speed(speed - ROTATION_COEFF * speed_correction);
-        	left_motor_set_speed(speed + ROTATION_COEFF * speed_correction);
-        	// AAAA chprintf((BaseSequentialStream *) &SDU1,"speed_correction = %d \n", speed_correction);
-
-
-
-        }else if (puissance_moyenne > VALEUR_MINIMUM){
-        	int max_buffer =0;
-        	uint8_t norme_max_buffer = 0;
-        	//200 valeur detection choc, 3920 valeur max
-        	for(uint8_t i =0; i<8;i++){
-        		if(bufferProxy[i] > max_buffer){
-        			max_buffer = bufferProxy[i];
-        			norme_max_buffer = i;
-        		}
-        	}
-        	if(max_buffer <VALEUR_DETECTION_CHOC){ //pas de correction
-        		right_motor_set_speed(speed - ROTATION_COEFF * speed_correction);
-        		left_motor_set_speed(speed + ROTATION_COEFF * speed_correction);
-
-        	}else{
-        		//parametre roation proxy entre 1 et 10 -> determine l'urgence de la rotation
-        		correction_proxy = (1+(((max_buffer-VALEUR_DETECTION_CHOC)*10)/(3920-VALEUR_DETECTION_CHOC)));
-        		int moyenne_supp = 0;
-        		int moyenne_inf = 0;
-        		/*//on determine la moyenne des capteurs à droite et à gauche pour déterminer le sens de la rotation->le sens de correction_proxy
-        			if(norme_max_erreur >=2 && moyenne_inf !=0)
-        				moyenne_inf = (bufferProxy[norme_max_buffer-1]+bufferProxy[norme_max_buffer-2])/2;
-        			if(norme_max_erreur <=5 && moyenne_supp!=0)
-        				moyenne_supp = (bufferProxy[norme_max_buffer+1]+bufferProxy[norme_max_buffer+2])/2;
-        			if(norme_max_erreur == 1){
-        				moyenne_inf = (bufferProxy[0]+bufferProxy[7])/2;
-        			}else if(norme_max_erreur == 0){
-        				moyenne_inf = (bufferProxy[6]+bufferProxy[7])/2;
-        			}
-        			if(norme_max_erreur == 7){
-        				moyenne_supp = (bufferProxy[0]+bufferProxy[1])/2;
-        			}else if(norme_max_erreur == 5){
-        				moyenne_suppp = (bufferProxy[0]+bufferProxy[7])/2;
-        			}*/
-
-        		//Ou alors on determine avec le sens de de speed_correction
-
-
-        		right_motor_set_speed(speed - ROTATION_COEFF * speed_correction*correction_proxy);
-        		left_motor_set_speed(speed + ROTATION_COEFF * speed_correction*correction_proxy);
-        	}
-
-
-        }else{
-        	left_motor_set_speed(0);
-        	right_motor_set_speed(0);
-        	// AAAAA chprintf((BaseSequentialStream *) &SDU1,"EN PLACE \n");
-        }
-        //100Hz
-        chThdSleepUntilWindowed(time, time + MS2ST(10));
-    }
-}
-
-void pi_regulator_start(){
-	chThdCreateStatic(waPiRegulator, sizeof(waPiRegulator), NORMALPRIO, PiRegulator, NULL);
-}
 
 DIRECTION_ROBOT calcul_direction(int vit_droit, int vit_gauche ){
 	int borne_gauche_supp = 1.1*vit_gauche;
@@ -830,7 +526,7 @@ DIRECTION_ROBOT calcul_direction(int vit_droit, int vit_gauche ){
 
 }
 
-void m_a_j_coeff_catpeurs(direction){
+void m_a_j_coeff_catpeurs(DIRECTION_ROBOT direction){
 	if(direction == DEVANT){
 		coeff_capteur[0] = 100;
 		coeff_capteur[1] = 60;
@@ -900,5 +596,6 @@ void m_a_j_coeff_catpeurs(direction){
 		coeff_capteur[7] = 0;
 	}
 }
+
 
 

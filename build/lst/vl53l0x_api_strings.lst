@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
   55 0012 0646     		mov	r6, r0
   56              		.loc 1 55 0
   57 0014 FFF7FEFF 		bl	VL53L0X_get_info_from_device
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 2
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 2
 
 
   58              	.LVL3:
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  112              		.size	VL53L0X_check_part_used, .-VL53L0X_check_part_used
  113              		.section	.text.VL53L0X_get_device_info,"ax",%progbits
  114              		.align	1
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 3
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 3
 
 
  115              		.p2align 4,,15
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  169 002e 2060     		str	r0, [r4]	@ unaligned
  170 0030 97F804C0 		ldrb	ip, [r7, #4]	@ zero_extendqisi2
  171 0034 3868     		ldr	r0, [r7]
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 4
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 4
 
 
  172 0036 6160     		str	r1, [r4, #4]	@ unaligned
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  226 0082 0BD0     		beq	.L16
  227              		.loc 1 90 0
  228 0084 0C4B     		ldr	r3, .L26+12
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 5
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 5
 
 
  229 0086 07CB     		ldmia	r3!, {r0, r1, r2}
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  283              		.loc 1 125 0
  284              		.cfi_startproc
  285              		@ args = 0, pretend = 0, frame = 8
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 6
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 6
 
 
  286              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  340              		.loc 1 200 0
  341 003e 019A     		ldr	r2, [sp, #4]
  342 0040 2B68     		ldr	r3, [r5]
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 7
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 7
 
 
  343 0042 9A42     		cmp	r2, r3
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  397 0084 2061     		str	r0, [r4, #16]	@ unaligned
  398 0086 6161     		str	r1, [r4, #20]	@ unaligned
  399 0088 A261     		str	r2, [r4, #24]	@ unaligned
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 8
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 8
 
 
  400              		.loc 1 162 0
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  454              		.loc 1 156 0
  455 00cc 204E     		ldr	r6, .L55+32
  456              	.L53:
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 9
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 9
 
 
  457              		.loc 1 168 0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  511 0110 164E     		ldr	r6, .L55+60
  512 0112 0FCE     		ldmia	r6!, {r0, r1, r2, r3}
  513              	.LVL48:
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 10
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 10
 
 
  514 0114 2060     		str	r0, [r4]	@ unaligned
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  568              	.LFB6:
  569              		.loc 1 204 0
  570              		.cfi_startproc
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 11
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 11
 
 
  571              		@ args = 0, pretend = 0, frame = 8
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  625              		.cfi_restore_state
  626              		.loc 1 211 0
  627 0038 164D     		ldr	r5, .L71+8
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 12
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 12
 
 
  628 003a 07CD     		ldmia	r5!, {r0, r1, r2}
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  682              	.L58:
  683              		.loc 1 236 0
  684 007a 0B4A     		ldr	r2, .L71+28
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 13
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 13
 
 
  685 007c 03CA     		ldmia	r2!, {r0, r1}
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  739 0008 0193     		str	r3, [sp, #4]
  740              	.LVL69:
  741              		.loc 1 251 0
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 14
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 14
 
 
  742 000a 6330     		adds	r0, r0, #99
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  796 0045 B9       		.byte	(.L74-.L76)/2
  797 0046 B9       		.byte	(.L74-.L76)/2
  798 0047 B9       		.byte	(.L74-.L76)/2
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 15
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 15
 
 
  799 0048 B9       		.byte	(.L74-.L76)/2
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  853              		.loc 1 253 0
  854 007c 4A4B     		ldr	r3, .L102+4
  855 007e 03CB     		ldmia	r3!, {r0, r1}
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 16
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 16
 
 
  856              	.LVL71:
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  910              	.L78:
  911              		.loc 1 313 0
  912 00c8 3A4E     		ldr	r6, .L102+16
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 17
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 17
 
 
  913 00ca 0FCE     		ldmia	r6!, {r0, r1, r2, r3}
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  967              		.loc 1 291 0
  968 0114 B8E7     		b	.L94
  969              	.LVL82:
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 18
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 18
 
 
  970              	.L83:
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  1024 0158 6160     		str	r1, [r4, #4]	@ unaligned
  1025 015a A260     		str	r2, [r4, #8]	@ unaligned
  1026              		.loc 1 283 0
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 19
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 19
 
 
  1027 015c 94E7     		b	.L94
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  1081              	.L101:
  1082              		.loc 1 332 0
  1083 01a0 FFF7FEFF 		bl	__stack_chk_fail
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 20
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 20
 
 
  1084              	.LVL96:
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  1138 0008 0193     		str	r3, [sp, #4]
  1139              	.LVL98:
  1140              		.loc 1 341 0
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 21
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 21
 
 
  1141 000a 0228     		cmp	r0, #2
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  1195              	.L113:
  1196              		.loc 1 378 0
  1197 0054 019A     		ldr	r2, [sp, #4]
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 22
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 22
 
 
  1198 0056 2B68     		ldr	r3, [r5]
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  1252 0094 68000000 		.word	.LC51
  1253 0098 10000000 		.word	.LC46
  1254 009c 58000000 		.word	.LC50
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 23
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 23
 
 
  1255 00a0 00000000 		.word	.LC45
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  1309 0022 A260     		str	r2, [r4, #8]	@ unaligned
  1310              		.loc 1 384 0
  1311 0024 0020     		movs	r0, #0
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 24
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 24
 
 
  1312              	.L122:
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  1366 0058 1288     		ldrh	r2, [r2]	@ unaligned
  1367 005a 2060     		str	r0, [r4]	@ unaligned
  1368 005c 2281     		strh	r2, [r4, #8]	@ unaligned
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 25
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 25
 
 
  1369 005e 6160     		str	r1, [r4, #4]	@ unaligned
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  1423 0006 2B68     		ldr	r3, [r5]
  1424 0008 0193     		str	r3, [sp, #4]
  1425              	.LVL127:
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 26
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 26
 
 
  1426 000a 1446     		mov	r4, r2
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  1480              	.L139:
  1481              		.loc 1 433 0
  1482 0050 1C4E     		ldr	r6, .L148+12
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 27
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 27
 
 
  1483 0052 0FCE     		ldmia	r6!, {r0, r1, r2, r3}
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  1537 009c C7E7     		b	.L144
  1538              	.LVL139:
  1539              	.L136:
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 28
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 28
 
 
  1540              		.loc 1 456 0
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  1582      616C7565 
  1582      20666F75 
  1582      6E6400
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 29
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 29
 
 
  1583 005b 00       		.space	1
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  1606      666C6F77 
  1607 0117 00       		.space	1
  1608              	.LC18:
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 30
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 30
 
 
  1609 0118 52616E67 		.ascii	"Range Algo Overlow Error\000"
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  1635      414C2052 
  1635      41544520 
  1635      46494E41 
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 31
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 31
 
 
  1635      4C205241 
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  1660      6C696420 
  1660      70617261 
  1660      6D657465 
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 32
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 32
 
 
  1660      72732065 
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  1685 0110 436F6E74 		.ascii	"Control Interface Error\000"
  1685      726F6C20 
  1685      496E7465 
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 33
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 33
 
 
  1685      72666163 
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  1710              	.LC49:
  1711 0048 52554E4E 		.ascii	"RUNNING State\000"
  1711      494E4720 
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 34
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 34
 
 
  1711      53746174 
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  1744              	.LC55:
  1745 0010 50524520 		.ascii	"PRE RANGE\000"
  1745      52414E47 
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 35
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 35
 
 
  1745      4500
@@ -2049,19 +2049,19 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  1748      4E474500 
  1749              		.text
  1750              	.Letext0:
- 1751              		.file 2 "c:\\robotique\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi-7-2017-q4-major-win32\\arm-none-
- 1752              		.file 3 "c:\\robotique\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi-7-2017-q4-major-win32\\arm-none-
+ 1751              		.file 2 "c:\\users\\adrie\\onedrive\\documents\\eclipse\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi
+ 1752              		.file 3 "c:\\users\\adrie\\onedrive\\documents\\eclipse\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi
  1753              		.file 4 "../lib/e-puck2_main-processor/src/sensors/VL53L0X/Api/core/src/../inc/vl53l0x_types.h"
  1754              		.file 5 "../lib/e-puck2_main-processor/src/sensors/VL53L0X/Api/core/src/../inc/vl53l0x_device.h"
  1755              		.file 6 "../lib/e-puck2_main-processor/src/sensors/VL53L0X/Api/core/src/../inc/vl53l0x_def.h"
- 1756              		.file 7 "c:\\robotique\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi-7-2017-q4-major-win32\\arm-none-
- 1757              		.file 8 "c:\\robotique\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi-7-2017-q4-major-win32\\arm-none-
- 1758              		.file 9 "c:\\robotique\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi-7-2017-q4-major-win32\\lib\\gcc\
- 1759              		.file 10 "c:\\robotique\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi-7-2017-q4-major-win32\\arm-none
- 1760              		.file 11 "c:\\robotique\\lib\\e-puck2_main-processor\\src\\sensors\\vl53l0x\\api\\platform\\inc\\v
- 1761              		.file 12 "c:\\robotique\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi-7-2017-q4-major-win32\\arm-none
+ 1756              		.file 7 "c:\\users\\adrie\\onedrive\\documents\\eclipse\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi
+ 1757              		.file 8 "c:\\users\\adrie\\onedrive\\documents\\eclipse\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi
+ 1758              		.file 9 "c:\\users\\adrie\\onedrive\\documents\\eclipse\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi
+ 1759              		.file 10 "c:\\users\\adrie\\onedrive\\documents\\eclipse\\eclipse_e-puck2\\tools\\gcc-arm-none-eab
+ 1760              		.file 11 "../lib/e-puck2_main-processor/src/sensors/VL53L0X/Api/core/src/../inc/../../platform/inc
+ 1761              		.file 12 "c:\\users\\adrie\\onedrive\\documents\\eclipse\\eclipse_e-puck2\\tools\\gcc-arm-none-eab
  1762              		.file 13 "../lib/e-puck2_main-processor/src/sensors/VL53L0X/Api/core/src/../inc/vl53l0x_api_core.h
- 1763              		.file 14 "c:\\robotique\\eclipse_e-puck2\\tools\\gcc-arm-none-eabi-7-2017-q4-major-win32\\arm-none
+ 1763              		.file 14 "c:\\users\\adrie\\onedrive\\documents\\eclipse\\eclipse_e-puck2\\tools\\gcc-arm-none-eab
  1764              		.section	.debug_info,"",%progbits
  1765              	.Ldebug_info0:
  1766 0000 00130000 		.4byte	0x1300
@@ -2072,7 +2072,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  1771 000c BB0B0000 		.4byte	.LASF260
  1772 0010 0C       		.byte	0xc
  1773 0011 88050000 		.4byte	.LASF261
- 1774 0015 500F0000 		.4byte	.LASF262
+ 1774 0015 CE0D0000 		.4byte	.LASF262
  1775 0019 00000000 		.4byte	.Ldebug_ranges0+0
  1776 001d 00000000 		.4byte	0
  1777 0021 00000000 		.4byte	.Ldebug_line0
@@ -2084,7 +2084,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  1783 0030 03       		.uleb128 0x3
  1784 0031 01       		.byte	0x1
  1785 0032 06       		.byte	0x6
- 1786 0033 770E0000 		.4byte	.LASF2
+ 1786 0033 B20E0000 		.4byte	.LASF2
  1787 0037 02       		.uleb128 0x2
  1788 0038 D80A0000 		.4byte	.LASF1
  1789 003c 02       		.byte	0x2
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  1797 004a 02       		.byte	0x2
  1798 004b 05       		.byte	0x5
  1799 004c C4090000 		.4byte	.LASF4
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 36
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 36
 
 
  1800 0050 02       		.uleb128 0x2
@@ -2109,7 +2109,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  1805 005b 03       		.uleb128 0x3
  1806 005c 02       		.byte	0x2
  1807 005d 07       		.byte	0x7
- 1808 005e 980E0000 		.4byte	.LASF6
+ 1808 005e D30E0000 		.4byte	.LASF6
  1809 0062 02       		.uleb128 0x2
  1810 0063 6A010000 		.4byte	.LASF7
  1811 0067 02       		.byte	0x2
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  1854 00b9 2B090000 		.4byte	.LASF16
  1855 00bd 03       		.byte	0x3
  1856 00be 24       		.byte	0x24
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 37
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 37
 
 
  1857 00bf 50000000 		.4byte	0x50
@@ -2215,10 +2215,10 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  1908 0128 52010000 		.4byte	0x152
  1909 012c 40       		.byte	0x40
  1910 012d 06       		.uleb128 0x6
- 1911 012e D50D0000 		.4byte	.LASF26
+ 1911 012e 100E0000 		.4byte	.LASF26
  1912 0132 06       		.byte	0x6
  1913 0133 75       		.byte	0x75
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 38
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 38
 
 
  1914 0134 AD000000 		.4byte	0xad
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  1968 01a6 40       		.byte	0x40
  1969 01a7 06       		.byte	0x6
  1970 01a8 EA       		.byte	0xea
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 39
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 39
 
 
  1971 01a9 41020000 		.4byte	0x241
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  2025 0218 18       		.byte	0x18
  2026 0219 0A       		.uleb128 0xa
  2027 021a E5010000 		.4byte	.LASF44
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 40
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 40
 
 
  2028 021e 06       		.byte	0x6
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  2082 0294 06       		.byte	0x6
  2083 0295 2A01     		.2byte	0x12a
  2084 0297 C3000000 		.4byte	0xc3
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 41
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 41
 
 
  2085 029b 04       		.byte	0x4
@@ -2414,7 +2414,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  2095 02ac 3201     		.2byte	0x132
  2096 02ae 35030000 		.4byte	0x335
  2097 02b2 0A       		.uleb128 0xa
- 2098 02b3 870F0000 		.4byte	.LASF52
+ 2098 02b3 A40F0000 		.4byte	.LASF52
  2099 02b7 06       		.byte	0x6
  2100 02b8 3301     		.2byte	0x133
  2101 02ba CE000000 		.4byte	0xce
@@ -2426,7 +2426,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  2107 02c7 CE000000 		.4byte	0xce
  2108 02cb 04       		.byte	0x4
  2109 02cc 0A       		.uleb128 0xa
- 2110 02cd C10E0000 		.4byte	.LASF54
+ 2110 02cd FC0E0000 		.4byte	.LASF54
  2111 02d1 06       		.byte	0x6
  2112 02d2 3901     		.2byte	0x139
  2113 02d4 B8000000 		.4byte	0xb8
@@ -2458,14 +2458,14 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  2139 030d 0A       		.uleb128 0xa
  2140 030e 910A0000 		.4byte	.LASF59
  2141 0312 06       		.byte	0x6
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 42
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 42
 
 
  2142 0313 4D01     		.2byte	0x14d
  2143 0315 AD000000 		.4byte	0xad
  2144 0319 16       		.byte	0x16
  2145 031a 0A       		.uleb128 0xa
- 2146 031b F60E0000 		.4byte	.LASF60
+ 2146 031b 310F0000 		.4byte	.LASF60
  2147 031f 06       		.byte	0x6
  2148 0320 5001     		.2byte	0x150
  2149 0322 AD000000 		.4byte	0xad
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  2196 0386 AD000000 		.4byte	0xad
  2197 038a 63       		.byte	0x63
  2198 038b 0A       		.uleb128 0xa
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 43
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 43
 
 
  2199 038c 48010000 		.4byte	.LASF68
@@ -2535,7 +2535,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  2210 03a7 17       		.byte	0x17
  2211 03a8 00       		.byte	0
  2212 03a9 0B       		.uleb128 0xb
- 2213 03aa BF0F0000 		.4byte	.LASF69
+ 2213 03aa DC0F0000 		.4byte	.LASF69
  2214 03ae 06       		.byte	0x6
  2215 03af 6E01     		.2byte	0x16e
  2216 03b1 41030000 		.4byte	0x341
@@ -2574,16 +2574,16 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  2249 03f6 E0000000 		.4byte	0xe0
  2250 03fa 00       		.byte	0
  2251 03fb 0A       		.uleb128 0xa
- 2252 03fc 110F0000 		.4byte	.LASF74
+ 2252 03fc 4C0F0000 		.4byte	.LASF74
  2253 0400 06       		.byte	0x6
  2254 0401 8001     		.2byte	0x180
  2255 0403 B8000000 		.4byte	0xb8
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 44
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 44
 
 
  2256 0407 04       		.byte	0x4
  2257 0408 0A       		.uleb128 0xa
- 2258 0409 F80D0000 		.4byte	.LASF75
+ 2258 0409 330E0000 		.4byte	.LASF75
  2259 040d 06       		.byte	0x6
  2260 040e 8301     		.2byte	0x183
  2261 0410 F6000000 		.4byte	0xf6
@@ -2613,7 +2613,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  2285 0444 AD000000 		.4byte	0xad
  2286 0448 14       		.byte	0x14
  2287 0449 0A       		.uleb128 0xa
- 2288 044a DF0E0000 		.4byte	.LASF80
+ 2288 044a 1A0F0000 		.4byte	.LASF80
  2289 044e 06       		.byte	0x6
  2290 044f 8F01     		.2byte	0x18f
  2291 0451 B8000000 		.4byte	0xb8
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  2310 047c 1C       		.byte	0x1c
  2311 047d 0A       		.uleb128 0xa
  2312 047e 49050000 		.4byte	.LASF84
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 45
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 45
 
 
  2313 0482 06       		.byte	0x6
@@ -2688,7 +2688,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  2357 04e0 CE000000 		.4byte	0xce
  2358 04e4 48       		.byte	0x48
  2359 04e5 0A       		.uleb128 0xa
- 2360 04e6 04100000 		.4byte	.LASF91
+ 2360 04e6 21100000 		.4byte	.LASF91
  2361 04ea 06       		.byte	0x6
  2362 04eb A401     		.2byte	0x1a4
  2363 04ed E0000000 		.4byte	0xe0
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  2367 04f4 A3020000 		.4byte	.LASF92
  2368 04f8 06       		.byte	0x6
  2369 04f9 A701     		.2byte	0x1a7
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 46
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 46
 
 
  2370 04fb E5030000 		.4byte	0x3e5
@@ -2738,7 +2738,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  2404 0545 35030000 		.4byte	0x335
  2405 0549 50       		.byte	0x50
  2406 054a 0A       		.uleb128 0xa
- 2407 054b 830E0000 		.4byte	.LASF98
+ 2407 054b BE0E0000 		.4byte	.LASF98
  2408 054f 06       		.byte	0x6
  2409 0550 BC01     		.2byte	0x1bc
  2410 0552 A9030000 		.4byte	0x3a9
@@ -2758,20 +2758,20 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  2424 0572 0E       		.uleb128 0xe
  2425 0573 86090000 		.4byte	.LASF101
  2426 0577 06       		.byte	0x6
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 47
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 47
 
 
  2427 0578 C201     		.2byte	0x1c2
  2428 057a AD000000 		.4byte	0xad
  2429 057e 3001     		.2byte	0x130
  2430 0580 0E       		.uleb128 0xe
- 2431 0581 AB0E0000 		.4byte	.LASF102
+ 2431 0581 E60E0000 		.4byte	.LASF102
  2432 0585 06       		.byte	0x6
  2433 0586 C401     		.2byte	0x1c4
  2434 0588 AD000000 		.4byte	0xad
  2435 058c 3101     		.2byte	0x131
  2436 058e 0E       		.uleb128 0xe
- 2437 058f 7E0F0000 		.4byte	.LASF103
+ 2437 058f 9B0F0000 		.4byte	.LASF103
  2438 0593 06       		.byte	0x6
  2439 0594 C601     		.2byte	0x1c6
  2440 0596 6D020000 		.4byte	0x26d
@@ -2783,7 +2783,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  2446 05a4 9A010000 		.4byte	0x19a
  2447 05a8 3301     		.2byte	0x133
  2448 05aa 0E       		.uleb128 0xe
- 2449 05ab DF0E0000 		.4byte	.LASF80
+ 2449 05ab 1A0F0000 		.4byte	.LASF80
  2450 05af 06       		.byte	0x6
  2451 05b0 CA01     		.2byte	0x1ca
  2452 05b2 B8000000 		.4byte	0xb8
@@ -2813,12 +2813,12 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  2476 05ea B8000000 		.4byte	0xb8
  2477 05ee 3C01     		.2byte	0x13c
  2478 05f0 0E       		.uleb128 0xe
- 2479 05f1 D10E0000 		.4byte	.LASF107
+ 2479 05f1 0C0F0000 		.4byte	.LASF107
  2480 05f5 06       		.byte	0x6
  2481 05f6 D601     		.2byte	0x1d6
  2482 05f8 E0000000 		.4byte	0xe0
  2483 05fc 4001     		.2byte	0x140
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 48
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 48
 
 
  2484 05fe 0E       		.uleb128 0xe
@@ -2873,12 +2873,12 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  2533 066d E801     		.2byte	0x1e8
  2534 066f FF040000 		.4byte	0x4ff
  2535 0673 0B       		.uleb128 0xb
- 2536 0674 5B0E0000 		.4byte	.LASF116
+ 2536 0674 960E0000 		.4byte	.LASF116
  2537 0678 06       		.byte	0x6
  2538 0679 FE01     		.2byte	0x1fe
  2539 067b AD000000 		.4byte	0xad
  2540 067f 0B       		.uleb128 0xb
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 49
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 49
 
 
  2541 0680 00090000 		.4byte	.LASF117
@@ -2898,7 +2898,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  2555 069e 11       		.uleb128 0x11
  2556 069f A00B0000 		.4byte	.LASF224
  2557 06a3 02       		.uleb128 0x2
- 2558 06a4 0A0F0000 		.4byte	.LASF119
+ 2558 06a4 450F0000 		.4byte	.LASF119
  2559 06a8 08       		.byte	0x8
  2560 06a9 2C       		.byte	0x2c
  2561 06aa 6D000000 		.4byte	0x6d
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  2595 06f4 05       		.uleb128 0x5
  2596 06f5 08       		.byte	0x8
  2597 06f6 08       		.byte	0x8
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 50
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 50
 
 
  2598 06f7 A3       		.byte	0xa3
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  2652 0765 06       		.uleb128 0x6
  2653 0766 140A0000 		.4byte	.LASF131
  2654 076a 0A       		.byte	0xa
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 51
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 51
 
 
  2655 076b 32       		.byte	0x32
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  2709 07d6 94000000 		.4byte	0x94
  2710 07da 0C       		.byte	0xc
  2711 07db 06       		.uleb128 0x6
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 52
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 52
 
 
  2712 07dc CF080000 		.4byte	.LASF139
@@ -3098,7 +3098,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  2746 0820 4A       		.byte	0x4a
  2747 0821 58080000 		.4byte	0x858
  2748 0825 06       		.uleb128 0x6
- 2749 0826 6F0E0000 		.4byte	.LASF145
+ 2749 0826 AA0E0000 		.4byte	.LASF145
  2750 082a 0A       		.byte	0xa
  2751 082b 4B       		.byte	0x4b
  2752 082c 58080000 		.4byte	0x858
@@ -3116,9 +3116,9 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  2764 0844 2B070000 		.4byte	0x72b
  2765 0848 0001     		.2byte	0x100
  2766 084a 17       		.uleb128 0x17
- 2767 084b 760F0000 		.4byte	.LASF148
+ 2767 084b 930F0000 		.4byte	.LASF148
  2768 084f 0A       		.byte	0xa
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 53
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 53
 
 
  2769 0850 51       		.byte	0x51
@@ -3178,10 +3178,10 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  2823 08be C2080000 		.4byte	0x8c2
  2824 08c2 18       		.uleb128 0x18
  2825 08c3 14       		.uleb128 0x14
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 54
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 54
 
 
- 2826 08c4 F10D0000 		.4byte	.LASF152
+ 2826 08c4 2C0E0000 		.4byte	.LASF152
  2827 08c8 08       		.byte	0x8
  2828 08c9 0A       		.byte	0xa
  2829 08ca 75       		.byte	0x75
@@ -3193,7 +3193,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  2835 08d6 E8080000 		.4byte	0x8e8
  2836 08da 00       		.byte	0
  2837 08db 06       		.uleb128 0x6
- 2838 08dc F00E0000 		.4byte	.LASF154
+ 2838 08dc 2B0F0000 		.4byte	.LASF154
  2839 08e0 0A       		.byte	0xa
  2840 08e1 77       		.byte	0x77
  2841 08e2 94000000 		.4byte	0x94
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  2880 092d BA       		.byte	0xba
  2881 092e 49000000 		.4byte	0x49
  2882 0932 0E       		.byte	0xe
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 55
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 55
 
 
  2883 0933 15       		.uleb128 0x15
@@ -3272,7 +3272,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  2911 096a A30B0000 		.4byte	0xba3
  2912 096e 24       		.byte	0x24
  2913 096f 06       		.uleb128 0x6
- 2914 0970 E70F0000 		.4byte	.LASF162
+ 2914 0970 04100000 		.4byte	.LASF162
  2915 0974 0A       		.byte	0xa
  2916 0975 CA       		.byte	0xca
  2917 0976 C70B0000 		.4byte	0xbc7
@@ -3298,20 +3298,20 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  2937 099f 15       		.uleb128 0x15
  2938 09a0 5F757200 		.ascii	"_ur\000"
  2939 09a4 0A       		.byte	0xa
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 56
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 56
 
 
  2940 09a5 D0       		.byte	0xd0
  2941 09a6 94000000 		.4byte	0x94
  2942 09aa 3C       		.byte	0x3c
  2943 09ab 06       		.uleb128 0x6
- 2944 09ac FE0F0000 		.4byte	.LASF164
+ 2944 09ac 1B100000 		.4byte	.LASF164
  2945 09b0 0A       		.byte	0xa
  2946 09b1 D3       		.byte	0xd3
  2947 09b2 E70B0000 		.4byte	0xbe7
  2948 09b6 40       		.byte	0x40
  2949 09b7 06       		.uleb128 0x6
- 2950 09b8 240F0000 		.4byte	.LASF165
+ 2950 09b8 5F0F0000 		.4byte	.LASF165
  2951 09bc 0A       		.byte	0xa
  2952 09bd D4       		.byte	0xd4
  2953 09be F70B0000 		.4byte	0xbf7
@@ -3353,12 +3353,12 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  2989 0a06 15070000 		.4byte	0x715
  2990 0a0a 5C       		.byte	0x5c
  2991 0a0b 06       		.uleb128 0x6
- 2992 0a0c 6E0F0000 		.4byte	.LASF171
+ 2992 0a0c 8B0F0000 		.4byte	.LASF171
  2993 0a10 0A       		.byte	0xa
  2994 0a11 E5       		.byte	0xe5
  2995 0a12 94000000 		.4byte	0x94
  2996 0a16 64       		.byte	0x64
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 57
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 57
 
 
  2997 0a17 00       		.byte	0
@@ -3404,7 +3404,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  3037 0a71 4E0C0000 		.4byte	0xc4e
  3038 0a75 08       		.byte	0x8
  3039 0a76 0A       		.uleb128 0xa
- 3040 0a77 ED0F0000 		.4byte	.LASF176
+ 3040 0a77 0A100000 		.4byte	.LASF176
  3041 0a7b 0A       		.byte	0xa
  3042 0a7c 4002     		.2byte	0x240
  3043 0a7e 4E0C0000 		.4byte	0xc4e
@@ -3418,20 +3418,20 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  3051 0a90 0A       		.uleb128 0xa
  3052 0a91 9B040000 		.4byte	.LASF178
  3053 0a95 0A       		.byte	0xa
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 58
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 58
 
 
  3054 0a96 4302     		.2byte	0x243
  3055 0a98 300E0000 		.4byte	0xe30
  3056 0a9c 14       		.byte	0x14
  3057 0a9d 0A       		.uleb128 0xa
- 3058 0a9e 370F0000 		.4byte	.LASF179
+ 3058 0a9e 720F0000 		.4byte	.LASF179
  3059 0aa2 0A       		.byte	0xa
  3060 0aa3 4602     		.2byte	0x246
  3061 0aa5 94000000 		.4byte	0x94
  3062 0aa9 30       		.byte	0x30
  3063 0aaa 0A       		.uleb128 0xa
- 3064 0aab 530E0000 		.4byte	.LASF180
+ 3064 0aab 8E0E0000 		.4byte	.LASF180
  3065 0aaf 0A       		.byte	0xa
  3066 0ab0 4702     		.2byte	0x247
  3067 0ab2 450E0000 		.4byte	0xe45
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  3108 0b0b 5402     		.2byte	0x254
  3109 0b0d 94000000 		.4byte	0x94
  3110 0b11 50       		.byte	0x50
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 59
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 59
 
 
  3111 0b12 0A       		.uleb128 0xa
@@ -3512,7 +3512,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  3139 0b50 6D0E0000 		.4byte	0xe6d
  3140 0b54 DC02     		.2byte	0x2dc
  3141 0b56 0E       		.uleb128 0xe
- 3142 0b57 300E0000 		.4byte	.LASF192
+ 3142 0b57 6B0E0000 		.4byte	.LASF192
  3143 0b5b 0A       		.byte	0xa
  3144 0b5c 8602     		.2byte	0x286
  3145 0b5e 130C0000 		.4byte	0xc13
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  3165 0b8d 1A       		.uleb128 0x1a
  3166 0b8e 8B060000 		.4byte	0x68b
  3167 0b92 1A       		.uleb128 0x1a
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 60
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 60
 
 
  3168 0b93 9D0B0000 		.4byte	0xb9d
@@ -3597,8 +3597,8 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  3221 0c0d 1F01     		.2byte	0x11f
  3222 0c0f EE080000 		.4byte	0x8ee
  3223 0c13 1C       		.uleb128 0x1c
- 3224 0c14 0E0E0000 		.4byte	.LASF195
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 61
+ 3224 0c14 490E0000 		.4byte	.LASF195
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 61
 
 
  3225 0c18 0C       		.byte	0xc
@@ -3637,7 +3637,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  3258 0c5b 3F01     		.2byte	0x13f
  3259 0c5d 890C0000 		.4byte	0xc89
  3260 0c61 0A       		.uleb128 0xa
- 3261 0c62 AE0F0000 		.4byte	.LASF199
+ 3261 0c62 CB0F0000 		.4byte	.LASF199
  3262 0c66 0A       		.byte	0xa
  3263 0c67 4001     		.2byte	0x140
  3264 0c69 890C0000 		.4byte	0xc89
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  3279 0c89 07       		.uleb128 0x7
  3280 0c8a 5B000000 		.4byte	0x5b
  3281 0c8e 990C0000 		.4byte	0xc99
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 62
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 62
 
 
  3282 0c92 08       		.uleb128 0x8
@@ -3671,13 +3671,13 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  3289 0c9c 5902     		.2byte	0x259
  3290 0c9e 9A0D0000 		.4byte	0xd9a
  3291 0ca2 0A       		.uleb128 0xa
- 3292 0ca3 2A0F0000 		.4byte	.LASF202
+ 3292 0ca3 650F0000 		.4byte	.LASF202
  3293 0ca7 0A       		.byte	0xa
  3294 0ca8 5B02     		.2byte	0x25b
  3295 0caa 9B000000 		.4byte	0x9b
  3296 0cae 00       		.byte	0
  3297 0caf 0A       		.uleb128 0xa
- 3298 0cb0 380E0000 		.4byte	.LASF203
+ 3298 0cb0 730E0000 		.4byte	.LASF203
  3299 0cb4 0A       		.byte	0xa
  3300 0cb5 5C02     		.2byte	0x25c
  3301 0cb7 730B0000 		.4byte	0xb73
@@ -3701,7 +3701,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  3319 0cde 94000000 		.4byte	0x94
  3320 0ce2 48       		.byte	0x48
  3321 0ce3 0A       		.uleb128 0xa
- 3322 0ce4 B40F0000 		.4byte	.LASF207
+ 3322 0ce4 D10F0000 		.4byte	.LASF207
  3323 0ce8 0A       		.byte	0xa
  3324 0ce9 6002     		.2byte	0x260
  3325 0ceb 8D000000 		.4byte	0x8d
@@ -3718,11 +3718,11 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  3336 0d03 6202     		.2byte	0x262
  3337 0d05 15070000 		.4byte	0x715
  3338 0d09 68       		.byte	0x68
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 63
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 63
 
 
  3339 0d0a 0A       		.uleb128 0xa
- 3340 0d0b 450E0000 		.4byte	.LASF210
+ 3340 0d0b 800E0000 		.4byte	.LASF210
  3341 0d0f 0A       		.byte	0xa
  3342 0d10 6302     		.2byte	0x263
  3343 0d12 15070000 		.4byte	0x715
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  3393 0d7f 0A       		.uleb128 0xa
  3394 0d80 81080000 		.4byte	.LASF219
  3395 0d84 0A       		.byte	0xa
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 64
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 64
 
 
  3396 0d85 6C02     		.2byte	0x26c
@@ -3824,7 +3824,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  3436 0ddb EE0D0000 		.4byte	0xdee
  3437 0ddf 00       		.byte	0
  3438 0de0 0A       		.uleb128 0xa
- 3439 0de1 F50F0000 		.4byte	.LASF222
+ 3439 0de1 12100000 		.4byte	.LASF222
  3440 0de5 0A       		.byte	0xa
  3441 0de6 7602     		.2byte	0x276
  3442 0de8 FE0D0000 		.4byte	0xdfe
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  3450 0dfc 1D       		.byte	0x1d
  3451 0dfd 00       		.byte	0
  3452 0dfe 07       		.uleb128 0x7
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 65
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 65
 
 
  3453 0dff 9B000000 		.4byte	0x9b
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  3507 0e74 04       		.byte	0x4
  3508 0e75 620E0000 		.4byte	0xe62
  3509 0e79 07       		.uleb128 0x7
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 66
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 66
 
 
  3510 0e7a 070C0000 		.4byte	0xc07
@@ -3923,7 +3923,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  3529 0ea5 44       		.byte	0x44
  3530 0ea6 D10E0000 		.4byte	0xed1
  3531 0eaa 06       		.uleb128 0x6
- 3532 0eab E20F0000 		.4byte	.LASF228
+ 3532 0eab FF0F0000 		.4byte	.LASF228
  3533 0eaf 0B       		.byte	0xb
  3534 0eb0 45       		.byte	0x45
  3535 0eb1 67060000 		.4byte	0x667
@@ -3958,12 +3958,12 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  3564 0eee 2B050000 		.4byte	.LASF233
  3565 0ef2 0C       		.byte	0xc
  3566 0ef3 63       		.byte	0x63
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 67
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 67
 
 
  3567 0ef4 730B0000 		.4byte	0xb73
  3568 0ef8 23       		.uleb128 0x23
- 3569 0ef9 910F0000 		.4byte	.LASF236
+ 3569 0ef9 AE0F0000 		.4byte	.LASF236
  3570 0efd 01       		.byte	0x1
  3571 0efe A301     		.2byte	0x1a3
  3572 0f00 79010000 		.4byte	0x179
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  3621 0f7f 10020000 		.4byte	.LLST20
  3622 0f83 25       		.uleb128 0x25
  3623 0f84 43030000 		.4byte	.LASF239
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 68
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 68
 
 
  3624 0f88 01       		.byte	0x1
@@ -4052,7 +4052,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  3652 0fcf 6D020000 		.4byte	0x26d
  3653 0fd3 2F030000 		.4byte	.LLST18
  3654 0fd7 25       		.uleb128 0x25
- 3655 0fd8 E10D0000 		.4byte	.LASF243
+ 3655 0fd8 1C0E0000 		.4byte	.LASF243
  3656 0fdc 01       		.byte	0x1
  3657 0fdd 4F01     		.2byte	0x14f
  3658 0fdf 730B0000 		.4byte	0xb73
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  3678 1012 9C       		.byte	0x9c
  3679 1013 4B100000 		.4byte	0x104b
  3680 1017 2A       		.uleb128 0x2a
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 69
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 69
 
 
  3681 1018 79090000 		.4byte	.LASF245
@@ -4087,7 +4087,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  3684 101e 79010000 		.4byte	0x179
  3685 1022 59040000 		.4byte	.LLST16
  3686 1026 2A       		.uleb128 0x2a
- 3687 1027 200E0000 		.4byte	.LASF246
+ 3687 1027 5B0E0000 		.4byte	.LASF246
  3688 102b 01       		.byte	0x1
  3689 102c F5       		.byte	0xf5
  3690 102d 730B0000 		.4byte	0xb73
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  3735 1099 1A0A0000 		.4byte	.LASF249
  3736 109d 01       		.byte	0x1
  3737 109e 7B       		.byte	0x7b
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 70
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 70
 
 
  3738 109f 79010000 		.4byte	0x179
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  3792 1123 79010000 		.4byte	0x179
  3793 1127 42090000 		.4byte	.LLST11
  3794 112b 2E       		.uleb128 0x2e
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 71
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 71
 
 
  3795 112c B50A0000 		.4byte	.LASF254
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  3849 1180 30       		.uleb128 0x30
  3850 1181 01       		.uleb128 0x1
  3851 1182 52       		.byte	0x52
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 72
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 72
 
 
  3852 1183 03       		.uleb128 0x3
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  3906 11e4 2F       		.byte	0x2f
  3907 11e5 B2110000 		.4byte	0x11b2
  3908 11e9 34       		.uleb128 0x34
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 73
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 73
 
 
  3909 11ea 0B010000 		.4byte	.LASF240
@@ -4326,7 +4326,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  3911 11ef 31       		.byte	0x31
  3912 11f0 79010000 		.4byte	0x179
  3913 11f4 34       		.uleb128 0x34
- 3914 11f5 140E0000 		.4byte	.LASF255
+ 3914 11f5 4F0E0000 		.4byte	.LASF255
  3915 11f9 01       		.byte	0x1
  3916 11fa 32       		.byte	0x32
  3917 11fb AD000000 		.4byte	0xad
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  3963 1280 39       		.uleb128 0x39
  3964 1281 46000000 		.4byte	.LBB5
  3965 1285 0A000000 		.4byte	.LBE5-.LBB5
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 74
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 74
 
 
  3966 1289 3A       		.uleb128 0x3a
@@ -4438,13 +4438,13 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  4020 12ee 5C090000 		.4byte	.LASF258
  4021 12f2 5C090000 		.4byte	.LASF258
  4022 12f6 0D       		.byte	0xd
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 75
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 75
 
 
  4023 12f7 35       		.byte	0x35
  4024 12f8 3C       		.uleb128 0x3c
- 4025 12f9 CE0D0000 		.4byte	.LASF259
- 4026 12fd CE0D0000 		.4byte	.LASF259
+ 4025 12f9 090E0000 		.4byte	.LASF259
+ 4026 12fd 090E0000 		.4byte	.LASF259
  4027 1301 0E       		.byte	0xe
  4028 1302 26       		.byte	0x26
  4029 1303 00       		.byte	0
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  4077 002d 00       		.byte	0
  4078 002e 0B       		.uleb128 0xb
  4079 002f 0B       		.uleb128 0xb
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 76
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 76
 
 
  4080 0030 3E       		.uleb128 0x3e
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  4134 0066 00       		.byte	0
  4135 0067 49       		.uleb128 0x49
  4136 0068 13       		.uleb128 0x13
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 77
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 77
 
 
  4137 0069 00       		.byte	0
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  4191 009f 00       		.byte	0
  4192 00a0 00       		.byte	0
  4193 00a1 0E       		.uleb128 0xe
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 78
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 78
 
 
  4194 00a2 0D       		.uleb128 0xd
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  4248 00d8 00       		.byte	0
  4249 00d9 03       		.uleb128 0x3
  4250 00da 0E       		.uleb128 0xe
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 79
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 79
 
 
  4251 00db 3A       		.uleb128 0x3a
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  4305 0111 0D       		.uleb128 0xd
  4306 0112 00       		.byte	0
  4307 0113 03       		.uleb128 0x3
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 80
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 80
 
 
  4308 0114 0E       		.uleb128 0xe
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  4362 014a 03       		.uleb128 0x3
  4363 014b 0E       		.uleb128 0xe
  4364 014c 0B       		.uleb128 0xb
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 81
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 81
 
 
  4365 014d 0B       		.uleb128 0xb
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  4419 0183 13       		.uleb128 0x13
  4420 0184 3F       		.uleb128 0x3f
  4421 0185 19       		.uleb128 0x19
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 82
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 82
 
 
  4422 0186 3C       		.uleb128 0x3c
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  4476 01bc 18       		.uleb128 0x18
  4477 01bd 9742     		.uleb128 0x2117
  4478 01bf 19       		.uleb128 0x19
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 83
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 83
 
 
  4479 01c0 01       		.uleb128 0x1
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  4533 01f8 31       		.uleb128 0x31
  4534 01f9 13       		.uleb128 0x13
  4535 01fa 00       		.byte	0
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 84
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 84
 
 
  4536 01fb 00       		.byte	0
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  4590 0232 02       		.uleb128 0x2
  4591 0233 17       		.uleb128 0x17
  4592 0234 00       		.byte	0
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 85
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 85
 
 
  4593 0235 00       		.byte	0
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  4647 026b 0B       		.uleb128 0xb
  4648 026c 49       		.uleb128 0x49
  4649 026d 13       		.uleb128 0x13
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 86
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 86
 
 
  4650 026e 02       		.uleb128 0x2
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  4704 02a9 49       		.uleb128 0x49
  4705 02aa 13       		.uleb128 0x13
  4706 02ab 00       		.byte	0
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 87
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 87
 
 
  4707 02ac 00       		.byte	0
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  4761 02e3 34       		.uleb128 0x34
  4762 02e4 00       		.byte	0
  4763 02e5 31       		.uleb128 0x31
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 88
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 88
 
 
  4764 02e6 13       		.uleb128 0x13
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  4818 031c 6E       		.uleb128 0x6e
  4819 031d 0E       		.uleb128 0xe
  4820 031e 03       		.uleb128 0x3
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 89
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 89
 
 
  4821 031f 0E       		.uleb128 0xe
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  4875 0063 9F       		.byte	0x9f
  4876 0064 72000000 		.4byte	.LVL135
  4877 0068 76000000 		.4byte	.LVL136
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 90
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 90
 
 
  4878 006c 0100     		.2byte	0x1
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  4932 00e7 51       		.byte	0x51
  4933 00e8 9F       		.byte	0x9f
  4934 00e9 50000000 		.4byte	.LVL131
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 91
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 91
 
 
  4935 00ed 54000000 		.4byte	.LVL132
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  4989 0166 00000000 		.4byte	0
  4990 016a 00000000 		.4byte	0
  4991              	.LLST25:
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 92
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 92
 
 
  4992 016e 00000000 		.4byte	.LVL126
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  5046 0205 0100     		.2byte	0x1
  5047 0207 54       		.byte	0x54
  5048 0208 00000000 		.4byte	0
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 93
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 93
 
 
  5049 020c 00000000 		.4byte	0
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  5103 028a 01       		.uleb128 0x1
  5104 028b 50       		.byte	0x50
  5105 028c 9F       		.byte	0x9f
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 94
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 94
 
 
  5106 028d 68000000 		.4byte	.LVL124
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  5160 031a 50       		.byte	0x50
  5161 031b 68000000 		.4byte	.LVL124
  5162 031f 88000000 		.4byte	.LFE9
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 95
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 95
 
 
  5163 0323 0200     		.2byte	0x2
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  5217 039e 76000000 		.4byte	.LVL107
  5218 03a2 84000000 		.4byte	.LVL108
  5219 03a6 0400     		.2byte	0x4
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 96
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 96
 
 
  5220 03a8 F3       		.byte	0xf3
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  5274 0430 76000000 		.4byte	.LVL107
  5275 0434 84000000 		.4byte	.LVL108
  5276 0438 0100     		.2byte	0x1
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 97
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 97
 
 
  5277 043a 54       		.byte	0x54
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  5331 04c7 CC000000 		.4byte	.LVL77
  5332 04cb E2000000 		.4byte	.LVL78
  5333 04cf 0100     		.2byte	0x1
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 98
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 98
 
 
  5334 04d1 54       		.byte	0x54
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  5388 0565 70010000 		.4byte	.LVL92
  5389 0569 0100     		.2byte	0x1
  5390 056b 54       		.byte	0x54
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 99
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 99
 
 
  5391 056c 70010000 		.4byte	.LVL92
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  5445 05f3 0100     		.2byte	0x1
  5446 05f5 50       		.byte	0x50
  5447 05f6 5A000000 		.4byte	.LVL61
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 100
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 100
 
 
  5448 05fa 62000000 		.4byte	.LVL62
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  5502 0678 44000000 		.4byte	.LVL58
  5503 067c 48000000 		.4byte	.LVL59
  5504 0680 0100     		.2byte	0x1
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 101
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 101
 
 
  5505 0682 51       		.byte	0x51
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  5559 070a 52000000 		.4byte	.LVL32
  5560 070e 5C000000 		.4byte	.LVL33
  5561 0712 0400     		.2byte	0x4
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 102
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 102
 
 
  5562 0714 F3       		.byte	0xf3
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  5616 078f 0400     		.2byte	0x4
  5617 0791 F3       		.byte	0xf3
  5618 0792 01       		.uleb128 0x1
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 103
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 103
 
 
  5619 0793 50       		.byte	0x50
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  5673 0810 4E000000 		.4byte	.LVL31
  5674 0814 0100     		.2byte	0x1
  5675 0816 54       		.byte	0x54
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 104
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 104
 
 
  5676 0817 4E000000 		.4byte	.LVL31
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  5730 08ae 0100     		.2byte	0x1
  5731 08b0 54       		.byte	0x54
  5732 08b1 E0000000 		.4byte	.LVL45
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 105
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 105
 
 
  5733 08b5 F8000000 		.4byte	.LVL46
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  5787 094a 0200     		.2byte	0x2
  5788 094c 30       		.byte	0x30
  5789 094d 9F       		.byte	0x9f
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 106
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 106
 
 
  5790 094e 18000000 		.4byte	.LVL15
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  5844 09e3 58000000 		.4byte	.LFE3
  5845 09e7 0100     		.2byte	0x1
  5846 09e9 57       		.byte	0x57
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 107
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 107
 
 
  5847 09ea 00000000 		.4byte	0
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  5901 0a79 58       		.byte	0x58
  5902 0a7a 00000000 		.4byte	0
  5903 0a7e 00000000 		.4byte	0
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 108
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 108
 
 
  5904              		.section	.debug_aranges,"",%progbits
@@ -6469,8 +6469,8 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  5949 0044 00000000 		.4byte	0
  5950              		.section	.debug_line,"",%progbits
  5951              	.Ldebug_line0:
- 5952 0000 24050000 		.section	.debug_str,"MS",%progbits,1
- 5952      02006603 
+ 5952 0000 A4050000 		.section	.debug_str,"MS",%progbits,1
+ 5952      0200E603 
  5952      00000201 
  5952      FB0E0D00 
  5952      01010101 
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  5954 0000 52656665 		.ascii	"ReferenceSpadType\000"
  5954      72656E63 
  5954      65537061 
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 109
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 109
 
 
  5954      64547970 
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  5976      56637365 
  5976      6C50756C 
  5976      73655065 
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 110
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 110
 
 
  5977              	.LASF208:
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  6001              	.LASF7:
  6002 016a 5F5F696E 		.ascii	"__int32_t\000"
  6002      7433325F 
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 111
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 111
 
 
  6002      7400
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  6026 020b 5F66706F 		.ascii	"_fpos_t\000"
  6026      735F7400 
  6027              	.LASF226:
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 112
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 112
 
 
  6028 0213 5F696D70 		.ascii	"_impure_ptr\000"
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  6052      33325F74 
  6052      00
  6053              	.LASF14:
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 113
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 113
 
 
  6054 02cf 696E7438 		.ascii	"int8_t\000"
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  6078 0375 5F726573 		.ascii	"_result_k\000"
  6078      756C745F 
  6078      6B00
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 114
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 114
 
 
  6079              	.LASF95:
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  6102      6765745F 
  6102      73657175 
  6102      656E6365 
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 115
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 115
 
 
  6103              	.LASF167:
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  6124      50657269 
  6125              	.LASF86:
  6126 0518 52656665 		.ascii	"ReferenceSpadCount\000"
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 116
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 116
 
 
  6126      72656E63 
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  6149 05dd 52616E67 		.ascii	"RangeOffsetMicroMeters\000"
  6149      654F6666 
  6149      7365744D 
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 117
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 117
 
 
  6149      6963726F 
@@ -7018,7 +7018,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  6173      5F737461 
  6173      746500
  6174              	.LASF190:
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 118
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 118
 
 
  6175 068d 5F617465 		.ascii	"_atexit0\000"
@@ -7078,7 +7078,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  6197      74696F6E 
  6198              	.LASF235:
  6199 0745 704C696D 		.ascii	"pLimitCheckString\000"
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 119
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 119
 
 
  6199      69744368 
@@ -7138,7 +7138,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  6223 07ef 5F626173 		.ascii	"_base\000"
  6223      6500
  6224              	.LASF186:
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 120
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 120
 
 
  6225 07f5 5F667265 		.ascii	"_freelist\000"
@@ -7198,7 +7198,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  6249      74617465 
  6249      00
  6250              	.LASF220:
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 121
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 121
 
 
  6251 0892 5F685F65 		.ascii	"_h_errno\000"
@@ -7258,7 +7258,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  6275 0934 564C3533 		.ascii	"VL53L0X_RangingMeasurementData_t\000"
  6275      4C30585F 
  6275      52616E67 
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 122
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 122
 
 
  6275      696E674D 
@@ -7318,7 +7318,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  6299      63686B5F 
  6299      6661696C 
  6299      00
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 123
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 123
 
 
  6300              	.LASF230:
@@ -7378,7 +7378,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  6325 0ab5 72657669 		.ascii	"revision_id\000"
  6325      73696F6E 
  6325      5F696400 
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 124
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 124
 
 
  6326              	.LASF205:
@@ -7438,7 +7438,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  6352              	.LASF99:
  6353 0b4e 44657669 		.ascii	"DeviceSpecificParameters\000"
  6353      63655370 
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 125
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 125
 
 
  6353      65636966 
@@ -7498,7 +7498,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  6373      72696374 
  6373      2D616C69 
  6373      6173696E 
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 126
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 126
 
 
  6374 0cba 696F6E2D 		.ascii	"ion-sections -fdata-sections -fno-common -fsingle-p"
@@ -7558,7 +7558,7 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  6394              	.LASF214:
  6395 0d98 5F676574 		.ascii	"_getdate_err\000"
  6395      64617465 
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 127
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 127
 
 
  6395      5F657272 
@@ -7580,253 +7580,257 @@ ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 1
  6402              	.LASF201:
  6403 0dc9 5F616464 		.ascii	"_add\000"
  6403      00
- 6404              	.LASF259:
- 6405 0dce 73747263 		.ascii	"strcpy\000"
- 6405      707900
- 6406              	.LASF26:
- 6407 0dd5 50726F64 		.ascii	"ProductType\000"
- 6407      75637454 
- 6407      79706500 
- 6408              	.LASF243:
- 6409 0de1 7050616C 		.ascii	"pPalStateString\000"
- 6409      53746174 
- 6409      65537472 
- 6409      696E6700 
- 6410              	.LASF152:
- 6411 0df1 5F5F7362 		.ascii	"__sbuf\000"
- 6411      756600
- 6412              	.LASF75:
- 6413 0df8 50696E30 		.ascii	"Pin0GpioFunctionality\000"
- 6413      4770696F 
- 6413      46756E63 
- 6413      74696F6E 
- 6413      616C6974 
- 6414              	.LASF195:
- 6415 0e0e 5F676C75 		.ascii	"_glue\000"
- 6415      6500
- 6416              	.LASF255:
- 6417 0e14 4D6F6475 		.ascii	"ModuleIdInt\000"
- 6417      6C654964 
- 6417      496E7400 
- 6418              	.LASF246:
- 6419 0e20 7050616C 		.ascii	"pPalErrorString\000"
- 6419      4572726F 
- 6419      72537472 
- 6419      696E6700 
- 6420              	.LASF192:
- 6421 0e30 5F5F7367 		.ascii	"__sglue\000"
- 6421      6C756500 
- 6422              	.LASF203:
- 6423 0e38 5F737472 		.ascii	"_strtok_last\000"
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 128
+ 6404              	.LASF262:
+ 6405 0dce 433A5C55 		.ascii	"C:\\Users\\adrie\\OneDrive\\Documents\\GitHub\\Proj"
+ 6405      73657273 
+ 6405      5C616472 
+ 6405      69655C4F 
+ 6405      6E654472 
+ 6406 0dfb 6563745F 		.ascii	"ect_robotique\000"
+ 6406      726F626F 
+ 6406      74697175 
+ 6406      6500
+ 6407              	.LASF259:
+ 6408 0e09 73747263 		.ascii	"strcpy\000"
+ 6408      707900
+ 6409              	.LASF26:
+ 6410 0e10 50726F64 		.ascii	"ProductType\000"
+ 6410      75637454 
+ 6410      79706500 
+ 6411              	.LASF243:
+ 6412 0e1c 7050616C 		.ascii	"pPalStateString\000"
+ 6412      53746174 
+ 6412      65537472 
+ 6412      696E6700 
+ 6413              	.LASF152:
+ 6414 0e2c 5F5F7362 		.ascii	"__sbuf\000"
+ 6414      756600
+ 6415              	.LASF75:
+ 6416 0e33 50696E30 		.ascii	"Pin0GpioFunctionality\000"
+ 6416      4770696F 
+ 6416      46756E63 
+ 6416      74696F6E 
+ 6416      616C6974 
+ 6417              	.LASF195:
+ 6418 0e49 5F676C75 		.ascii	"_glue\000"
+ 6418      6500
+ 6419              	.LASF255:
+ 6420 0e4f 4D6F6475 		.ascii	"ModuleIdInt\000"
+ 6420      6C654964 
+ 6420      496E7400 
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 128
 
 
- 6423      746F6B5F 
- 6423      6C617374 
- 6423      00
- 6424              	.LASF210:
- 6425 0e45 5F6D6274 		.ascii	"_mbtowc_state\000"
- 6425      6F77635F 
- 6425      73746174 
- 6425      6500
- 6426              	.LASF180:
- 6427 0e53 5F6C6F63 		.ascii	"_locale\000"
- 6427      616C6500 
- 6428              	.LASF116:
- 6429 0e5b 564C3533 		.ascii	"VL53L0X_VcselPeriod\000"
- 6429      4C30585F 
- 6429      56637365 
- 6429      6C506572 
- 6429      696F6400 
- 6430              	.LASF145:
- 6431 0e6f 5F666E61 		.ascii	"_fnargs\000"
- 6431      72677300 
- 6432              	.LASF2:
- 6433 0e77 7369676E 		.ascii	"signed char\000"
- 6433      65642063 
- 6433      68617200 
- 6434              	.LASF98:
- 6435 0e83 4C617374 		.ascii	"LastHistogramMeasure\000"
- 6435      48697374 
- 6435      6F677261 
- 6435      6D4D6561 
- 6435      73757265 
- 6436              	.LASF6:
- 6437 0e98 73686F72 		.ascii	"short unsigned int\000"
- 6437      7420756E 
- 6437      7369676E 
- 6437      65642069 
- 6437      6E7400
- 6438              	.LASF102:
- 6439 0eab 52616E67 		.ascii	"RangeFractionalEnable\000"
- 6439      65467261 
- 6439      6374696F 
- 6439      6E616C45 
- 6439      6E61626C 
- 6440              	.LASF54:
- 6441 0ec1 52616E67 		.ascii	"RangeMilliMeter\000"
- 6441      654D696C 
- 6441      6C694D65 
- 6441      74657200 
- 6442              	.LASF107:
- 6443 0ed1 5369676D 		.ascii	"SigmaEstimate\000"
- 6443      61457374 
- 6443      696D6174 
- 6443      6500
- 6444              	.LASF80:
- 6445 0edf 5369676D 		.ascii	"SigmaEstRefArray\000"
- 6445      61457374 
- 6445      52656641 
- 6445      72726179 
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 129
+ 6421              	.LASF246:
+ 6422 0e5b 7050616C 		.ascii	"pPalErrorString\000"
+ 6422      4572726F 
+ 6422      72537472 
+ 6422      696E6700 
+ 6423              	.LASF192:
+ 6424 0e6b 5F5F7367 		.ascii	"__sglue\000"
+ 6424      6C756500 
+ 6425              	.LASF203:
+ 6426 0e73 5F737472 		.ascii	"_strtok_last\000"
+ 6426      746F6B5F 
+ 6426      6C617374 
+ 6426      00
+ 6427              	.LASF210:
+ 6428 0e80 5F6D6274 		.ascii	"_mbtowc_state\000"
+ 6428      6F77635F 
+ 6428      73746174 
+ 6428      6500
+ 6429              	.LASF180:
+ 6430 0e8e 5F6C6F63 		.ascii	"_locale\000"
+ 6430      616C6500 
+ 6431              	.LASF116:
+ 6432 0e96 564C3533 		.ascii	"VL53L0X_VcselPeriod\000"
+ 6432      4C30585F 
+ 6432      56637365 
+ 6432      6C506572 
+ 6432      696F6400 
+ 6433              	.LASF145:
+ 6434 0eaa 5F666E61 		.ascii	"_fnargs\000"
+ 6434      72677300 
+ 6435              	.LASF2:
+ 6436 0eb2 7369676E 		.ascii	"signed char\000"
+ 6436      65642063 
+ 6436      68617200 
+ 6437              	.LASF98:
+ 6438 0ebe 4C617374 		.ascii	"LastHistogramMeasure\000"
+ 6438      48697374 
+ 6438      6F677261 
+ 6438      6D4D6561 
+ 6438      73757265 
+ 6439              	.LASF6:
+ 6440 0ed3 73686F72 		.ascii	"short unsigned int\000"
+ 6440      7420756E 
+ 6440      7369676E 
+ 6440      65642069 
+ 6440      6E7400
+ 6441              	.LASF102:
+ 6442 0ee6 52616E67 		.ascii	"RangeFractionalEnable\000"
+ 6442      65467261 
+ 6442      6374696F 
+ 6442      6E616C45 
+ 6442      6E61626C 
+ 6443              	.LASF54:
+ 6444 0efc 52616E67 		.ascii	"RangeMilliMeter\000"
+ 6444      654D696C 
+ 6444      6C694D65 
+ 6444      74657200 
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 129
 
 
- 6445      00
- 6446              	.LASF154:
- 6447 0ef0 5F73697A 		.ascii	"_size\000"
- 6447      6500
- 6448              	.LASF60:
- 6449 0ef6 52616E67 		.ascii	"RangeFractionalPart\000"
- 6449      65467261 
- 6449      6374696F 
- 6449      6E616C50 
- 6449      61727400 
- 6450              	.LASF119:
- 6451 0f0a 5F6F6666 		.ascii	"_off_t\000"
- 6451      5F7400
- 6452              	.LASF74:
- 6453 0f11 4C617374 		.ascii	"LastEncodedTimeout\000"
- 6453      456E636F 
- 6453      64656454 
- 6453      696D656F 
- 6453      757400
- 6454              	.LASF165:
- 6455 0f24 5F6E6275 		.ascii	"_nbuf\000"
- 6455      6600
- 6456              	.LASF202:
- 6457 0f2a 5F756E75 		.ascii	"_unused_rand\000"
- 6457      7365645F 
- 6457      72616E64 
- 6457      00
- 6458              	.LASF179:
- 6459 0f37 5F756E73 		.ascii	"_unspecified_locale_info\000"
- 6459      70656369 
- 6459      66696564 
- 6459      5F6C6F63 
- 6459      616C655F 
- 6460              	.LASF262:
- 6461 0f50 433A5C52 		.ascii	"C:\\Robotique\\Projet_robotique\000"
- 6461      6F626F74 
- 6461      69717565 
- 6461      5C50726F 
- 6461      6A65745F 
- 6462              	.LASF171:
- 6463 0f6e 5F666C61 		.ascii	"_flags2\000"
- 6463      67733200 
- 6464              	.LASF148:
- 6465 0f76 5F69735F 		.ascii	"_is_cxa\000"
- 6465      63786100 
- 6466              	.LASF103:
- 6467 0f7e 50616C53 		.ascii	"PalState\000"
- 6467      74617465 
- 6467      00
- 6468              	.LASF52:
- 6469 0f87 54696D65 		.ascii	"TimeStamp\000"
- 6469      5374616D 
- 6469      7000
- 6470              	.LASF236:
- 6471 0f91 564C3533 		.ascii	"VL53L0X_get_limit_check_info\000"
- 6471      4C30585F 
- 6471      6765745F 
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 130
+ 6445              	.LASF107:
+ 6446 0f0c 5369676D 		.ascii	"SigmaEstimate\000"
+ 6446      61457374 
+ 6446      696D6174 
+ 6446      6500
+ 6447              	.LASF80:
+ 6448 0f1a 5369676D 		.ascii	"SigmaEstRefArray\000"
+ 6448      61457374 
+ 6448      52656641 
+ 6448      72726179 
+ 6448      00
+ 6449              	.LASF154:
+ 6450 0f2b 5F73697A 		.ascii	"_size\000"
+ 6450      6500
+ 6451              	.LASF60:
+ 6452 0f31 52616E67 		.ascii	"RangeFractionalPart\000"
+ 6452      65467261 
+ 6452      6374696F 
+ 6452      6E616C50 
+ 6452      61727400 
+ 6453              	.LASF119:
+ 6454 0f45 5F6F6666 		.ascii	"_off_t\000"
+ 6454      5F7400
+ 6455              	.LASF74:
+ 6456 0f4c 4C617374 		.ascii	"LastEncodedTimeout\000"
+ 6456      456E636F 
+ 6456      64656454 
+ 6456      696D656F 
+ 6456      757400
+ 6457              	.LASF165:
+ 6458 0f5f 5F6E6275 		.ascii	"_nbuf\000"
+ 6458      6600
+ 6459              	.LASF202:
+ 6460 0f65 5F756E75 		.ascii	"_unused_rand\000"
+ 6460      7365645F 
+ 6460      72616E64 
+ 6460      00
+ 6461              	.LASF179:
+ 6462 0f72 5F756E73 		.ascii	"_unspecified_locale_info\000"
+ 6462      70656369 
+ 6462      66696564 
+ 6462      5F6C6F63 
+ 6462      616C655F 
+ 6463              	.LASF171:
+ 6464 0f8b 5F666C61 		.ascii	"_flags2\000"
+ 6464      67733200 
+ 6465              	.LASF148:
+ 6466 0f93 5F69735F 		.ascii	"_is_cxa\000"
+ 6466      63786100 
+ 6467              	.LASF103:
+ 6468 0f9b 50616C53 		.ascii	"PalState\000"
+ 6468      74617465 
+ 6468      00
+ 6469              	.LASF52:
+ 6470 0fa4 54696D65 		.ascii	"TimeStamp\000"
+ 6470      5374616D 
+ 6470      7000
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 130
 
 
- 6471      6C696D69 
- 6471      745F6368 
- 6472              	.LASF199:
- 6473 0fae 5F736565 		.ascii	"_seed\000"
- 6473      6400
- 6474              	.LASF207:
- 6475 0fb4 5F72616E 		.ascii	"_rand_next\000"
- 6475      645F6E65 
- 6475      787400
- 6476              	.LASF69:
- 6477 0fbf 564C3533 		.ascii	"VL53L0X_HistogramMeasurementData_t\000"
- 6477      4C30585F 
- 6477      48697374 
- 6477      6F677261 
- 6477      6D4D6561 
- 6478              	.LASF228:
- 6479 0fe2 44617461 		.ascii	"Data\000"
- 6479      00
- 6480              	.LASF162:
- 6481 0fe7 5F736565 		.ascii	"_seek\000"
- 6481      6B00
- 6482              	.LASF176:
- 6483 0fed 5F737464 		.ascii	"_stderr\000"
- 6483      65727200 
- 6484              	.LASF222:
- 6485 0ff5 5F6E6D61 		.ascii	"_nmalloc\000"
- 6485      6C6C6F63 
- 6485      00
- 6486              	.LASF164:
- 6487 0ffe 5F756275 		.ascii	"_ubuf\000"
- 6487      6600
- 6488              	.LASF91:
- 6489 1004 5369676E 		.ascii	"SignalRateMeasFixed400mm\000"
- 6489      616C5261 
- 6489      74654D65 
- 6489      61734669 
- 6489      78656434 
- 6490              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 7.2.1 20170904 (release) [ARM
-ARM GAS  C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s 			page 131
+ 6471              	.LASF236:
+ 6472 0fae 564C3533 		.ascii	"VL53L0X_get_limit_check_info\000"
+ 6472      4C30585F 
+ 6472      6765745F 
+ 6472      6C696D69 
+ 6472      745F6368 
+ 6473              	.LASF199:
+ 6474 0fcb 5F736565 		.ascii	"_seed\000"
+ 6474      6400
+ 6475              	.LASF207:
+ 6476 0fd1 5F72616E 		.ascii	"_rand_next\000"
+ 6476      645F6E65 
+ 6476      787400
+ 6477              	.LASF69:
+ 6478 0fdc 564C3533 		.ascii	"VL53L0X_HistogramMeasurementData_t\000"
+ 6478      4C30585F 
+ 6478      48697374 
+ 6478      6F677261 
+ 6478      6D4D6561 
+ 6479              	.LASF228:
+ 6480 0fff 44617461 		.ascii	"Data\000"
+ 6480      00
+ 6481              	.LASF162:
+ 6482 1004 5F736565 		.ascii	"_seek\000"
+ 6482      6B00
+ 6483              	.LASF176:
+ 6484 100a 5F737464 		.ascii	"_stderr\000"
+ 6484      65727200 
+ 6485              	.LASF222:
+ 6486 1012 5F6E6D61 		.ascii	"_nmalloc\000"
+ 6486      6C6C6F63 
+ 6486      00
+ 6487              	.LASF164:
+ 6488 101b 5F756275 		.ascii	"_ubuf\000"
+ 6488      6600
+ 6489              	.LASF91:
+ 6490 1021 5369676E 		.ascii	"SignalRateMeasFixed400mm\000"
+ 6490      616C5261 
+ 6490      74654D65 
+ 6490      61734669 
+ 6490      78656434 
+ 6491              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 7.2.1 20170904 (release) [ARM
+ARM GAS  C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s 			page 131
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 vl53l0x_api_strings.c
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:18     .text.VL53L0X_check_part_used:00000000 $t
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:26     .text.VL53L0X_check_part_used:00000000 VL53L0X_check_part_used
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:109    .text.VL53L0X_check_part_used:00000054 $d
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:114    .text.VL53L0X_get_device_info:00000000 $t
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:122    .text.VL53L0X_get_device_info:00000000 VL53L0X_get_device_info
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:263    .text.VL53L0X_get_device_info:000000ac $d
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:273    .text.VL53L0X_get_device_error_string:00000000 $t
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:281    .text.VL53L0X_get_device_error_string:00000000 VL53L0X_get_device_error_string
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:308    .text.VL53L0X_get_device_error_string:00000016 $d
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:538    .text.VL53L0X_get_device_error_string:00000130 $d
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:559    .text.VL53L0X_get_range_status_string:00000000 $t
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:567    .text.VL53L0X_get_range_status_string:00000000 VL53L0X_get_range_status_string
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:593    .text.VL53L0X_get_range_status_string:00000014 $d
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:599    .text.VL53L0X_get_range_status_string:0000001a $t
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:700    .text.VL53L0X_get_range_status_string:0000008c $d
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:712    .text.VL53L0X_get_pal_error_string:00000000 $t
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:720    .text.VL53L0X_get_pal_error_string:00000000 VL53L0X_get_pal_error_string
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:751    .text.VL53L0X_get_pal_error_string:00000018 $d
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:851    .text.VL53L0X_get_pal_error_string:0000007c $t
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:1088   .text.VL53L0X_get_pal_error_string:000001a4 $d
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:1112   .text.VL53L0X_get_pal_state_string:00000000 $t
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:1120   .text.VL53L0X_get_pal_state_string:00000000 VL53L0X_get_pal_state_string
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:1251   .text.VL53L0X_get_pal_state_string:00000090 $d
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:1263   .text.VL53L0X_get_sequence_steps_info:00000000 $t
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:1271   .text.VL53L0X_get_sequence_steps_info:00000000 VL53L0X_get_sequence_steps_info
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:1296   .text.VL53L0X_get_sequence_steps_info:00000014 $d
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:1387   .text.VL53L0X_get_sequence_steps_info:00000070 $d
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:1397   .text.VL53L0X_get_limit_check_info:00000000 $t
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:1405   .text.VL53L0X_get_limit_check_info:00000000 VL53L0X_get_limit_check_info
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:1432   .text.VL53L0X_get_limit_check_info:00000014 $d
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:1438   .text.VL53L0X_get_limit_check_info:0000001a $t
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:1560   .text.VL53L0X_get_limit_check_info:000000b8 $d
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:1572   .rodata.VL53L0X_get_device_error_string.str1.4:00000000 $d
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:1617   .rodata.VL53L0X_get_device_info.str1.4:00000000 $d
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:1630   .rodata.VL53L0X_get_limit_check_info.str1.4:00000000 $d
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:1647   .rodata.VL53L0X_get_pal_error_string.str1.4:00000000 $d
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:1698   .rodata.VL53L0X_get_pal_state_string.str1.4:00000000 $d
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:1719   .rodata.VL53L0X_get_range_status_string.str1.4:00000000 $d
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:1736   .rodata.VL53L0X_get_sequence_steps_info.str1.4:00000000 $d
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:323    .text.VL53L0X_get_device_error_string:00000025 $d
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:323    .text.VL53L0X_get_device_error_string:00000026 $t
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:1301   .text.VL53L0X_get_sequence_steps_info:00000019 $d
-C:\Users\JEANCO~1\AppData\Local\Temp\ccCiV5mx.s:1301   .text.VL53L0X_get_sequence_steps_info:0000001a $t
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:18     .text.VL53L0X_check_part_used:00000000 $t
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:26     .text.VL53L0X_check_part_used:00000000 VL53L0X_check_part_used
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:109    .text.VL53L0X_check_part_used:00000054 $d
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:114    .text.VL53L0X_get_device_info:00000000 $t
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:122    .text.VL53L0X_get_device_info:00000000 VL53L0X_get_device_info
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:263    .text.VL53L0X_get_device_info:000000ac $d
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:273    .text.VL53L0X_get_device_error_string:00000000 $t
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:281    .text.VL53L0X_get_device_error_string:00000000 VL53L0X_get_device_error_string
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:308    .text.VL53L0X_get_device_error_string:00000016 $d
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:538    .text.VL53L0X_get_device_error_string:00000130 $d
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:559    .text.VL53L0X_get_range_status_string:00000000 $t
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:567    .text.VL53L0X_get_range_status_string:00000000 VL53L0X_get_range_status_string
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:593    .text.VL53L0X_get_range_status_string:00000014 $d
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:599    .text.VL53L0X_get_range_status_string:0000001a $t
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:700    .text.VL53L0X_get_range_status_string:0000008c $d
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:712    .text.VL53L0X_get_pal_error_string:00000000 $t
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:720    .text.VL53L0X_get_pal_error_string:00000000 VL53L0X_get_pal_error_string
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:751    .text.VL53L0X_get_pal_error_string:00000018 $d
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:851    .text.VL53L0X_get_pal_error_string:0000007c $t
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:1088   .text.VL53L0X_get_pal_error_string:000001a4 $d
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:1112   .text.VL53L0X_get_pal_state_string:00000000 $t
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:1120   .text.VL53L0X_get_pal_state_string:00000000 VL53L0X_get_pal_state_string
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:1251   .text.VL53L0X_get_pal_state_string:00000090 $d
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:1263   .text.VL53L0X_get_sequence_steps_info:00000000 $t
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:1271   .text.VL53L0X_get_sequence_steps_info:00000000 VL53L0X_get_sequence_steps_info
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:1296   .text.VL53L0X_get_sequence_steps_info:00000014 $d
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:1387   .text.VL53L0X_get_sequence_steps_info:00000070 $d
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:1397   .text.VL53L0X_get_limit_check_info:00000000 $t
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:1405   .text.VL53L0X_get_limit_check_info:00000000 VL53L0X_get_limit_check_info
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:1432   .text.VL53L0X_get_limit_check_info:00000014 $d
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:1438   .text.VL53L0X_get_limit_check_info:0000001a $t
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:1560   .text.VL53L0X_get_limit_check_info:000000b8 $d
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:1572   .rodata.VL53L0X_get_device_error_string.str1.4:00000000 $d
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:1617   .rodata.VL53L0X_get_device_info.str1.4:00000000 $d
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:1630   .rodata.VL53L0X_get_limit_check_info.str1.4:00000000 $d
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:1647   .rodata.VL53L0X_get_pal_error_string.str1.4:00000000 $d
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:1698   .rodata.VL53L0X_get_pal_state_string.str1.4:00000000 $d
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:1719   .rodata.VL53L0X_get_range_status_string.str1.4:00000000 $d
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:1736   .rodata.VL53L0X_get_sequence_steps_info.str1.4:00000000 $d
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:323    .text.VL53L0X_get_device_error_string:00000025 $d
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:323    .text.VL53L0X_get_device_error_string:00000026 $t
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:1301   .text.VL53L0X_get_sequence_steps_info:00000019 $d
+C:\Users\adrie\AppData\Local\Temp\cch8HpdL.s:1301   .text.VL53L0X_get_sequence_steps_info:0000001a $t
 
 UNDEFINED SYMBOLS
 VL53L0X_get_info_from_device

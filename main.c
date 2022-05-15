@@ -19,6 +19,7 @@
 #include <communications.h>
 #include <arm_math.h>
 #include<capture_ir.h>
+#include <pi_regulator.h>
 
 
 

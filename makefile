@@ -14,6 +14,7 @@ CSRC += ./main.c \
 		./communications.c \
 		./fft.c \
 		./capture_ir.c\
+		./pi_regulator.c\
 
 #Header folders to include
 INCDIR += 

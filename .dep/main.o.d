@@ -153,7 +153,7 @@ build/obj/main.o: main.c \
  ../lib/e-puck2_main-processor/ChibiOS//os/ext/CMSIS/include/arm_math.h \
  ../lib/e-puck2_main-processor/ChibiOS//os/ext/CMSIS/include/core_cm4.h \
  c:\robotique\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\math.h \
- capture_ir.h
+ capture_ir.h pi_regulator.h
 
 c:\robotique\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\stdio.h:
 
@@ -472,3 +472,5 @@ communications.h:
 c:\robotique\eclipse_e-puck2\tools\gcc-arm-none-eabi-7-2017-q4-major-win32\arm-none-eabi\include\math.h:
 
 capture_ir.h:
+
+pi_regulator.h:

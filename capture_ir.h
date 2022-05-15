@@ -7,7 +7,6 @@
 
 #ifndef IR_PROCESSING_H_
 #define IR_PROCESSING_H_
-
 void capture_ir_start(void);
 int* get_proxy_buffer_ptr(void);
 

@@ -19,7 +19,7 @@
 #include<capture_ir.h>
 #include<sensors/proximity.h>
 
-static int buffer_proxy[7];
+static int buffer_proxy[8];
 
 static THD_WORKING_AREA(waCapture_ir, 256);
 static THD_FUNCTION(Capture_ir, arg) {

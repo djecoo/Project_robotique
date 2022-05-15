@@ -7,5 +7,5 @@ void pi_regulator_start(void);
 
 #define VALEUR_MINIMUM 1500
 
-#define VALEUR_DETECTION_CHOC 200
+#define VALEUR_DETECTION_CHOC 100
 #endif /* PI_REGULATOR_H */

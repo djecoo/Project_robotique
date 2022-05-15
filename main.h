@@ -18,8 +18,8 @@ extern parameter_namespace_t parameter_root;
 #define IMAGE_BUFFER_SIZE		640
 #define WIDTH_SLOPE				5
 #define MIN_LINE_WIDTH			40
-#define ROTATION_THRESHOLD		25
-#define ROTATION_COEFF			7
+#define ROTATION_THRESHOLD		23
+#define ROTATION_COEFF			6
 #define PXTOCM					1570.0f //experimental value
 #define GOAL_DISTANCE 			30000.0f
 #define MAX_DISTANCE 			30.0f

@@ -11,7 +11,7 @@
 #include <fft.h>
 #include <arm_math.h>
 #include <leds.h>
-#include <pi_regulator.h>
+
 
 
 //semaphore
@@ -20,111 +20,193 @@ static BSEMAPHORE_DECL(sendToComputer_sem, TRUE);
 
 //les valeur de la position du haut parleur par rapport aux micros
 static int angle;
-static double distance;
-static int reference = 0;
-static int nbr_passage = 0;
-//static uint32_t puissance_source = 0;
-//pour savoir approximativement d'ou vient le soin
-static uint8_t cote_max;
+
 //tableau pour stocker les valeurs des micros
+// 4 pour nbr micro et 3 pour le nbr d'echantillon
 
-static int moyenne[4][4]; // 4 pour nbr micro et 3 pour le nbr d'echantillon
-
+static int moyenne[4][4];
 //2 times FFT_SIZE because these arrays contain complex numbers (real + imaginary)
 static float micLeft_cmplx_input[2 * FFT_SIZE];
 static float micRight_cmplx_input[2 * FFT_SIZE];
 static float micFront_cmplx_input[2 * FFT_SIZE];
 static float micBack_cmplx_input[2 * FFT_SIZE];
+
 //Arrays containing the computed magnitude of the complex numbers
 static float micLeft_output[FFT_SIZE];
 static float micRight_output[FFT_SIZE];
 static float micFront_output[FFT_SIZE];
 static float micBack_output[FFT_SIZE];
 static uint8_t coeff_capteur[8] = {0,0,0,0,0,0,0}; // en % -> /100
-
-
-
 #define MIN_VALUE_THRESHOLD	10000
+
 
 #define DISTANCE_REFERENCE 40000 // valeur équivalente à 6cm
 #define MIN_FREQ		10	//we don't analyze before this index to not use resources for nothing
-#define FREQ_FORWARD	16	//250Hz
-#define FREQ_LEFT		19	//296Hz
-#define FREQ_RIGHT		23	//359HZ
-#define FREQ_BACKWARD	26	//406Hz
+#define FREQ_MODE1	66	//1000Hz
+#define FREQ_MODE2		79	//1200
+#define FREQ_MODE3		92//1400Hz
 #define MAX_FREQ		2*FFT_SIZE	//we don't analyze after this index to not use resources for nothing
 
-#define FREQ_FORWARD_L		(FREQ_FORWARD-1)
-#define FREQ_FORWARD_H		(FREQ_FORWARD+1)
-#define FREQ_LEFT_L			(FREQ_LEFT-1)
-#define FREQ_LEFT_H			(FREQ_LEFT+1)
-#define FREQ_RIGHT_L		(FREQ_RIGHT-1)
-#define FREQ_RIGHT_H		(FREQ_RIGHT+1)
-#define FREQ_BACKWARD_L		(FREQ_BACKWARD-1)
-#define FREQ_BACKWARD_H		(FREQ_BACKWARD+1)
 
-/*#define PID_ERROR_THRESHOLD	0
-#define ROTATION_THRESHOLD 	0
-#define ROTATION_COEFF		1000
-#define ANGLE_ERROR_COEFF	10
-#define PID_KP 			800
-#define PID_KI			3.5*/
+
+#define FREQ_MODE1_L		(FREQ_MODE1-1)
+#define FREQ_MODE1_H		(FREQ_MODE1+1)
+#define FREQ_MODE2_L			(FREQ_MODE2-1)
+#define FREQ_MODE2_H			(FREQ_MODE2+1)
+#define FREQ_MODE3_L		(FREQ_MODE3-1)
+#define FREQ_MODE3_H		(FREQ_MODE3+1)
+
+//used to store the old value in case if the new one are not usabl
+static int old_max_right;
+static int old_max_left;
+static int old_max_front;
+static int old_max_back;
+static uint8_t mode = 0;
+
 
 #define NBR_ECHANTILLON 4
 #define NBR_MICRO 4
 
-#define MARGE_ANGLE 0.12 //%
-#define VALEUR_MIN_PROXY 200
+#define MARGE_ANGLE 0.12 // %
+#define VALEUR_MIN_PROXY 100
 
 
 
 #define PERCENT
 
+//function interne au fichier a definir car utilisée avant leur definition
+
+void check_mode(int max_right,int max_left,int max_front,int max_back,int norm_right,int norm_left,int norm_front,int norm_back,uint8_t mustSend);
+
+void led_direction(int max_right,int max_left,int max_front,int max_back);
+
+void update_moyenne(uint8_t mustSend,int max_right,int max_left,int max_front, int max_back);
+
 
 /*
-*	Simple function used to detect the highest value in a buffer
-*	and to execute a motor command depending on it
+*	this functiun read the value of the maximum and determine if it is
+*	from the sound. We have a lot of noise with the mic so try
+*	so id we have 2 value int the range we configure the mode
+*	we use old value to fill the empty one
 */
 
-void sound_remote(float* data){
-	float max_norm = MIN_VALUE_THRESHOLD;
-	int16_t max_norm_index = -1;
 
-	//search for the highest peak
-	for(uint16_t i = MIN_FREQ ; i <= MAX_FREQ ; i++){
-		if(data[i] > max_norm){
-			max_norm = data[i];
-			max_norm_index = i;
+void check_mode(int max_right,int max_left,int max_front,int max_back,int norm_right,int norm_left,int norm_front,int norm_back,uint8_t mustSend){
+
+		uint8_t mode1_compteur = 0;
+		uint8_t mode2_compteur = 0;
+		uint8_t mode3_compteur = 0;
+
+		//the function now check for every mic which one correspond to which mode
+		if(norm_left >= FREQ_MODE1_L && norm_left <= FREQ_MODE1_H){
+			mode1_compteur ++;
 		}
-	}
+		else if(norm_left >= FREQ_MODE2_L && norm_left <= FREQ_MODE2_H){
+			mode2_compteur++;
+		}
+		else if(norm_left >= FREQ_MODE3_L && norm_left <= FREQ_MODE3_H){
+			mode3_compteur++;
+		}
+
+		if(norm_right >= FREQ_MODE1_L && norm_right <= FREQ_MODE1_H){
+			mode1_compteur++;
+		}
+		else if(norm_right >= FREQ_MODE2_L && norm_right <= FREQ_MODE2_H){
+			mode2_compteur++;
+		}
+		else if(norm_right >= FREQ_MODE3_L && norm_right <= FREQ_MODE3_H){
+			mode3_compteur++;
+		}
+
+		if(norm_front >= FREQ_MODE1_L && norm_front <= FREQ_MODE1_H){
+			mode1_compteur ++;
+		}
+		else if(norm_front >= FREQ_MODE2_L && norm_front <= FREQ_MODE2_H){
+			mode2_compteur++;
+		}
+		else if(norm_front >= FREQ_MODE3_L && norm_front <= FREQ_MODE3_H){
+			mode3_compteur ++;
+		}
+
+		if(norm_back >= FREQ_MODE1_L && norm_back <= FREQ_MODE1_H){
+			mode1_compteur ++;
+		}
+		else if(norm_back >= FREQ_MODE2_L && norm_back <= FREQ_MODE2_H){
+			mode2_compteur++;
+		}
+		else if(norm_back >= FREQ_MODE3_L && norm_back <= FREQ_MODE3_H){
+			mode3_compteur++;
+		}
 
 
-	//go forward
-	if(max_norm_index >= FREQ_FORWARD_L && max_norm_index <= FREQ_FORWARD_H){
-		left_motor_set_speed(600);
-		right_motor_set_speed(600);
-	}
-	//turn left
-	else if(max_norm_index >= FREQ_LEFT_L && max_norm_index <= FREQ_LEFT_H){
-		left_motor_set_speed(-600);
-		right_motor_set_speed(600);
-	}
-	//turn right
-	else if(max_norm_index >= FREQ_RIGHT_L && max_norm_index <= FREQ_RIGHT_H){
-		left_motor_set_speed(600);
-		right_motor_set_speed(-600);
-	}
-	//go backward
-	else if(max_norm_index >= FREQ_BACKWARD_L && max_norm_index <= FREQ_BACKWARD_H){
-		left_motor_set_speed(-600);
-		right_motor_set_speed(-600);
-	}
-	else{
-		left_motor_set_speed(0);
-		right_motor_set_speed(0);
-	}
+		//The function now compares every result for each mode and
+		//select which data he can uses
+		if(mode1_compteur >=2){
+			mode = 1;
+			if(norm_left < FREQ_MODE1_L || norm_left > FREQ_MODE1_H)
+				max_left  = old_max_left;
+			else
+				old_max_left = max_left;
+			if (norm_right < FREQ_MODE1_L || norm_right > FREQ_MODE1_H)
+				max_right = old_max_right;
+			else
+				old_max_right = max_right;
+			if(norm_front < FREQ_MODE1_L || norm_front > FREQ_MODE1_H)
+				max_front = old_max_front;
+			else
+				old_max_front = max_front;
+			if (norm_back < FREQ_MODE1_L || norm_back > FREQ_MODE1_H)
+				max_back = old_max_back;
+			else
+				old_max_back = max_back;
 
+		}else if(mode2_compteur >=2){
+			mode = 2;
+			if(norm_left < FREQ_MODE2_L || norm_left > FREQ_MODE2_H)
+				max_left  = old_max_left;
+			else
+				old_max_left = max_left;
+			if (norm_right < FREQ_MODE2_L || norm_right > FREQ_MODE2_H)
+				max_right = old_max_right;
+			else
+				old_max_right = max_right;
+			if(norm_front < FREQ_MODE2_L || norm_front > FREQ_MODE2_H)
+				max_front = old_max_front;
+			else
+				old_max_front = max_front;
+			if (norm_back < FREQ_MODE2_L || norm_back > FREQ_MODE2_H)
+				max_back = old_max_back;
+			else
+				old_max_back = max_back;
+
+		}else if(mode3_compteur>=2){
+			mode = 3;
+			if(norm_left < FREQ_MODE3_L || norm_left > FREQ_MODE3_H)
+				max_left  = old_max_left;
+			else
+				old_max_left = max_left;
+			if (norm_right < FREQ_MODE3_L || norm_right > FREQ_MODE3_H)
+				max_right = old_max_right;
+			else
+				old_max_right = max_right;
+			if(norm_front < FREQ_MODE3_L || norm_front > FREQ_MODE3_H)
+				max_front = old_max_front;
+			else
+				old_max_front = max_front;
+			if (norm_back < FREQ_MODE3_L || norm_back > FREQ_MODE3_H)
+				max_back = old_max_back;
+			else
+				old_max_back = max_back;
+
+		}else{
+			mode = 0;
+		}
+
+	update_moyenne(mustSend, max_right,max_left,max_front,max_back);
+
+	return ;
 }
+
 
 /*
 *	Callback called when the demodulation of the four microphones is done.
@@ -172,6 +254,7 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 	}
 
 	if(nb_samples >= (2 * FFT_SIZE)){
+
 		/*	FFT proccessing
 		*
 		*	This FFT function stores the results in the input buffer given.
@@ -196,33 +279,25 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 		arm_cmplx_mag_f32(micFront_cmplx_input, micFront_output, FFT_SIZE);
 		arm_cmplx_mag_f32(micBack_cmplx_input, micBack_output, FFT_SIZE);
 
-		//sends only one FFT result over 10 for 1 mic to not flood the computer
-		//sends to UART3
-
-		int max_right = 0.98*get_max_norm_index(RIGHT_OUTPUT).max;
+		//get the max norme for each mic and the norm associated with
+		int max_right = 0.96*get_max_norm_index(RIGHT_OUTPUT).max;
 		int max_left = 0.98*get_max_norm_index(LEFT_OUTPUT).max;
 		int max_front = get_max_norm_index(FRONT_OUTPUT).max;
 		int max_back = 0.98*get_max_norm_index(BACK_OUTPUT).max; //facteur de correction pour faiblesse du micro
+
 		int norm_right = get_max_norm_index(RIGHT_OUTPUT).norm;
 		int norm_left = get_max_norm_index(LEFT_OUTPUT).norm;
 		int norm_front = get_max_norm_index(FRONT_OUTPUT).norm;
 		int norm_back = get_max_norm_index(BACK_OUTPUT).norm;
 
-		//chprintf((BaseSequentialStream *) &SDU1,"max_right  = %d max_norm_index_right = %d\n,max_left = %d max_norm_index_left = %d \n",max_right, norm_right,max_left,norm_left);
-		//chprintf((BaseSequentialStream *) &SDU1,"Max_front  = %d max_norm_index_front = %d\n,max_back = %d max_norm_index_back = %d \n\n\n",max_front,norm_front,max_back,norm_back);
+		//va décoder les valeurs et remplit le tableau de moyenne et mode en fonction
+		check_mode(max_right,max_left,max_front,max_back,norm_right,norm_left,norm_front,norm_back,mustSend);
 
-		// rempli le tableau moyenne en fonction de la valeur de must send
-		update_moyenne(mustSend, max_right,max_left,max_front,max_back);
-		nbr_passage ++;
-		//sends only one FFT result over 10 for 1 mic to not flood the computer
-		//sends to UART3
-		//calcul la moyenne avec laquelle on va travailler
+		//only work with the average of NBR_ECHANTILLON
 		if(mustSend > (NBR_ECHANTILLON-1)){
 
-			//signals to send the result to the computer
 			chBSemSignal(&sendToComputer_sem);
 			mustSend = 0;
-
 
 
 			int moyenne_right = calcul_moyenne(RIGHT);
@@ -230,55 +305,44 @@ void processAudioData(int16_t *data, uint16_t num_samples){
 			int moyenne_front = calcul_moyenne(FRONT);
 			int moyenne_back = calcul_moyenne(BACK);
 
+			//allume les leds
 			led_direction(moyenne_right,moyenne_left,moyenne_front,moyenne_back);
-
+			//calcule l'angle
 			calcul_angle(moyenne_right,moyenne_left,moyenne_front,moyenne_back);
-			cote_max = RIGHT;
-
-			//calcul_distance(puissance_moyenne);
-			//chprintf((BaseSequentialStream*)&SDU1,"moyenne_front = %d \n",moyenne_front);
-			//chprintf((BaseSequentialStream*)&SDU1,"moyenne_right = %d \n, moyenne_left = %d \n, moyenne_front = %d \n,moyenne_back = %d \n\n\n\n ",moyenne_right,moyenne_left,moyenne_front,moyenne_back);
-			//chprintf((BaseSequentialStream*)&SDU1,"angle = %d \n",angle);
-			// APPEL DU PID POUR LOCALISER DOU VIENT LE SON ET TOURNER EN FONCTION
-
-			//chprintf((BaseSequentialStream*)&SDU1,"moyenne_right  = %d \n " , moyenne_right);
-			/*int speed_correction = pi_regulator(max_right, max_left, max_front, max_back);
-			//chprintf((BaseSequentialStream *)&SD3, "max_front = %d \n", max_front);
-			//if the sound is nearly in front of the camera, don't rotate
-			if(abs(speed_correction) < ROTATION_THRESHOLD){ // SI ON EST DEJA EN FACE DU SON NE RIEN FAIRE
-				speed_correction = 0;
-			}
-
-			//applies the speed from the PI regulator and the correction for the rotation
-			right_motor_set_speed(ROTATION_COEFF * speed_correction);
-			left_motor_set_speed(- ROTATION_COEFF * speed_correction);
-
-		*/
 		}
 
 		nb_samples = 0;
 		mustSend++;
-
-		//sound_remote(micLeft_output);
-
-
 	}
 }
 
+uint8_t get_mode(void){
+	return mode;
+}
+
+/*
+ * Permet de sortir la distance en cm en fonction de la puissance originale et de la nouvelle puissance
+ */
 double calcul_distance(int32_t intensite_moyenne, int32_t puissance_source){
 
+
 	double intensite_transition = intensite_moyenne;
+	//formule determinee empiriquement
 	double distance_source = sqrt(((double)puissance_source)/(((double)intensite_transition)*4*3.1415) );
 
 	return 2*distance_source;
 }
 
+/*
+ * Cette fonction calcule l'angle de la source en fonction des valeurs des micros
+ * Elle permet d'avoir une resolution de 22.5deg (sans le bruit)
+ *
+ */
 void calcul_angle(int max_right,int max_left,int max_front,int max_back){
 
-	uint8_t supremum = -1;
+	int8_t supremum = -1;
 
 	int transition;
-	int transition2;
 
 	if(max_right>= max_left && max_right>=max_front && max_right>=max_back){
 		transition = max_right*(1-MARGE_ANGLE);
@@ -315,7 +379,6 @@ void calcul_angle(int max_right,int max_left,int max_front,int max_back){
 
 	if(supremum ==FRONT){
 		transition = max_left*(1-(MARGE_ANGLE));
-		transition2 = max_right*(1-(MARGE_ANGLE));
 		if(max_left >= max_right && transition >= max_right){
 			angle = 337;
 			return;
@@ -324,7 +387,6 @@ void calcul_angle(int max_right,int max_left,int max_front,int max_back){
 			return;
 		}else{
 			angle = 22;
-			//chprintf((BaseSequentialStream*)&SDU1,"transition  = %d \n, transition2 = %d, max_left = %d, max_right = %d,supremum = %d\n",transition,transition2,max_left,max_right,supremum);
 			return;
 		}
 
@@ -332,7 +394,6 @@ void calcul_angle(int max_right,int max_left,int max_front,int max_back){
 
 	if(supremum ==RIGHT){
 		transition = max_front*(1-MARGE_ANGLE);
-		transition2 = max_back*(1-MARGE_ANGLE);
 		if(max_front >= max_back && transition >= max_back){
 			angle = 67;
 			return;
@@ -341,8 +402,6 @@ void calcul_angle(int max_right,int max_left,int max_front,int max_back){
 			return;
 		}else{
 			angle = 112;
-			//chprintf((BaseSequentialStream*)&SDU1,"transition 1 = %d \n, transition2 = %d, max_front = %d, max_back = %d \n",transition,transition2,max_front,max_back);
-
 			return;
 		}
 
@@ -350,7 +409,6 @@ void calcul_angle(int max_right,int max_left,int max_front,int max_back){
 
 	if(supremum ==BACK){
 		transition = max_right*(1-MARGE_ANGLE);
-		transition2 = max_left*(1-MARGE_ANGLE);
 		if(max_right >= max_left && transition >= max_left){
 			angle = 157;
 			return;
@@ -364,7 +422,6 @@ void calcul_angle(int max_right,int max_left,int max_front,int max_back){
 	}
 
 	transition = max_back*(1-MARGE_ANGLE);
-	transition2 = max_front*(1-MARGE_ANGLE);
 	if(max_back >= max_front && transition >= max_front){
 		angle = 247;
 		return;
@@ -376,24 +433,26 @@ void calcul_angle(int max_right,int max_left,int max_front,int max_back){
 		return;
 	}
 
-
-
-
 return;
 
 }
 
 
+/*
+ * Permet de calculer la moyenne des dernières valeurs vues par les micros
+ */
 int calcul_moyenne(MICRO_NAME micro){
+
 	int somme = 0;
 	for(uint8_t i = 0; i < NBR_ECHANTILLON;i++){
 		somme += moyenne[micro][i];
 	}
 
-	return (somme/3);
+	return (somme/NBR_ECHANTILLON);
 }
 
 
+//permet de remplis le tableau moyenne en fonction de où on en est
 void update_moyenne(uint8_t mustSend,int max_right,int max_left,int max_front, int max_back){
 	if (mustSend <4){
 		moyenne[LEFT][mustSend-1] = max_left; //Left
@@ -406,6 +465,10 @@ void update_moyenne(uint8_t mustSend,int max_right,int max_left,int max_front, i
 		return;
 	}
 }
+
+/*
+ * Cette fonction permet de renvoyer sous forme de struct le maximum de data ainsi que la norme associée
+ */
  maximum_fft max_norm(float* data){
 	float max_norm = 100;
 	int max_norm_index = -1;
@@ -428,6 +491,7 @@ void update_moyenne(uint8_t mustSend,int max_right,int max_left,int max_front, i
 void wait_send_to_computer(void){
 	chBSemWait(&sendToComputer_sem);
 }
+
 
 maximum_fft get_max_norm_index(BUFFER_NAME_t name){
 
@@ -480,6 +544,8 @@ float* get_audio_buffer_ptr(BUFFER_NAME_t name){
 }
 
 
+//Cette fonction permet d'allumer les leds en fonction de quelle micro détecte la plus grande
+//intensité
 void led_direction(int max_right,int max_left,int max_front,int max_back){
 	clear_leds();
 	if(max_right>= max_left && max_right>=max_front && max_right>=max_back){
@@ -499,97 +565,8 @@ void led_direction(int max_right,int max_left,int max_front,int max_back){
 		//cote_max = BACK ;
 	}
 	return;
-	}
-
-/*int pi_regulator(int max_right, int max_left, int max_front, int max_back){ // PID
-
-	float error = 0; // DIFFERENCE
-	float angle_correction = 0; // DIFFERENCE D'ANGLE ENTRE ROBOT / SON
-
-
-
-	if (max_right > max_left && max_right > max_front && max_right > max_back) // TEST SI MICRO DROIT PLUS PROCHE
-	{
-		error = (max_front-max_back)/(max_front+max_left+max_back+max_right); // TEST DE QUEL COTE EST SON PAR RAPPORT AU MICRO DROIT
-		angle_correction = -PI/2 + ANGLE_ERROR_COEFF* error; // CALCUL DE L'ANGLE PAR RAPPORT AU ROBOT, COEFF ANGLE_ERROR A CHANGER POUR OBTENIR VRAIE VALEUR D'ORDRE
-
-		if(fabs(angle_correction) < PID_ERROR_THRESHOLD){ // SI ANGLE TROP FAIBLE RIEN FAIRE
-				return 0;
-
-		}
-		chprintf((BaseSequentialStream *) &SDU1,"max_RIGHT  = %d max_front = %d\n,max_left = %d max_back = %d \n",max_right, max_front ,max_left,max_back);
-		chprintf((BaseSequentialStream *) &SDU1,"PID_KP * angle_correction  = %d angle_correction = %d, error = %d\n",PID_KP * angle_correction, angle_correction, error);
-
-		return (int16_t) PID_KP * angle_correction; // RETOUNER VALEUR POUR CHANGER VITESSE MOTEUR, KP A MODULER
-	}
-
-	if (max_back > max_left && max_back > max_front && max_back > max_right)
-	{
-			error = (max_right-max_left)/(max_front+max_left+max_back+max_right);
-			if(error > 0){
-				angle_correction = -PI + ANGLE_ERROR_COEFF* error;
-			}
-
-			if(error < 0){
-				angle_correction = PI - ANGLE_ERROR_COEFF* error;
-			}
-
-			if(fabs(angle_correction) < PID_ERROR_THRESHOLD){
-					return 0;
-
-			}
-
-			chprintf((BaseSequentialStream *) &SDU1,"max_right  = %d max_front = %d\n,max_left = %d max_BACK = %d \n",max_right, max_front ,max_left,max_back);
-			chprintf((BaseSequentialStream *) &SDU1,"PID_KP * angle_correction  = %d angle_correction = %d, error = %d\n",PID_KP * angle_correction, angle_correction, error);
-
-			return (int16_t) PID_KP * angle_correction;
-	}
-
-	if (max_left > max_right && max_left > max_front && max_left > max_back)
-	{
-			error = (max_front-max_back)/(max_front+max_left+max_back+max_right);
-			angle_correction = PI/2 - ANGLE_ERROR_COEFF* error;
-
-			if(fabs(angle_correction) < PID_ERROR_THRESHOLD){
-					return 0;
-
-			}
-
-			chprintf((BaseSequentialStream *) &SDU1,"max_right  = %d max_front = %d\n,max_LEFT = %d max_back = %d \n",max_right, max_front ,max_left,max_back);
-			chprintf((BaseSequentialStream *) &SDU1,"PID_KP * angle_correction  = %d angle_correction = %d, error = %d\n",PID_KP * angle_correction, angle_correction, error);
-
-			return (int16_t) PID_KP * angle_correction;
-	}
-
-	if (max_front > max_right && max_front > max_left && max_front > max_back)
-	{
-			error = (max_left-max_right)/(max_front+max_left+max_back+max_right);
-			angle_correction = 0 +ANGLE_ERROR_COEFF* error;
-
-			if(fabs(angle_correction) < PID_ERROR_THRESHOLD){
-						return 0;
-
-			}
-
-			chprintf((BaseSequentialStream *) &SDU1,"max_right  = %d max_FRONT = %d\n,max_left = %d max_back = %d \n",max_right, max_front ,max_left,max_back);
-			chprintf((BaseSequentialStream *) &SDU1,"PID_KP * angle_correction  = %d angle_correction = %d, error = %d\n",PID_KP * angle_correction, angle_correction, error);
-
-			return (int16_t) PID_KP * angle_correction;
-	}
-
-	return 0;
-}*/
-
-
-void echantillone_distance(valeur){
-	reference = (int)valeur;
-
-
-	//chprintf((BaseSequentialStream *) &SDU1,"reference = %d\n nbr_passage = %d \n",reference,nbr_passage);
-	return;
-
-
 }
+
 
 int get_max_front_moyenne(){
 	return calcul_moyenne(FRONT);
@@ -599,18 +576,14 @@ int get_line_position(void){
 	return angle;
 }
 
-float get_distance_cm(void){
-	return distance;
-}
 
 
-
-
-
-
-
-
+/*
+ * Cette fonction permet de voir vers ou va le robot en fonction des ordes donnés aux moteurs
+ * Elle est utilisées pour permettre de mettre des poids aux capteurs de proximité
+ */
 DIRECTION_ROBOT calcul_direction(int vit_droit, int vit_gauche ){
+
 	int borne_gauche_supp = 1.1*vit_gauche;
 	int borne_gauche_min = 0.9*vit_gauche;
 	if(vit_droit == 0 && vit_gauche == 0){
@@ -665,7 +638,7 @@ DIRECTION_ROBOT calcul_direction(int vit_droit, int vit_gauche ){
 
 }
 
-void m_a_j_coeff_catpeurs(direction){
+void m_a_j_coeff_catpeurs(DIRECTION_ROBOT direction){
 	if(direction == DEVANT){
 		coeff_capteur[0] = 100;
 		coeff_capteur[1] = 60;
@@ -724,19 +697,20 @@ void m_a_j_coeff_catpeurs(direction){
 		coeff_capteur[5] = 40;
 		coeff_capteur[6] = 0;
 		coeff_capteur[7] = 0;
-	}else{
-		coeff_capteur[0] = 0;
-		coeff_capteur[1] = 0;
-		coeff_capteur[2] = 0;
-		coeff_capteur[3] = 0;
-		coeff_capteur[4] = 0;
-		coeff_capteur[5] = 0;
-		coeff_capteur[6] = 0;
-		coeff_capteur[7] = 0;
+	}else if(direction == ARRET){
+		coeff_capteur[0] = 100;
+		coeff_capteur[1] = 100;
+		coeff_capteur[2] = 100;
+		coeff_capteur[3] = 100;
+		coeff_capteur[4] = 100;
+		coeff_capteur[5] = 100;
+		coeff_capteur[6] = 100;
+		coeff_capteur[7] = 100;
 	}
 }
 
 
+//retourne le coefficient de capteur associé
 int get_coeff_capteur(uint8_t i){
 	return coeff_capteur[i];
 }
